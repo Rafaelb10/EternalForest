@@ -1,14 +1,28 @@
+using System.IO;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
+
+    public float _hpMax;
+    public float _hp;
+    public float _strenght;
+    public float _def;
+    public float _speed;
+
+    private float _level;
+    private float _xp;
+
+    public float Level { get => _level;}
+    public float Xp { get => _xp;}
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        UpdateStatusPlayer();
+        _hp = _hpMax;
     }
 
     void Update()
@@ -20,6 +34,28 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * _speed * Time.fixedDeltaTime);
     }
+
+    private void GainXp(float xp)
+    {
+        _xp = Xp + xp;
+
+        if (Xp >= 100)
+        {
+            _level = Level + 1;
+            _xp = Xp - 100;
+        }
+    }
+
+    private void UpdateStatusPlayer()
+    {
+        SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "SaveData.json")));
+
+        _hpMax = 100 + saveData._hp * 10;
+        _strenght = 1 + saveData._strenght * 0.5f;
+        _def = 0 + saveData._def * 0.25f;
+        _speed = 3+ saveData._speed * 0.10f;
+    }
+
 }
