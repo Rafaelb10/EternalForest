@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Player : MonoBehaviour
     private float _level;
     private float _xp;
 
+    [SerializeField] private GameObject _statusMenu;
+    private bool _active = false;
+
     public float Level { get => _level;}
     public float Xp { get => _xp;}
 
@@ -23,6 +27,9 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         UpdateStatusPlayer();
         _hp = _hpMax;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -30,6 +37,28 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
+        OpemMenu();
+    }
+
+    void OpemMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (_active == true)
+            {
+                _statusMenu.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                _active = false;
+            }
+            else
+            {
+                _statusMenu.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                _active = true;
+            }
+        }
     }
 
     void FixedUpdate()
