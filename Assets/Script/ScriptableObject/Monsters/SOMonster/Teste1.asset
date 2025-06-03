@@ -18,5 +18,5 @@ MonoBehaviour:
   _def: 5
   _sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   _animator: {fileID: 0}
-  _type: 0
+  _type: 1
   _state: 0

@@ -19,6 +19,10 @@ public class Monster: MonoBehaviour, IDamageable
 
     [SerializeField] private MonsterData Data;
 
+    private bool _playerInZone = false;
+
+    public bool PlayerInZone { get => _playerInZone; set => _playerInZone = value; }
+
     public void Start()
     {
         _hp = Data.Hp;
@@ -46,50 +50,57 @@ public class Monster: MonoBehaviour, IDamageable
 
     public void Patrol()
     {
-        if (_locateToMove.Length == 0) return;
-
-        switch (_type)
+        if (PlayerInZone == false)
         {
-            case 0:
-                Debug.Log("C");
-                break;
+            if (_locateToMove.Length == 0) return;
 
-            case 1:
-                Debug.Log("A");
-                MoveTowards(_locateToMove[_currentTargetIndex].transform.position);
+            switch (_type)
+            {
+                case 0:
+                    Debug.Log("C");
+                    break;
 
-                if (HasReachedTarget(_locateToMove[_currentTargetIndex].transform.position))
-                {
-                    _currentTargetIndex = (_currentTargetIndex + 1) % _locateToMove.Length;
-                }
-                break;
+                case 1:
+                    Debug.Log("A");
+                    MoveTowards(_locateToMove[_currentTargetIndex].transform.position);
 
-            case 2:
-                Debug.Log("B");
-                MoveTowards(_locateToMove[_currentTargetIndex].transform.position);
-
-                if (HasReachedTarget(_locateToMove[_currentTargetIndex].transform.position))
-                {
-                    if (!_reverse)
+                    if (HasReachedTarget(_locateToMove[_currentTargetIndex].transform.position))
                     {
-                        _currentTargetIndex++;
-                        if (_currentTargetIndex >= _locateToMove.Length)
+                        _currentTargetIndex = (_currentTargetIndex + 1) % _locateToMove.Length;
+                    }
+                    break;
+
+                case 2:
+                    Debug.Log("B");
+                    MoveTowards(_locateToMove[_currentTargetIndex].transform.position);
+
+                    if (HasReachedTarget(_locateToMove[_currentTargetIndex].transform.position))
+                    {
+                        if (!_reverse)
                         {
-                            _currentTargetIndex = _locateToMove.Length - 2;
-                            _reverse = true;
+                            _currentTargetIndex++;
+                            if (_currentTargetIndex >= _locateToMove.Length)
+                            {
+                                _currentTargetIndex = _locateToMove.Length - 2;
+                                _reverse = true;
+                            }
+                        }
+                        else
+                        {
+                            _currentTargetIndex--;
+                            if (_currentTargetIndex < 0)
+                            {
+                                _currentTargetIndex = 1;
+                                _reverse = false;
+                            }
                         }
                     }
-                    else
-                    {
-                        _currentTargetIndex--;
-                        if (_currentTargetIndex < 0)
-                        {
-                            _currentTargetIndex = 1;
-                            _reverse = false;
-                        }
-                    }
-                }
-                break;
+                    break;
+            }
+        }
+        else if (PlayerInZone == true)
+        {
+            MoveTowards(FindObjectOfType<Player>().transform.position);
         }
     }
 
