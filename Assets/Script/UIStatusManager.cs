@@ -21,21 +21,25 @@ public class UIStatusManager : MonoBehaviour
 
     private float _pointToPlace;
 
-    public float LevelPoint { get => _levelPoint;}
-    public float HpPoint { get => _hpPoint;}
-    public float DefensePoint { get => _defensePoint;}
-    public float StrenghtPoint { get => _strenghtPoint;}
-    public float SpeedPoint { get => _speedPoint;}
-    public float PointToPlace { get => _pointToPlace;}
+    private string _enemy;
+
+    public float LevelPoint { get => _levelPoint; set => _levelPoint = value; }
+    public float HpPoint { get => _hpPoint; set => _hpPoint = value; }
+    public float DefensePoint { get => _defensePoint; set => _defensePoint = value; }
+    public float StrenghtPoint { get => _strenghtPoint; set => _strenghtPoint = value; }
+    public float SpeedPoint { get => _speedPoint; set => _speedPoint = value; }
+    public float PointToPlace { get => _pointToPlace; set => _pointToPlace = value; }
+    public string Enemy { get => _enemy; set => _enemy = value; }
 
     void Start()
     {
         SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "SaveData.json")));
 
-        _hpPoint = saveData._hp;
-        _defensePoint = saveData._def;
-        _strenghtPoint = saveData._strenght;
-        _speedPoint = saveData._speed;
+        HpPoint = saveData._hp;
+        DefensePoint = saveData._def;
+        StrenghtPoint = saveData._strenght;
+        SpeedPoint = saveData._speed;
+        Enemy = null;
 
         UpdatePoints();
     }
@@ -53,10 +57,10 @@ public class UIStatusManager : MonoBehaviour
     {
         SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "SaveData.json")));
 
-        _levelPoint = FindFirstObjectByType<Player>().Level;
+        LevelPoint = FindFirstObjectByType<Player>().Level;
         _level.text = LevelPoint.ToString();
 
-        _pointToPlace = FindFirstObjectByType<Player>().Level - saveData._level + saveData._pointsXp;
+        PointToPlace = FindFirstObjectByType<Player>().Level - saveData._level + saveData._pointsXp;
         _point.text = PointToPlace.ToString();
     }
 
@@ -69,23 +73,23 @@ public class UIStatusManager : MonoBehaviour
                 switch (statusText)
                 {
                     case "Strength":
-                        _strenghtPoint = StrenghtPoint + 1;
-                        _pointToPlace = PointToPlace - 1;
+                        StrenghtPoint = StrenghtPoint + 1;
+                        PointToPlace = PointToPlace - 1;
                         break;
 
                     case "Life":
-                        _hpPoint = HpPoint + 1;
-                        _pointToPlace = PointToPlace - 1;
+                        HpPoint = HpPoint + 1;
+                        PointToPlace = PointToPlace - 1;
                         break;
 
                     case "Speed":
-                        _speedPoint = SpeedPoint + 1;
-                        _pointToPlace = PointToPlace - 1;
+                        SpeedPoint = SpeedPoint + 1;
+                        PointToPlace = PointToPlace - 1;
                         break;
 
                     case "Defense":
-                        _defensePoint = DefensePoint + 1;
-                        _pointToPlace = PointToPlace - 1;
+                        DefensePoint = DefensePoint + 1;
+                        PointToPlace = PointToPlace - 1;
                         break;
 
                     default:
@@ -103,23 +107,23 @@ public class UIStatusManager : MonoBehaviour
             switch (statusText)
             {
                 case "Strength":
-                    _strenghtPoint = StrenghtPoint - 1;
-                    _pointToPlace = PointToPlace + 1;
+                    StrenghtPoint = StrenghtPoint - 1;
+                    PointToPlace = PointToPlace + 1;
                     break;
 
                 case "Life":
-                    _hpPoint = HpPoint - 1;
-                    _pointToPlace = PointToPlace + 1;
+                    HpPoint = HpPoint - 1;
+                    PointToPlace = PointToPlace + 1;
                     break;
 
                 case "Speed":
-                    _speedPoint = SpeedPoint - 1;
-                    _pointToPlace = PointToPlace + 1;
+                    SpeedPoint = SpeedPoint - 1;
+                    PointToPlace = PointToPlace + 1;
                     break;
 
                 case "Defense":
-                    _defensePoint = DefensePoint - 1;
-                    _pointToPlace = PointToPlace + 1;
+                    DefensePoint = DefensePoint - 1;
+                    PointToPlace = PointToPlace + 1;
                     break;
 
                 default:

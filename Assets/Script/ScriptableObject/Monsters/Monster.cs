@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Monster: MonoBehaviour, IDamageable
 {
@@ -12,6 +13,7 @@ public class Monster: MonoBehaviour, IDamageable
     private Animator _animator;
     private int _type;
     private int _state;
+    private bool _changeState;
 
     [SerializeField] private GameObject[] _locateToMove;
     private int _currentTargetIndex = 0;
@@ -22,6 +24,7 @@ public class Monster: MonoBehaviour, IDamageable
     private bool _playerInZone = false;
 
     public bool PlayerInZone { get => _playerInZone; set => _playerInZone = value; }
+    public bool ChangeState { get => _changeState; set => _changeState = value; }
 
     public void Start()
     {
@@ -37,6 +40,12 @@ public class Monster: MonoBehaviour, IDamageable
 
     public void Update()
     {
+        if (ChangeState == true)
+        {
+            _state = 1;
+            ChangeState = false;
+        }
+
         if (_state == 0)
         {
             Patrol();
@@ -44,7 +53,6 @@ public class Monster: MonoBehaviour, IDamageable
         else if (_state == 1) 
         { 
             Move();
-            
         }
     }
 
@@ -57,11 +65,9 @@ public class Monster: MonoBehaviour, IDamageable
             switch (_type)
             {
                 case 0:
-                    Debug.Log("C");
                     break;
 
                 case 1:
-                    Debug.Log("A");
                     MoveTowards(_locateToMove[_currentTargetIndex].transform.position);
 
                     if (HasReachedTarget(_locateToMove[_currentTargetIndex].transform.position))
@@ -71,7 +77,6 @@ public class Monster: MonoBehaviour, IDamageable
                     break;
 
                 case 2:
-                    Debug.Log("B");
                     MoveTowards(_locateToMove[_currentTargetIndex].transform.position);
 
                     if (HasReachedTarget(_locateToMove[_currentTargetIndex].transform.position))
@@ -100,7 +105,7 @@ public class Monster: MonoBehaviour, IDamageable
         }
         else if (PlayerInZone == true)
         {
-            MoveTowards(FindObjectOfType<Player>().transform.position);
+            MoveTowards(FindAnyObjectByType<Player>().transform.position);
         }
     }
 
@@ -128,4 +133,19 @@ public class Monster: MonoBehaviour, IDamageable
     {
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_state == 0)
+        {
+            if (collision.TryGetComponent<Player>(out var player))
+            {
+                FindAnyObjectByType<UIStatusManager>().Enemy = this.gameObject.name;
+                FindAnyObjectByType<SaveController>()?.SaveGame();
+                
+                SceneManager.LoadScene("BattleScena");
+            }
+        }
+    }
+
 }

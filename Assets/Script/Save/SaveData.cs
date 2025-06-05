@@ -15,5 +15,8 @@ public class SaveData
 
     public float _pointsXp;
 
+    public string _player;
+    public string _enemy;
+
     //https://www.youtube.com/watch?v=rDZztBWGMIs
 }

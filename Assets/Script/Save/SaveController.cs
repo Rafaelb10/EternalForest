@@ -20,14 +20,17 @@ public class SaveController : MonoBehaviour
         SaveData saveData = new SaveData
         {
             _playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
-            _level = FindObjectOfType<Player>().Level,
-            _xp = FindObjectOfType<Player>().Xp,
-            _hp = FindObjectOfType<UIStatusManager>().HpPoint,
-            _strenght = FindObjectOfType<UIStatusManager>().StrenghtPoint,
-            _def = FindObjectOfType<UIStatusManager>().DefensePoint,
-            _speed = FindObjectOfType<UIStatusManager>().SpeedPoint,
+            _level = FindAnyObjectByType<Player>().Level,
+            _xp = FindAnyObjectByType<Player>().Xp,
+            _hp = FindAnyObjectByType<UIStatusManager>().HpPoint,
+            _strenght = FindAnyObjectByType<UIStatusManager>().StrenghtPoint,
+            _def = FindAnyObjectByType<UIStatusManager>().DefensePoint,
+            _speed = FindAnyObjectByType<UIStatusManager>().SpeedPoint,
 
-            _pointsXp = FindObjectOfType<UIStatusManager>().PointToPlace,
+            _pointsXp = FindAnyObjectByType<UIStatusManager>().PointToPlace,
+
+            _enemy = FindAnyObjectByType<UIStatusManager>().Enemy,
+            _player = GameObject.FindGameObjectWithTag("Player").name
 
         };
 
@@ -40,6 +43,14 @@ public class SaveController : MonoBehaviour
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
             GameObject.FindWithTag("Player").transform.position = saveData._playerPosition;
+            FindAnyObjectByType<Player>().Level = saveData._level;
+            FindAnyObjectByType<Player>().Xp = saveData._xp;
+
+            FindAnyObjectByType<UIStatusManager>().HpPoint = saveData._xp;
+            FindAnyObjectByType<UIStatusManager>().StrenghtPoint = saveData._xp;
+            FindAnyObjectByType<UIStatusManager>().DefensePoint = saveData._xp;
+            FindAnyObjectByType<UIStatusManager>().SpeedPoint = saveData._xp;
+            FindAnyObjectByType<UIStatusManager>().PointToPlace = saveData._xp;
         }
         else    
         { 

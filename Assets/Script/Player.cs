@@ -19,8 +19,12 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _statusMenu;
     private bool _active = false;
 
-    public float Level { get => _level;}
-    public float Xp { get => _xp;}
+    private int _state = 0;
+    private bool _changeState;
+
+    public float Level { get => _level; set => _level = value; }
+    public float Xp { get => _xp; set => _xp = value; }
+    public bool ChangeState { get => _changeState; set => _changeState = value; }
 
     void Start()
     {
@@ -28,12 +32,23 @@ public class Player : MonoBehaviour
         UpdateStatusPlayer();
         _hp = _hpMax;
 
+        if (_state == 1)
+        {
+            _statusMenu = null;
+        }
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
+        if (ChangeState == true)
+        {
+            _state = 1;
+            ChangeState = false;
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
@@ -42,21 +57,24 @@ public class Player : MonoBehaviour
 
     void OpemMenu()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_state == 0)
         {
-            if (_active == true)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                _statusMenu.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                _active = false;
-            }
-            else
-            {
-                _statusMenu.SetActive(false);
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                _active = true;
+                if (_active == true)
+                {
+                    _statusMenu.SetActive(true);
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    _active = false;
+                }
+                else
+                {
+                    _statusMenu.SetActive(false);
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    _active = true;
+                }
             }
         }
     }
@@ -68,12 +86,12 @@ public class Player : MonoBehaviour
 
     private void GainXp(float xp)
     {
-        _xp = Xp + xp;
+        Xp = Xp + xp;
 
         if (Xp >= 100)
         {
-            _level = Level + 1;
-            _xp = Xp - 100;
+            Level = Level + 1;
+            Xp = Xp - 100;
         }
     }
 
