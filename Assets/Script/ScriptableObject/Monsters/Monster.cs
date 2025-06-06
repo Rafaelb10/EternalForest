@@ -1,7 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Random = UnityEngine.Random;
 public class Monster: MonoBehaviour, IDamageable
 {
     private float _hp;
@@ -22,6 +23,12 @@ public class Monster: MonoBehaviour, IDamageable
     [SerializeField] private MonsterData Data;
 
     private bool _playerInZone = false;
+    private Vector2 _velocity = Vector2.zero;
+    private float _circleAngle = 0f;
+    private Vector2 _randomDirection = Vector2.zero;
+    private float _randomMoveTime = 0f;
+    private int _movetype = 0;
+    private bool _changeMove = false;
 
     public bool PlayerInZone { get => _playerInZone; set => _playerInZone = value; }
     public bool ChangeState { get => _changeState; set => _changeState = value; }
@@ -111,7 +118,52 @@ public class Monster: MonoBehaviour, IDamageable
 
     public void Move()
     {
+        
 
+        if (_changeMove == false)
+        {
+            _movetype = Random.Range(0, 3);
+            StartCoroutine(MoveType());
+        }
+
+        switch (_movetype)
+        {
+            case 0:
+                Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
+                Vector2 directionToPlayer = (playerPos - (Vector2)transform.position).normalized;
+
+                _velocity = Vector2.Lerp(_velocity, directionToPlayer * 3f, Time.deltaTime * 2f);
+                transform.position += (Vector3)(_velocity * Time.deltaTime);
+                break;
+
+            case 1:
+                playerPos = FindAnyObjectByType<Player>().transform.position;
+                Vector2 targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
+
+                if (Vector2.Distance(transform.position, targetOrbitPos) > 0.1f)
+                {
+                    Vector2 moveDir = (targetOrbitPos - (Vector2)transform.position).normalized;
+                    transform.position += (Vector3)(moveDir * 3f * Time.deltaTime);
+                }
+                else
+                {
+                    _circleAngle += Time.deltaTime * 1f;
+                    targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
+                    transform.position = (Vector3)targetOrbitPos;
+                }
+                break;
+
+            case 2:
+                if (_randomMoveTime <= 0f)
+                {
+                    _randomDirection = Random.insideUnitCircle.normalized;
+                    _randomMoveTime = Random.Range(1f, 3f);
+                }
+
+                transform.position += (Vector3)(_randomDirection * 3f * Time.deltaTime);
+                _randomMoveTime -= Time.deltaTime;
+                break;
+        }
     }
 
     private void MoveTowards(Vector3 target)
@@ -146,6 +198,13 @@ public class Monster: MonoBehaviour, IDamageable
                 SceneManager.LoadScene("BattleScena");
             }
         }
+    }
+
+    IEnumerator MoveType()
+    {
+        _changeMove = true;
+        yield return new WaitForSeconds(10);
+        _changeMove = false;
     }
 
 }

@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public float Level { get => _level; set => _level = value; }
     public float Xp { get => _xp; set => _xp = value; }
     public bool ChangeState { get => _changeState; set => _changeState = value; }
+    public int State { get => _state; }
 
     void Start()
     {
@@ -32,13 +33,12 @@ public class Player : MonoBehaviour
         UpdateStatusPlayer();
         _hp = _hpMax;
 
-        if (_state == 1)
+        if (_state == 0)
         {
-            _statusMenu = null;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
         {
             _state = 1;
             ChangeState = false;
+
+            _statusMenu = null;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            FindAnyObjectByType<PlayerAttack>().State = _state;
         }
 
         movement.x = Input.GetAxisRaw("Horizontal");

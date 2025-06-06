@@ -3,6 +3,16 @@ using UnityEngine;
 public class ColliderDetectedPlayer : MonoBehaviour
 {
     [SerializeField] private Monster _enemy;
+    private int _state = 0;
+
+    private void Update()
+    {
+        _state = FindAnyObjectByType<Player>().State;
+        if (_state == 1)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
