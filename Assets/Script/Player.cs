@@ -23,10 +23,10 @@ public class Player : MonoBehaviour
     private bool _changeState;
     [SerializeField] private bool _plataformFase;
 
-    private float jumpForce = 5f;
+    private float jumpForce = 8.5f;
 
     [SerializeField] private Transform groundCheck;
-    private float groundCheckDistance = 1f;
+    private float groundCheckDistance = 0.6f;
     [SerializeField] private LayerMask groundLayer;
 
     private float moveInput;
