@@ -181,11 +181,6 @@ public class Monster: MonoBehaviour, IDamageable
         
     }
 
-    public void ChageState()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_state == 0)

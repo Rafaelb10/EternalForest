@@ -21,6 +21,17 @@ public class Player : MonoBehaviour
 
     private int _state = 0;
     private bool _changeState;
+    [SerializeField] private bool _plataformFase;
+
+    private float jumpForce = 5f;
+
+    [SerializeField] private Transform groundCheck;
+    private float groundCheckDistance = 1f;
+    [SerializeField] private LayerMask groundLayer;
+
+    private float moveInput;
+    private bool isGrounded;
+
 
     public float Level { get => _level; set => _level = value; }
     public float Xp { get => _xp; set => _xp = value; }
@@ -30,13 +41,22 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        UpdateStatusPlayer();
+        // UpdateStatusPlayer();
         _hp = _hpMax;
 
         if (_state == 0)
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (_plataformFase == true)
+        {
+            rb.gravityScale = 1.0f;
+        }
+        else
+        {
+            rb.gravityScale = 0f;
         }
 
     }
@@ -54,9 +74,17 @@ public class Player : MonoBehaviour
             FindAnyObjectByType<PlayerAttack>().State = _state;
         }
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement.Normalize();
+        if (_plataformFase == false)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            movement.Normalize();
+        }
+        else
+        {
+            Move();
+        }
+
         OpemMenu();
     }
 
@@ -84,9 +112,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Move()
+    {
+        moveInput = Input.GetAxisRaw("Horizontal");
+
+        isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayer);
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * _speed * Time.fixedDeltaTime);
+        if (_plataformFase == false)
+        {
+            rb.MovePosition(rb.position + movement * _speed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(moveInput * _speed, rb.linearVelocity.y);
+        }
     }
 
     private void GainXp(float xp)
