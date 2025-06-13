@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public float _strenght;
     public float _def;
     public float _speed;
+    private float _money;
 
     private float _level;
     private float _xp;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
     public bool ChangeState { get => _changeState; set => _changeState = value; }
     public int State { get => _state; }
     public List<ItensData> Inventory { get => _inventory; set => _inventory = value; }
+    public float Money { get => _money; set => _money = value; }
 
     void Start()
     {

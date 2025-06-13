@@ -22,6 +22,7 @@ public class SaveController : MonoBehaviour
             _playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
             _level = FindAnyObjectByType<Player>().Level,
             _xp = FindAnyObjectByType<Player>().Xp,
+            _money = FindAnyObjectByType<Player>().Money,
             _hp = FindAnyObjectByType<UIStatusManager>().HpPoint,
             _strenght = FindAnyObjectByType<UIStatusManager>().StrenghtPoint,
             _def = FindAnyObjectByType<UIStatusManager>().DefensePoint,
@@ -45,6 +46,7 @@ public class SaveController : MonoBehaviour
             GameObject.FindWithTag("Player").transform.position = saveData._playerPosition;
             FindAnyObjectByType<Player>().Level = saveData._level;
             FindAnyObjectByType<Player>().Xp = saveData._xp;
+            FindAnyObjectByType<Player>().Money = saveData._money;
 
             FindAnyObjectByType<UIStatusManager>().HpPoint = saveData._xp;
             FindAnyObjectByType<UIStatusManager>().StrenghtPoint = saveData._xp;

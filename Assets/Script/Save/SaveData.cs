@@ -12,6 +12,7 @@ public class SaveData
     public float _def;
     public float _hp;
     public float _speed;
+    public float _money;
 
     public float _pointsXp;
 

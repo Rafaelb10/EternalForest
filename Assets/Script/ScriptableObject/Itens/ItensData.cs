@@ -25,11 +25,13 @@ public class ItensData : ScriptableObject
     [SerializeField] private float _def;
     [SerializeField] private float _speed;
     [SerializeField] private float _life;
+    [SerializeField] private float _price;
 
     public string UniqueID { get => _uniqueID; set => _uniqueID = value; }
     public int Count { get => _count; set => _count = value; }
     public string Name { get => _name; set => _name = value; }
     public Sprite Aparence { get => _aparence; set => _aparence = value; }
+    public float Price { get => _price; set => _price = value; }
 
     private void OnValidate()
     {
