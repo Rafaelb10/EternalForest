@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: PoorArmor
   m_EditorClassIdentifier: 
   _count: 0
-  _aparence: {fileID: 0}
+  _aparence: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   _name: Poor armor
-  _description: 
+  _description: oooooooooooo
   _type: 1
   _streght: 0
   _def: 5
+  _speed: 0
   _life: 0
+  _price: 0

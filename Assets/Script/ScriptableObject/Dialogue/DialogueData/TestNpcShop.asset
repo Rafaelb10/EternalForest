@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf5950f2d45bcda4086bbbbbc8044ec9, type: 3}
-  m_Name: TestNpc
+  m_Name: TestNpcShop
   m_EditorClassIdentifier: 
   _nameCharacther: Frisk
   _word:
-  - Test1
-  - Test2
-  - Test3
+  - Ei
+  - Oi
+  - Ola
+  _npc: 2
+  _inventoryNPC:
+  - {fileID: 11400000, guid: 7e52ba4a00e368649a5cc5a4ed4db2d0, type: 2}
+  - {fileID: 11400000, guid: 1a485fe29d56a0d49a8913d929dbe105, type: 2}

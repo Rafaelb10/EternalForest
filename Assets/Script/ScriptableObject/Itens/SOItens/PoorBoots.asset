@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: PoorBoots
   m_EditorClassIdentifier: 
   _count: 0
-  _aparence: {fileID: 0}
+  _aparence: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   _name: Poor boots
-  _description: 
+  _description: aaaaaaaaaaaaaaaaaa
   _type: 1
   _streght: 0
   _def: 0
   _speed: 1
   _life: 0
+  _price: 0

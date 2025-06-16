@@ -10,11 +10,15 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private List<ItensData> _inventoryShop = new List<ItensData>();
     [SerializeField] private float _spacing = 10f;
 
+    [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private TextMeshProUGUI _text;
+
     private List<GameObject> _instantiatedSlots = new List<GameObject>();
 
-    void Start()
+    public void SetDialogue(string name, string text)
     {
-        
+        _name.text = name;
+        _text.text = text;
     }
 
     public void UpdateShop(List<ItensData> itensList)
@@ -36,13 +40,15 @@ public class ShopManager : MonoBehaviour
             RectTransform slotRect = slot.GetComponent<RectTransform>();
             slotRect.anchoredPosition -= new Vector2(0, _spacing * i);
 
-            Image spriteImage = slot.transform.Find("spriteItem").GetComponent<Image>();
-            TextMeshProUGUI nameText = slot.transform.Find("nameItem").GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI priceText = slot.transform.Find("priceItem").GetComponent<TextMeshProUGUI>();
+            Image spriteImage = slot.transform.Find("SpriteItem").GetComponent<Image>();
+            TextMeshProUGUI nameText = slot.transform.Find("NameItem").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI priceText = slot.transform.Find("PriceItem").GetComponent<TextMeshProUGUI>();
 
             spriteImage.sprite = item.Aparence;
             nameText.text = item.Name;
             priceText.text = $"{item.Price:F2} G";
+            Itens slotScript = slot.GetComponent<Itens>();
+            slotScript.SetItem(item);
 
             _instantiatedSlots.Add(slot);
         }

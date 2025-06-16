@@ -1,16 +1,34 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Itens : MonoBehaviour
+public class Itens : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private ItensData _item;
+
+    public void SetItem(ItensData item)
     {
-        
+        _item = item;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        if (!gameObject.activeInHierarchy) return;
+
+        ShopManager shop = FindAnyObjectByType<ShopManager>();
+        Player player = FindAnyObjectByType<Player>();
+
+        if (shop != null && shop.gameObject.activeSelf)
+        {
+            if (player.Money >= _item.Price)
+            {
+                player.Money -= _item.Price;
+                player.AddItem(_item);
+                Debug.Log($"Comprou: {_item.Name} por {_item.Price:F2} G");
+            }
+            else
+            {
+                Debug.Log("Dinheiro insuficiente para comprar o item.");
+            }
+        }
     }
 }

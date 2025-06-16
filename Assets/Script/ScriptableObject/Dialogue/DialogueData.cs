@@ -11,8 +11,8 @@ public class DialogueData : ScriptableObject
         ShopNpc
     }
 
-    [SerializeField] private string _nameCharacther;
-    [SerializeField] [TextArea(3, 10)] private string[] _word;
-    [SerializeField] private TypeNpc _npc;
-    [SerializeField] private List<ItensData> _inventoryNPC = new List<ItensData>();
+    [SerializeField] public string _nameCharacther;
+    [SerializeField] [TextArea(3, 10)] public string[] _word;
+    [SerializeField] public TypeNpc _npc;
+    [SerializeField] public List<ItensData> _inventoryNPC = new List<ItensData>();
 }
