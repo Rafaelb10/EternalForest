@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private float _xp;
 
     [SerializeField] private GameObject _statusMenu;
+    [SerializeField] private GameObject _inventoryMenu;
+    private bool _activeinvent = false;
     private bool _active = false;
 
     private int _state = 0;
@@ -116,6 +118,25 @@ public class Player : MonoBehaviour
                     _active = false;
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (_activeinvent == false)
+                {
+                    _inventoryMenu.SetActive(true);
+                    FindFirstObjectByType<InventoryManager>().UpdateInventoryUI();
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    _activeinvent = true;
+                }
+                else
+                {
+                    _inventoryMenu.SetActive(false);
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    _activeinvent = false;
+                }
+            }
         }
     }
 
@@ -175,7 +196,7 @@ public class Player : MonoBehaviour
 
         if (existingItem != null)
         {
-            existingItem.Count += newItem.Count;
+            existingItem.Count = existingItem.Count + 1;
             Debug.Log($"Item '{newItem.Name}' já existe. Quantidade aumentada para {existingItem.Count}.");
         }
         else

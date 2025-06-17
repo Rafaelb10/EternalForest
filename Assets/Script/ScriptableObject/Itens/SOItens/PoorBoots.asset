@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1811f838feef43147a994dea7d3ed971, type: 3}
   m_Name: PoorBoots
   m_EditorClassIdentifier: 
-  _count: 0
+  _count: 1
   _aparence: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   _name: Poor boots
   _description: aaaaaaaaaaaaaaaaaa

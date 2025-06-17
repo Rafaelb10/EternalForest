@@ -32,6 +32,7 @@ public class ItensData : ScriptableObject
     public string Name { get => _name; set => _name = value; }
     public Sprite Aparence { get => _aparence; set => _aparence = value; }
     public float Price { get => _price; set => _price = value; }
+    public string Description { get => _description; set => _description = value; }
 
     private void OnValidate()
     {

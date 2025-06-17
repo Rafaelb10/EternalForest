@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1811f838feef43147a994dea7d3ed971, type: 3}
   m_Name: PoorSword
   m_EditorClassIdentifier: 
-  _count: 0
+  _count: 1
   _aparence: {fileID: 0}
   _name: Poor sword
   _description: 
   _type: 1
   _streght: 5
   _def: 0
+  _speed: 0
   _life: 0
+  _price: 0

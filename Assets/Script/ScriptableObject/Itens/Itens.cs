@@ -1,13 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Itens : MonoBehaviour, IPointerClickHandler
+public class Itens : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private ItensData _item;
+    private string _description;
 
     public void SetItem(ItensData item)
     {
         _item = item;
+        _description = item.Description;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -29,6 +32,26 @@ public class Itens : MonoBehaviour, IPointerClickHandler
             {
                 Debug.Log("Dinheiro insuficiente para comprar o item.");
             }
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShopManager shop = FindAnyObjectByType<ShopManager>();
+
+        if (shop != null && shop.gameObject.activeSelf)
+        {
+            shop.SetDiscription(_description);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ShopManager shop = FindAnyObjectByType<ShopManager>();
+
+        if (shop != null && shop.gameObject.activeSelf)
+        {
+            shop.SetDiscription("");
         }
     }
 }

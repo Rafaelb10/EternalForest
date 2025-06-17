@@ -13,12 +13,30 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _text;
 
+    [SerializeField] private TextMeshProUGUI _moneyPlayer;
+    [SerializeField] private TextMeshProUGUI _description;
+
     private List<GameObject> _instantiatedSlots = new List<GameObject>();
+
+    private void Start()
+    {
+        _description.text = "";
+    }
+
+    private void Update()
+    {
+        _moneyPlayer.text = $"{FindAnyObjectByType<Player>().Money:F2} G"; 
+    }
 
     public void SetDialogue(string name, string text)
     {
         _name.text = name;
         _text.text = text;
+    }
+
+    public void SetDiscription(string text)
+    {
+        _description.text = text;
     }
 
     public void UpdateShop(List<ItensData> itensList)
@@ -58,7 +76,6 @@ public class ShopManager : MonoBehaviour
     {
         _inventoryShop.Clear();
         ClearShopUI();
-        this.gameObject.SetActive(false);
     }
 
     private void ClearShopUI()

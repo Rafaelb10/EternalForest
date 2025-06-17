@@ -22,7 +22,7 @@ public class NpcDialogue : MonoBehaviour
             StartDialogue();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse1) && _isTalking == true)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && _isTalking == true)
         {
             if (_dialogue._npc == DialogueData.TypeNpc.Npc)
             {
@@ -48,6 +48,7 @@ public class NpcDialogue : MonoBehaviour
 
             case DialogueData.TypeNpc.ShopNpc:
                 _isTalking = true;
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 _shop.gameObject.SetActive(true);
                 _shopManager.UpdateShop(_dialogue._inventoryNPC);
@@ -95,6 +96,25 @@ public class NpcDialogue : MonoBehaviour
         {
             Debug.Log("PlayerLeave");
             _playerInRange = false;
+        }
+
+        switch (_dialogue._npc)
+        {
+            case DialogueData.TypeNpc.NpcQuest:
+                break;
+
+            case DialogueData.TypeNpc.Npc:
+                _isTalking = false;
+                _uiDialogue.gameObject.SetActive(false);
+                break;
+
+            case DialogueData.TypeNpc.ShopNpc:
+                _isTalking = false ;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                _shopManager.CloseShop();
+                _shop.gameObject.SetActive(false);
+                break;
         }
     }
 }

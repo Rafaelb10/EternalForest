@@ -26,6 +26,9 @@ public class MonsterData : ScriptableObject
     [SerializeField] private PatrolType _type;
     [SerializeField] private StateType _state;
 
+    [SerializeField] private float _xp;
+    [SerializeField] private float _coin;
+
     public float Hp { get => _hp; set => _hp = value; }
     public float Strenght { get => _strenght; set => _strenght = value; }
     public float Speed { get => _speed; set => _speed = value; }
