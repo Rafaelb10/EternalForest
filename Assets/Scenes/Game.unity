@@ -7796,7 +7796,7 @@ MonoBehaviour:
   _slotItemPrefab: {fileID: 7863719901164753450, guid: be90fd77fae92024faf93d9e77a8b40d, type: 3}
   _scrollContent: {fileID: 466677594}
   _inventoryShop: []
-  _spacing: 10
+  _spacing: 35
   _name: {fileID: 1287325796}
   _text: {fileID: 1874657607}
 --- !u!114 &1570329785

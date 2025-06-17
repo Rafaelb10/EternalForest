@@ -48,9 +48,9 @@ public class NpcDialogue : MonoBehaviour
 
             case DialogueData.TypeNpc.ShopNpc:
                 _isTalking = true;
+                Cursor.lockState = CursorLockMode.None;
                 _shop.gameObject.SetActive(true);
                 _shopManager.UpdateShop(_dialogue._inventoryNPC);
-                Cursor.lockState = CursorLockMode.None;
                 StartCoroutine(LoopRandomDialogue());
                 break;
         }

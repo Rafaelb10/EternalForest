@@ -8,7 +8,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject _slotItemPrefab;
     [SerializeField] private Transform _scrollContent;
     [SerializeField] private List<ItensData> _inventoryShop = new List<ItensData>();
-    [SerializeField] private float _spacing = 10f;
+    [SerializeField] private float _spacing = 35f;
 
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _text;
