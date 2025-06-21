@@ -649,11 +649,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1292536618}
     - target: {fileID: 8734410925840502806, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
+      propertyPath: _groundCheck
+      value: 
+      objectReference: {fileID: 1292536618}
+    - target: {fileID: 8734410925840502806, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
       propertyPath: _plataformFase
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8734410925840502806, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
       propertyPath: groundLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734410925840502806, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
+      propertyPath: _groundLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
