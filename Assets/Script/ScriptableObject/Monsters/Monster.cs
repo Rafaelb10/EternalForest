@@ -29,9 +29,16 @@ public class Monster: MonoBehaviour, IDamageable
     private float _randomMoveTime = 0f;
     private int _movetype = 0;
     private bool _changeMove = false;
+    private bool _playerInRange = false;
+    private bool _attacking = false;
+    private bool _attackingCoowldown = false;
+    private bool _hab1 = false;
+    private bool _hab2 = false;
 
     public bool PlayerInZone { get => _playerInZone; set => _playerInZone = value; }
     public bool ChangeState { get => _changeState; set => _changeState = value; }
+    public bool Hab1 { get => _hab1; set => _hab1 = value; }
+    public bool Hab2 { get => _hab2; set => _hab2 = value; }
 
     public void Start()
     {
@@ -60,6 +67,7 @@ public class Monster: MonoBehaviour, IDamageable
         else if (_state == 1) 
         { 
             Move();
+            Attack();
         }
     }
 
@@ -116,54 +124,105 @@ public class Monster: MonoBehaviour, IDamageable
         }
     }
 
+    public void Attack()
+    {
+        AttackLogic logic = GetComponent<AttackLogic>();
+
+        if (_state == 1)
+        {
+            if (_playerInRange == true && _hab1 == false && _hab2 == false)
+            {
+                _attacking = true;
+            }
+            else { _attacking = false; }
+
+            if (_attacking == false && _hab1 == false && _hab2 == false && _attackingCoowldown == false)
+            {
+                int attack = Random.Range(0,2);
+
+                if (attack == 0)
+                {
+                    _hab1 = true;
+                }
+                else if (attack == 1)
+                {
+                    _hab2 = true;
+                }
+            }
+
+            if (_attacking == true && _hab1 == false && _hab2 == false)
+            {
+
+            }
+            else if (_attacking == false && _hab1 == true && _hab2 == false)
+            {
+                if (logic != null)
+                {
+                    logic.Execute1();
+                    StartCoroutine(AttackDuranting());
+                }
+            }
+            else if (_attacking == false && _hab1 == false && _hab2 == true)
+            {
+                if (logic != null)
+                {
+                    logic.Execute2();
+                    StartCoroutine(AttackDuranting());
+                }
+            }
+        }
+    }
+
     public void Move()
     {
-        
-
-        if (_changeMove == false)
+        if (_attacking == false || _hab1 == false || _hab2 == false) 
         {
-            _movetype = Random.Range(0, 3);
-            StartCoroutine(MoveType());
-        }
+            if (_changeMove == false)
+            {
 
-        switch (_movetype)
-        {
-            case 0:
-                Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
-                Vector2 directionToPlayer = (playerPos - (Vector2)transform.position).normalized;
+                _movetype = Random.Range(0, 3);
+                StartCoroutine(MoveType());
+            }
 
-                _velocity = Vector2.Lerp(_velocity, directionToPlayer * 3f, Time.deltaTime * 2f);
-                transform.position += (Vector3)(_velocity * Time.deltaTime);
-                break;
+            switch (_movetype)
+            {
+                case 0:
+                    Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
+                    Vector2 directionToPlayer = (playerPos - (Vector2)transform.position).normalized;
 
-            case 1:
-                playerPos = FindAnyObjectByType<Player>().transform.position;
-                Vector2 targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
+                    _velocity = Vector2.Lerp(_velocity, directionToPlayer * 3f, Time.deltaTime * 2f);
+                    transform.position += (Vector3)(_velocity * Time.deltaTime);
+                    break;
 
-                if (Vector2.Distance(transform.position, targetOrbitPos) > 0.1f)
-                {
-                    Vector2 moveDir = (targetOrbitPos - (Vector2)transform.position).normalized;
-                    transform.position += (Vector3)(moveDir * 3f * Time.deltaTime);
-                }
-                else
-                {
-                    _circleAngle += Time.deltaTime * 1f;
-                    targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
-                    transform.position = (Vector3)targetOrbitPos;
-                }
-                break;
+                case 1:
+                    playerPos = FindAnyObjectByType<Player>().transform.position;
+                    Vector2 targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
 
-            case 2:
-                if (_randomMoveTime <= 0f)
-                {
-                    _randomDirection = Random.insideUnitCircle.normalized;
-                    _randomMoveTime = Random.Range(1f, 3f);
-                }
+                    if (Vector2.Distance(transform.position, targetOrbitPos) > 0.1f)
+                    {
+                        Vector2 moveDir = (targetOrbitPos - (Vector2)transform.position).normalized;
+                        transform.position += (Vector3)(moveDir * 3f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        _circleAngle += Time.deltaTime * 1f;
+                        targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
+                        transform.position = (Vector3)targetOrbitPos;
+                    }
+                    break;
 
-                transform.position += (Vector3)(_randomDirection * 3f * Time.deltaTime);
-                _randomMoveTime -= Time.deltaTime;
-                break;
-        }
+                case 2:
+                    if (_randomMoveTime <= 0f)
+                    {
+                        _randomDirection = Random.insideUnitCircle.normalized;
+                        _randomMoveTime = Random.Range(1f, 3f);
+                    }
+
+                    transform.position += (Vector3)(_randomDirection * 3f * Time.deltaTime);
+                    _randomMoveTime -= Time.deltaTime;
+                    break;
+            }
+        }   
     }
 
     private void MoveTowards(Vector3 target)
@@ -178,7 +237,12 @@ public class Monster: MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        
+        _hp = _hp - damage;
+
+        if (_hp <= 0)
+        {
+            _state = 2;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -187,10 +251,29 @@ public class Monster: MonoBehaviour, IDamageable
         {
             if (collision.TryGetComponent<Player>(out var player))
             {
+                Debug.Log(this.gameObject.name);
                 FindAnyObjectByType<UIStatusManager>().Enemy = this.gameObject.name;
                 FindAnyObjectByType<SaveController>()?.SaveGame();
                 
                 SceneManager.LoadScene("BattleScena");
+            }
+        }
+        else if (_state == 1)
+        {
+            if (collision.TryGetComponent<Player>(out var player))
+            {
+                _playerInRange = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (_state == 1)
+        {
+            if (other.TryGetComponent<Player>(out var player))
+            {
+                _playerInRange = false;
             }
         }
     }
@@ -202,4 +285,13 @@ public class Monster: MonoBehaviour, IDamageable
         _changeMove = false;
     }
 
+    IEnumerator AttackDuranting()
+    {
+        _attackingCoowldown = true;
+        yield return new WaitForSeconds(20);
+        _hab1 = false;
+        _hab2 = false;
+        yield return new WaitForSeconds(10);
+        _attackingCoowldown = false;
+    }
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe83657eff80f2c43b4cbe0b3ab3e908, type: 3}
+  m_Name: Cobra
+  m_EditorClassIdentifier: 
+  _hp: 95
+  _strenght: 3
+  _speed: 4
+  _def: 4
+  _sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  _animator: {fileID: 0}
+  _type: 0
+  _state: 0
+  _xp: 35
+  _coin: 15

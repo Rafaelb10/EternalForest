@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackWolf : AttackLogic
+public class AttackGolem : AttackLogic
 {
     protected override void AttackOne()
     {

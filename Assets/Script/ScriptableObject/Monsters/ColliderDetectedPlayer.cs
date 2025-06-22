@@ -12,6 +12,8 @@ public class ColliderDetectedPlayer : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        transform.position = Vector3.MoveTowards(transform.position, _enemy.transform.position, 3 * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScena.unity
     guid: 1e70a8d8f1d17004293232b7fcaf3c3b
+  - enabled: 1
+    path: Assets/Scenes/PlataformGame.unity
+    guid: cf795c29f72283e4eb33c1451717d88d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
