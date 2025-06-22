@@ -2,16 +2,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     private Rigidbody2D rb;
     private Vector2 movement;
 
     public float _hpMax;
     public float _hp;
-    public float _strenght;
+    private float _strenght;
     public float _def;
     public float _speed;
     private float _money;
@@ -39,6 +40,13 @@ public class Player : MonoBehaviour
 
     [SerializeField] private List<ItensData> _inventory = new List<ItensData>();
 
+    [SerializeField] private GameObject _playerHp;
+    [SerializeField] private Image _hpImage;
+
+    [SerializeField] private float _hpBarSpeed = 3f;
+
+    private float _targetFill = 1f;
+
 
     public float Level { get => _level; set => _level = value; }
     public float Xp { get => _xp; set => _xp = value; }
@@ -46,6 +54,7 @@ public class Player : MonoBehaviour
     public int State { get => _state; }
     public List<ItensData> Inventory { get => _inventory; set => _inventory = value; }
     public float Money { get => _money; set => _money = value; }
+    public float Strenght { get => _strenght; set => _strenght = value; }
 
     void Start()
     {
@@ -81,6 +90,14 @@ public class Player : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             FindAnyObjectByType<PlayerAttack>().State = _state;
+        }
+
+        if (_state == 1)
+        {
+            _playerHp.SetActive(true);
+
+            _targetFill = Mathf.Clamp01(_hp / _hpMax);
+            _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
         }
 
         if (_plataformFase == false)
@@ -164,7 +181,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void GainXp(float xp)
+    public void GainXp(float xp)
     {
         Xp = Xp + xp;
 
@@ -174,13 +191,17 @@ public class Player : MonoBehaviour
             Xp = Xp - 100;
         }
     }
+    public void GainCoin(float coin)
+    {
+        Money = Money + coin;  
+    }
 
-    private void UpdateStatusPlayer()
+    public void UpdateStatusPlayer()
     {
         SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "SaveData.json")));
 
         _hpMax = 100 + saveData._hp * 10;
-        _strenght = 1 + saveData._strenght * 0.5f;
+        _strenght = 100 + saveData._strenght * 0.5f;
         _def = 0 + saveData._def * 0.25f;
         _speed = 3+ saveData._speed * 0.10f;
     }
@@ -206,4 +227,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float Damage)
+    {
+        _hp = _hp - Damage;
+
+        if (_hp <= 0)
+        {
+            _state = 2;
+        }
+    }
 }

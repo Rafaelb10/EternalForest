@@ -2,13 +2,17 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 public class Monster: MonoBehaviour, IDamageable
 {
     private float _hp;
+    public float _hpMax;
     private float _strenght;
     private float _speed;
     private float _def;
+    private float _xp;
+    private float _coin;
 
     private Sprite _sprite;
     private Animator _animator;
@@ -32,17 +36,27 @@ public class Monster: MonoBehaviour, IDamageable
     private bool _playerInRange = false;
     private bool _attacking = false;
     private bool _attackingCoowldown = false;
+    private bool _attackingCoowldownSlap = false;
     private bool _hab1 = false;
     private bool _hab2 = false;
+
+    [SerializeField] private GameObject _enemyHp;
+    [SerializeField] private Image _hpImage;
+
+    [SerializeField] private float _hpBarSpeed = 3f; 
+
+    private float _targetFill = 1f;
 
     public bool PlayerInZone { get => _playerInZone; set => _playerInZone = value; }
     public bool ChangeState { get => _changeState; set => _changeState = value; }
     public bool Hab1 { get => _hab1; set => _hab1 = value; }
     public bool Hab2 { get => _hab2; set => _hab2 = value; }
+    public float Strenght { get => _strenght; set => _strenght = value; }
 
     public void Start()
     {
         _hp = Data.Hp;
+        _hpMax = _hp;
         _strenght = Data.Strenght;
         _speed = Data.Speed;
         _def = Data.Def;
@@ -50,6 +64,8 @@ public class Monster: MonoBehaviour, IDamageable
         _animator = Data.Animator;
         _type = (int)Data.Type;
         _state = (int)Data.State;
+        _coin = Data.Coin;
+        _xp = Data.Xp;
     }
 
     public void Update()
@@ -58,6 +74,14 @@ public class Monster: MonoBehaviour, IDamageable
         {
             _state = 1;
             ChangeState = false;
+        }
+
+        if (_state == 1)
+        {
+            _enemyHp.SetActive(true);
+
+            _targetFill = Mathf.Clamp01(_hp / _hpMax);
+            _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
         }
 
         if (_state == 0)
@@ -242,6 +266,10 @@ public class Monster: MonoBehaviour, IDamageable
         if (_hp <= 0)
         {
             _state = 2;
+            FindAnyObjectByType<Player>().GainXp(_xp);
+            FindAnyObjectByType<Player>().GainCoin(_coin);
+            FindAnyObjectByType<SaveController>().SaveCombate();
+            SceneManager.LoadScene("Game");
         }
     }
 
@@ -263,6 +291,12 @@ public class Monster: MonoBehaviour, IDamageable
             if (collision.TryGetComponent<Player>(out var player))
             {
                 _playerInRange = true;
+
+                if (_attacking == true && _attackingCoowldownSlap == false) 
+                {
+                    FindAnyObjectByType<Player>().TakeDamage(_strenght);
+                    StartCoroutine(AttackCooldown());
+                }
             }
         }
     }
@@ -288,10 +322,17 @@ public class Monster: MonoBehaviour, IDamageable
     IEnumerator AttackDuranting()
     {
         _attackingCoowldown = true;
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(10);
         _hab1 = false;
         _hab2 = false;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         _attackingCoowldown = false;
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        _attackingCoowldownSlap = true;
+        yield return new WaitForSeconds(1);
+        _attackingCoowldownSlap = false;
     }
 }

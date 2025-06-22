@@ -37,4 +37,6 @@ public class MonsterData : ScriptableObject
     public Animator Animator { get => _animator; set => _animator = value; }
     public PatrolType Type { get => _type; set => _type = value; }
     public StateType State { get => _state; set => _state = value; }
+    public float Xp { get => _xp; set => _xp = value; }
+    public float Coin { get => _coin; set => _coin = value; }
 }

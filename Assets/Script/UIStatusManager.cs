@@ -46,11 +46,12 @@ public class UIStatusManager : MonoBehaviour
 
     private void Update()
     {
-
         _hp.text = HpPoint.ToString();
         _defense.text = DefensePoint.ToString();
         _strenght.text = StrenghtPoint.ToString();
         _speed.text = SpeedPoint.ToString();
+
+        UpdatePoints();
     }
 
     void UpdatePoints()
@@ -60,7 +61,7 @@ public class UIStatusManager : MonoBehaviour
         LevelPoint = FindFirstObjectByType<Player>().Level;
         _level.text = LevelPoint.ToString();
 
-        PointToPlace = FindFirstObjectByType<Player>().Level - saveData._level + saveData._pointsXp;
+        PointToPlace = FindFirstObjectByType<Player>().Level - HpPoint - DefensePoint - StrenghtPoint - SpeedPoint;
         _point.text = PointToPlace.ToString();
     }
 
@@ -100,30 +101,43 @@ public class UIStatusManager : MonoBehaviour
 
     public void LoseStatus(TextMeshProUGUI statusToLose)
     {
-        if (PointToPlace > 0)
+        if (PointToPlace >= 0)
         {
             string statusText = statusToLose.text;
 
             switch (statusText)
             {
                 case "Strength":
-                    StrenghtPoint = StrenghtPoint - 1;
-                    PointToPlace = PointToPlace + 1;
+                    if (StrenghtPoint > 0)
+                    {
+                        StrenghtPoint = StrenghtPoint - 1;
+                        PointToPlace = PointToPlace + 1;
+                    }
                     break;
 
                 case "Life":
-                    HpPoint = HpPoint - 1;
-                    PointToPlace = PointToPlace + 1;
+                    if (HpPoint > 0)
+                    {
+                        HpPoint = HpPoint - 1;
+                        PointToPlace = PointToPlace + 1;
+                    }
                     break;
 
                 case "Speed":
-                    SpeedPoint = SpeedPoint - 1;
-                    PointToPlace = PointToPlace + 1;
+                    if (SpeedPoint > 0)
+                    {
+                        SpeedPoint = SpeedPoint - 1;
+                        PointToPlace = PointToPlace + 1;
+                    }
+
                     break;
 
                 case "Defense":
-                    DefensePoint = DefensePoint - 1;
-                    PointToPlace = PointToPlace + 1;
+                    if (DefensePoint > 0) 
+                    {
+                        DefensePoint = DefensePoint - 1;
+                        PointToPlace = PointToPlace + 1;
+                    }
                     break;
 
                 default:

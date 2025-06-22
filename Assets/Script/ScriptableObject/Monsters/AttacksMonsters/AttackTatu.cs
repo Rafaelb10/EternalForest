@@ -33,5 +33,10 @@ public class AttackTatu : AttackLogic
             _randomDirection = Random.insideUnitCircle.normalized;
             _randomMoveTime = Random.Range(1f, 2f);
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            FindAnyObjectByType<Player>().TakeDamage(FindAnyObjectByType<Monster>().Strenght);
+        }
     }
 }

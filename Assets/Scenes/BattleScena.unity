@@ -397,6 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019921892}
   - component: {fileID: 1019921891}
+  - component: {fileID: 1019921893}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -436,6 +437,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019921893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019921890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9da5031083b45a4ab29772a909ce385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215725221
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +881,10 @@ PrefabInstance:
     - target: {fileID: 205416744144236332, guid: 477cb1e7e6ea08744993aef10605b04d, type: 3}
       propertyPath: m_Name
       value: SpawBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 205416744144236332, guid: 477cb1e7e6ea08744993aef10605b04d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8623960130945078410, guid: 477cb1e7e6ea08744993aef10605b04d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -20,5 +20,5 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _type: 0
   _state: 0
-  _xp: 100
+  _xp: 200
   _coin: 50

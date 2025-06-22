@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Cobra
   m_EditorClassIdentifier: 
   _hp: 95
-  _strenght: 3
+  _strenght: 5
   _speed: 4
   _def: 4
   _sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   _animator: {fileID: 0}
   _type: 0
   _state: 0
-  _xp: 35
+  _xp: 100
   _coin: 15

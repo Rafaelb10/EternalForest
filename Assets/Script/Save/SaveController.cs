@@ -31,8 +31,21 @@ public class SaveController : MonoBehaviour
             _pointsXp = FindAnyObjectByType<UIStatusManager>().PointToPlace,
 
             _enemy = FindAnyObjectByType<UIStatusManager>().Enemy,
-            _player = GameObject.FindGameObjectWithTag("Player").name
+            _player = GameObject.FindGameObjectWithTag("Player").name,
 
+        };
+
+        File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
+        FindAnyObjectByType<Player>().UpdateStatusPlayer();
+    }
+
+    public void SaveCombate()
+    {
+        SaveData saveData = new SaveData
+        {
+            _level = FindAnyObjectByType<Player>().Level,
+            _xp = FindAnyObjectByType<Player>().Xp,
+            _money = FindAnyObjectByType<Player>().Money,
         };
 
         File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
@@ -47,12 +60,6 @@ public class SaveController : MonoBehaviour
             FindAnyObjectByType<Player>().Level = saveData._level;
             FindAnyObjectByType<Player>().Xp = saveData._xp;
             FindAnyObjectByType<Player>().Money = saveData._money;
-
-            FindAnyObjectByType<UIStatusManager>().HpPoint = saveData._xp;
-            FindAnyObjectByType<UIStatusManager>().StrenghtPoint = saveData._xp;
-            FindAnyObjectByType<UIStatusManager>().DefensePoint = saveData._xp;
-            FindAnyObjectByType<UIStatusManager>().SpeedPoint = saveData._xp;
-            FindAnyObjectByType<UIStatusManager>().PointToPlace = saveData._xp;
         }
         else    
         { 

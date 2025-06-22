@@ -9,6 +9,11 @@ public class Damage : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.TryGetComponent<Monster>(out var player))
+        {
+            FindAnyObjectByType<Monster>().TakeDamage(FindAnyObjectByType<Player>().Strenght);
+            Destroy(gameObject);
+        }
         Destroy(gameObject);
     }
     IEnumerator AttackFinish()
