@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -18,6 +19,17 @@ public class SaveData
 
     public string _player;
     public string _enemy;
+
+    public List<string> _itensInventoryname = new List<string>();
+    public List<int> _itensInventorycount = new List<int>();
+    public List<string> _itensInventoryEquiped = new List<string>();
+
+    public List<int> _enemysInGame = new List<int>();
+    public List<float> _enemysStateGame = new List<float>();
+
+    public List<int> _enemysInPlataform = new List<int>();
+    public List<float> _enemysStatePlataform = new List<float>();
+
 
     //https://www.youtube.com/watch?v=rDZztBWGMIs
 }

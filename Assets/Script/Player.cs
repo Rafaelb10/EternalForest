@@ -44,6 +44,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private Image _hpImage;
 
     [SerializeField] private float _hpBarSpeed = 3f;
+    [SerializeField] private ItensDataBase _itensDataBase;
 
     private float _targetFill = 1f;
 
@@ -204,6 +205,36 @@ public class Player : MonoBehaviour, IDamageable
         _strenght = 100 + saveData._strenght * 0.5f;
         _def = 0 + saveData._def * 0.25f;
         _speed = 3+ saveData._speed * 0.10f;
+
+        if (ChangeState == false) 
+        {
+
+            if (saveData._itensInventoryname.Count != saveData._itensInventorycount.Count)
+            {
+                Debug.LogError("Dados de inventário salvos estão inconsistentes!");
+                return;
+            }
+
+            for (int i = 0; i < saveData._itensInventoryname.Count; i++)
+            {
+                string itemName = saveData._itensInventoryname[i];
+                int itemCount = saveData._itensInventorycount[i];
+
+                ItensData baseItem = _itensDataBase.AllItems.FirstOrDefault(item => item.Name == itemName);
+
+                if (baseItem != null)
+                {
+                    ItensData itemInstance = ScriptableObject.Instantiate(baseItem);
+                    itemInstance.Count = itemCount;
+                    AddItem(itemInstance);
+                }
+                else
+                {
+                    Debug.LogWarning($"Item '{itemName}' não encontrado no banco de dados.");
+                }
+            }
+        }
+
     }
 
     public void AddItem(ItensData newItem)

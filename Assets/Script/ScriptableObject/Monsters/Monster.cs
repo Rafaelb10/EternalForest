@@ -44,7 +44,6 @@ public class Monster: MonoBehaviour, IDamageable
     [SerializeField] private Image _hpImage;
 
     [SerializeField] private float _hpBarSpeed = 3f; 
-
     private float _targetFill = 1f;
 
     public bool PlayerInZone { get => _playerInZone; set => _playerInZone = value; }
@@ -66,6 +65,7 @@ public class Monster: MonoBehaviour, IDamageable
         _state = (int)Data.State;
         _coin = Data.Coin;
         _xp = Data.Xp;
+
     }
 
     public void Update()
@@ -92,6 +92,10 @@ public class Monster: MonoBehaviour, IDamageable
         { 
             Move();
             Attack();
+        }
+        else if (_state == 3)
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -130020,6 +130020,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9da5031083b45a4ab29772a909ce385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemysInPlataform: []
+  _enemysInGame: []
 --- !u!114 &1570329782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345884,11 +345886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6067421542474525798, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.7
+      value: 24.6
       objectReference: {fileID: 0}
     - target: {fileID: 6067421542474525798, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.2
+      value: 21.7
       objectReference: {fileID: 0}
     - target: {fileID: 6067421542474525798, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
       propertyPath: m_LocalPosition.z
@@ -345950,6 +345952,10 @@ PrefabInstance:
       propertyPath: _inventoryMenu
       value: 
       objectReference: {fileID: 1586534187}
+    - target: {fileID: 8734410925840502806, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
+      propertyPath: _itensDataBase
+      value: 
+      objectReference: {fileID: 11400000, guid: 456a5e8a8cae0fc4aa055b6836e7dfe0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
