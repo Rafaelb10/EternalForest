@@ -11,6 +11,14 @@ public class ItensData : ScriptableObject
         Equipament
     }
 
+    public enum TypeEquipament
+    {
+        Nothing,
+        Sword,
+        Armor,
+        Boots
+    }
+
 
     private string _uniqueID;
     
@@ -20,6 +28,7 @@ public class ItensData : ScriptableObject
     [SerializeField] private string _description;
 
     [SerializeField] private TypeItem _type;
+    [SerializeField] private TypeEquipament _typeEquipamente;
 
     [SerializeField] private float _streght;
     [SerializeField] private float _def;
@@ -33,6 +42,12 @@ public class ItensData : ScriptableObject
     public Sprite Aparence { get => _aparence; set => _aparence = value; }
     public float Price { get => _price; set => _price = value; }
     public string Description { get => _description; set => _description = value; }
+    public TypeItem Type { get => _type; set => _type = value; }
+    public TypeEquipament TypeEquipamente { get => _typeEquipamente; set => _typeEquipamente = value; }
+    public float Streght { get => _streght; set => _streght = value; }
+    public float Def { get => _def; set => _def = value; }
+    public float Speed { get => _speed; set => _speed = value; }
+    public float Life { get => _life; set => _life = value; }
 
     private void OnValidate()
     {

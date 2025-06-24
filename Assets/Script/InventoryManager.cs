@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _slots = new List<GameObject>();
+    [SerializeField] private List<GameObject> _slotsEquipamente = new List<GameObject>();
     [SerializeField] private Player _inventorySystem;
+
+    [SerializeField] private TextMeshProUGUI _itemDescription;
+
+    public TextMeshProUGUI ItemDescription { get => _itemDescription; set => _itemDescription = value; }
 
     void Start()
     {
@@ -27,6 +32,9 @@ public class InventoryManager : MonoBehaviour
             {
                 ItensData item = items[i];
 
+                var itemComponent = slot.GetComponent<ItensSlots>();
+                itemComponent.SetItem(item);
+
                 icon.sprite = item.Aparence;
                 icon.color = Color.white;
 
@@ -36,7 +44,6 @@ public class InventoryManager : MonoBehaviour
             {
                 icon.sprite = null;
                 icon.color = new Color(1, 1, 1, 0);
-
                 countText.text = "";
             }
         }

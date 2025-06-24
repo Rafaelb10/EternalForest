@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -43,6 +44,14 @@ public class Itens : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, 
         {
             shop.SetDiscription(_description);
         }
+
+        InventoryManager invent = FindAnyObjectByType<InventoryManager>();
+
+        if (invent != null && invent.gameObject.activeSelf)
+        {
+            invent.ItemDescription.text = _description;
+        }
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -52,6 +61,14 @@ public class Itens : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, 
         if (shop != null && shop.gameObject.activeSelf)
         {
             shop.SetDiscription("");
+        }
+
+
+        InventoryManager invent = FindAnyObjectByType<InventoryManager>();
+
+        if (invent != null && invent.gameObject.activeSelf)
+        {
+            invent.ItemDescription.text = "";
         }
     }
 }

@@ -5,8 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using UnityEditor.Overlays;
 
 public class SaveController : MonoBehaviour
 {
@@ -132,8 +130,20 @@ public class SaveController : MonoBehaviour
                 SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
                 saveData._enemy = FindAnyObjectByType<UIStatusManager>().Enemy;
                 saveData._player = GameObject.FindGameObjectWithTag("Player").name;
+                saveData._money = FindAnyObjectByType<Player>().Money;
+                saveData._xp = FindAnyObjectByType<Player>().Xp;
+                saveData._level = FindAnyObjectByType<Player>().Level;
 
                 saveData._enemysStateGame = stateMonsterGame;
+                File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
+            }
+            else if (SceneManager.GetActiveScene().name == "PlataformGame")
+            {
+                SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
+                saveData._money = FindAnyObjectByType<Player>().Money;
+                saveData._xp = FindAnyObjectByType<Player>().Xp;
+                saveData._level = FindAnyObjectByType<Player>().Level;
+
                 saveData._enemysStatePlataform = stateMonsterPlataform;
                 File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
             }

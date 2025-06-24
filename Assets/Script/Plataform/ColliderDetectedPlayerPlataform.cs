@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ColliderDetectedPlayerPlataform : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ColliderDetectedPlayerPlataform : MonoBehaviour
     private void Update()
     {
         _state = FindAnyObjectByType<Player>().State;
-        if (_state == 1)
+        if (_state == 1 && SceneManager.GetActiveScene().name != "PlataformGame")
         {
             Destroy(gameObject);
         }

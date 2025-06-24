@@ -17,6 +17,7 @@ MonoBehaviour:
   _name: Poor boots
   _description: aaaaaaaaaaaaaaaaaa
   _type: 1
+  _typeEquipamente: 3
   _streght: 0
   _def: 0
   _speed: 1

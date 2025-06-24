@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MonsterBat : MonsterPlataform
 {
@@ -17,22 +18,33 @@ public class MonsterBat : MonsterPlataform
     private float _damagebat = 5;
 
     private float _hp = 90;
-    private float _hpmax;
+    private float _hpMax;
 
     private float _xp = 100;
     private float _coin = 55;
+
+    [SerializeField] private GameObject _enemyHp;
+    [SerializeField] private Image _hpImage;
+
+    [SerializeField] private float _hpBarSpeed = 3f;
+    private float _targetFill = 1f;
 
     [SerializeField] private GameObject _bulletTargetPrefab;
 
     private void Start()
     {
-        _hpmax = _hp;
+        _hpMax = _hp;
+
+        _enemyHp.SetActive(true);
     }
 
 
     private void Update()
     {
         Move();
+        
+        _targetFill = Mathf.Clamp01(_hp / _hpMax);
+        _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
 
         if (State == 3)
         {
@@ -148,7 +160,7 @@ public class MonsterBat : MonsterPlataform
         _shootcooldown = false;
     }
 
-    public void TakeDamage(float Damage)
+    public override void TakeDamage(float Damage)
     {
         _hp = _hp - Damage;
 

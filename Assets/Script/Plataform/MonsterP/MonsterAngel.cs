@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MonsterAngel : MonsterPlataform, IDamageable
 {
@@ -16,7 +17,7 @@ public class MonsterAngel : MonsterPlataform, IDamageable
     private float _damageAngel = 10;
 
     private float _hp = 150;
-    private float _hpmax;
+    private float _hpMax;
 
     private float _xp = 150;
     private float _coin = 75;
@@ -26,6 +27,12 @@ public class MonsterAngel : MonsterPlataform, IDamageable
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float dashForce = 10f;
 
+    [SerializeField] private GameObject _enemyHp;
+    [SerializeField] private Image _hpImage;
+
+    [SerializeField] private float _hpBarSpeed = 3f;
+    private float _targetFill = 1f;
+
     private bool _playerDetected = false;
     private bool _canDash = true;
     private bool _cooldownDash;
@@ -33,13 +40,18 @@ public class MonsterAngel : MonsterPlataform, IDamageable
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        _hpmax = _hp;
+        _hpMax = _hp;
         moveDirection = Random.value < 0.5f ? -1 : 1;
+
+        _enemyHp.SetActive(true);
     }
 
     private void Update()
     {
         Move();
+
+        _targetFill = Mathf.Clamp01(_hp / _hpMax);
+        _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
 
         Damage = _damageAngel;
 
@@ -145,7 +157,7 @@ public class MonsterAngel : MonsterPlataform, IDamageable
 
     }
 
-    public void TakeDamage(float Damage)
+    public override void TakeDamage(float Damage)
     {
         _hp = _hp - Damage;
 

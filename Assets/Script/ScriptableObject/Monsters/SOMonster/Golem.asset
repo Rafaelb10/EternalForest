@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe83657eff80f2c43b4cbe0b3ab3e908, type: 3}
   m_Name: Golem
   m_EditorClassIdentifier: 
-  _hp: 175
+  _hp: 200
   _strenght: 15
   _speed: 0
   _def: 15

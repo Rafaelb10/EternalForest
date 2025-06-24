@@ -4,17 +4,23 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IDamageable
 {
     private Rigidbody2D rb;
     private Vector2 movement;
 
-    public float _hpMax;
-    public float _hp;
+    private float _hpMax;
+    private float _hp;
     private float _strenght;
-    public float _def;
-    public float _speed;
+    private float _def;
+    private float _speed;
+
+    private float _strenghtSword;
+    private float _defArmor;
+    private float _speedBoots;
+
     private float _money;
 
     private float _level;
@@ -39,6 +45,7 @@ public class Player : MonoBehaviour, IDamageable
     private bool _isGrounded;
 
     [SerializeField] private List<ItensData> _inventory = new List<ItensData>();
+    [SerializeField] private List<ItensData> _inventoryEquiped = new List<ItensData>();
 
     [SerializeField] private GameObject _playerHp;
     [SerializeField] private Image _hpImage;
@@ -69,6 +76,11 @@ public class Player : MonoBehaviour, IDamageable
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+        if (SceneManager.GetActiveScene().name == "PlataformGame")
+        {
+            ChangeState = true;
+        }
+
         if (_plataformFase == true)
         {
             rb.gravityScale = 1.0f;
@@ -82,14 +94,22 @@ public class Player : MonoBehaviour, IDamageable
 
     void Update()
     {
+        if (Xp >= 100)
+        {
+            Level = Level + 1;
+            Xp = Xp - 100;
+        }
+
         if (ChangeState == true)
         {
             _state = 1;
             ChangeState = false;
 
-            _statusMenu = null;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            if (_plataformFase == false)
+            {
+                _statusMenu = null;
+            }
+
             FindAnyObjectByType<PlayerAttack>().State = _state;
         }
 
@@ -99,6 +119,9 @@ public class Player : MonoBehaviour, IDamageable
 
             _targetFill = Mathf.Clamp01(_hp / _hpMax);
             _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
+
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         if (_plataformFase == false)
@@ -117,7 +140,7 @@ public class Player : MonoBehaviour, IDamageable
 
     void OpemMenu()
     {
-        if (_state == 0)
+        if (_state == 0 || _plataformFase == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -185,16 +208,19 @@ public class Player : MonoBehaviour, IDamageable
     public void GainXp(float xp)
     {
         Xp = Xp + xp;
-
-        if (Xp >= 100)
-        {
-            Level = Level + 1;
-            Xp = Xp - 100;
-        }
     }
     public void GainCoin(float coin)
     {
         Money = Money + coin;  
+    }
+
+    public void GainHealth(float amount)
+    {
+        _hp += amount;
+        if (_hp > _hpMax)
+            _hp = _hpMax;
+
+        _hpImage.fillAmount = _hp / _hpMax;
     }
 
     public void UpdateStatusPlayer()
@@ -202,9 +228,12 @@ public class Player : MonoBehaviour, IDamageable
         SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "SaveData.json")));
 
         _hpMax = 100 + saveData._hp * 10;
-        _strenght = 100 + saveData._strenght * 0.5f;
-        _def = 0 + saveData._def * 0.25f;
-        _speed = 3+ saveData._speed * 0.10f;
+        _strenght = 100 + saveData._strenght * 0.5f + _strenghtSword;
+        _def = 0 + saveData._def * 0.25f + _defArmor;
+        _speed = 3+ saveData._speed * 0.10f + _speedBoots;
+
+        _xp = saveData._xp;
+        _level = saveData._level;
 
         if (ChangeState == false) 
         {
@@ -236,6 +265,7 @@ public class Player : MonoBehaviour, IDamageable
         }
 
     }
+
 
     public void AddItem(ItensData newItem)
     {
