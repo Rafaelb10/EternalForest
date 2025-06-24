@@ -16,6 +16,8 @@ public class TransportToOtherScena : MonoBehaviour
 
     void TradeScena()
     {
+        FindAnyObjectByType<SaveController>().SavePlayerPosition();
+        FindAnyObjectByType<SaveController>().ChangeScena(_sceneAsset.name);
         UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneAsset.name);
     }
 

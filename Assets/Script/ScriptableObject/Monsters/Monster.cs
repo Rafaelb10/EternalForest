@@ -51,6 +51,7 @@ public class Monster: MonoBehaviour, IDamageable
     public bool Hab1 { get => _hab1; set => _hab1 = value; }
     public bool Hab2 { get => _hab2; set => _hab2 = value; }
     public float Strenght { get => _strenght; set => _strenght = value; }
+    public int State { get => _state; set => _state = value; }
 
     public void Start()
     {
@@ -95,7 +96,7 @@ public class Monster: MonoBehaviour, IDamageable
         }
         else if (_state == 3)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -285,7 +286,8 @@ public class Monster: MonoBehaviour, IDamageable
             {
                 Debug.Log(this.gameObject.name);
                 FindAnyObjectByType<UIStatusManager>().Enemy = this.gameObject.name;
-                FindAnyObjectByType<SaveController>()?.SaveGame();
+                State = 3;
+                FindAnyObjectByType<SaveController>()?.SaveBeforeCombate();
                 
                 SceneManager.LoadScene("BattleScena");
             }
@@ -297,6 +299,35 @@ public class Monster: MonoBehaviour, IDamageable
                 _playerInRange = true;
 
                 if (_attacking == true && _attackingCoowldownSlap == false) 
+                {
+                    FindAnyObjectByType<Player>().TakeDamage(_strenght);
+                    StartCoroutine(AttackCooldown());
+                }
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (_state == 0)
+        {
+            if (collision.TryGetComponent<Player>(out var player))
+            {
+                Debug.Log(this.gameObject.name);
+                FindAnyObjectByType<UIStatusManager>().Enemy = this.gameObject.name;
+                State = 3;
+                FindAnyObjectByType<SaveController>()?.SaveBeforeCombate();
+
+                SceneManager.LoadScene("BattleScena");
+            }
+        }
+        else if (_state == 1)
+        {
+            if (collision.TryGetComponent<Player>(out var player))
+            {
+                _playerInRange = true;
+
+                if (_attacking == true && _attackingCoowldownSlap == false)
                 {
                     FindAnyObjectByType<Player>().TakeDamage(_strenght);
                     StartCoroutine(AttackCooldown());

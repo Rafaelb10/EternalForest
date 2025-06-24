@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DamageMonster : MonoBehaviour
 {
@@ -6,8 +7,16 @@ public class DamageMonster : MonoBehaviour
     {
         if (other.TryGetComponent<Player>(out var player))
         {
-            FindAnyObjectByType<Player>().TakeDamage(FindAnyObjectByType<Monster>().Strenght);
-            Destroy(gameObject);
+            if (SceneManager.GetActiveScene().name == "BattleScena")
+            {
+                FindAnyObjectByType<Player>().TakeDamage(FindAnyObjectByType<Monster>().Strenght);
+                Destroy(gameObject);
+            }
+            else if (SceneManager.GetActiveScene().name == "PlataformGame")
+            {
+                FindAnyObjectByType<Player>().TakeDamage(FindAnyObjectByType<MonsterPlataform>().Damage);
+                Destroy(gameObject);
+            }
         }
         Destroy(gameObject);
     }

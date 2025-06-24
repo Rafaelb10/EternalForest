@@ -6,6 +6,9 @@ using UnityEngine;
 public class SaveData
 {
     public Vector3 _playerPosition;
+    public Vector3 _playerPositionTwo;
+
+    public string _scena;
 
     public float _level;
     public float _xp;
@@ -25,10 +28,10 @@ public class SaveData
     public List<string> _itensInventoryEquiped = new List<string>();
 
     public List<int> _enemysInGame = new List<int>();
-    public List<float> _enemysStateGame = new List<float>();
+    public List<int> _enemysStateGame = new List<int>();
 
     public List<int> _enemysInPlataform = new List<int>();
-    public List<float> _enemysStatePlataform = new List<float>();
+    public List<int> _enemysStatePlataform = new List<int>();
 
 
     //https://www.youtube.com/watch?v=rDZztBWGMIs
