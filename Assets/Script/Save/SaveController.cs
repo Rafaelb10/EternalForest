@@ -222,6 +222,19 @@ public class SaveController : MonoBehaviour
         FindAnyObjectByType<Player>().UpdateStatusPlayer();
     }
 
+    public void ChangeLightPlayer()
+    {
+        if (File.Exists(_saveLocation))
+        {
+            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
+            saveData._light = true;
+
+            File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
+        }
+
+        FindAnyObjectByType<Player>().UpdateStatusPlayer();
+    }
+
     public void ChangeScena(string scenaname)
     {
         if (File.Exists(_saveLocation))

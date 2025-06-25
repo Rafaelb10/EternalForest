@@ -34,6 +34,8 @@ public class Player : MonoBehaviour, IDamageable
 
     private int _state = 0;
     private bool _changeState;
+
+    private bool _light;
     [SerializeField] private bool _plataformFase;
 
     private float _jumpForce = 8.5f;
@@ -227,20 +229,69 @@ public class Player : MonoBehaviour, IDamageable
         _hpImage.fillAmount = _hp / _hpMax;
     }
 
+    public void StatusEquipament(bool add)
+    {
+        _strenghtSword = 0;
+        _defArmor = 0;
+        _speedBoots = 0;
+
+        if (add == true)
+        {
+            for (int i = 0; i < _inventoryEquiped.Count; i++)
+            {
+                var item = _inventoryEquiped[i];
+                if (item == null || item.data == null) continue;
+
+                switch (i)
+                {
+                    case 0: // Espada
+                        _strenghtSword = item.data.Streght;
+                        _strenght = _strenght + _strenghtSword;
+                        break;
+                    case 1: // Armadura
+                        _defArmor = item.data.Def;
+                        _def = _def + _defArmor;
+                        break;
+                    case 2: // Bota
+                        _speedBoots = item.data.Speed;
+                        _speed = _speed + _speedBoots;
+                        break;
+                }
+            }
+        }
+        else if (add == false)
+        {
+            for (int i = 0; i < _inventoryEquiped.Count; i++)
+            {
+                var item = _inventoryEquiped[i];
+                if (item == null || item.data == null) continue;
+
+                switch (i)
+                {
+                    case 0: // Espada
+                        _strenghtSword = item.data.Streght;
+                        _strenght = _strenght - _strenghtSword;
+                        break;
+                    case 1: // Armadura
+                        _defArmor = item.data.Def;
+                        _def = _def - _defArmor;
+                        break;
+                    case 2: // Bota
+                        _speedBoots = item.data.Speed;
+                        _speed = _speed - _speedBoots;
+                        break;
+                }
+            }
+        }
+        
+    }
+
     public void UpdateStatusPlayer()
     {
         string path = Path.Combine(Application.persistentDataPath, "SaveData.json");
         if (!File.Exists(path)) return;
 
         SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(path));
-
-        _hpMax = 100 + saveData._hp * 10;
-        _strenght = 100 + saveData._strenght * 0.5f + _strenghtSword;
-        _def = 0 + saveData._def * 0.25f + _defArmor;
-        _speed = 3 + saveData._speed * 0.10f + _speedBoots;
-
-        _xp = saveData._xp;
-        _level = saveData._level;
 
         if (ChangeState == false)
         {
@@ -272,13 +323,46 @@ public class Player : MonoBehaviour, IDamageable
                     var baseItem = _itensDataBase.AllItems.FirstOrDefault(item => item.Name == equippedName);
                     if (baseItem != null)
                     {
+                        AddItem(baseItem);
                         AddItemEquipament(baseItem);
                     }
                 }
             }
         }
+
+        _hpMax = 100 + saveData._hp * 10;
+        _strenght = 100 + saveData._strenght * 0.5f + _strenghtSword;
+        _def = 0 + saveData._def * 0.25f + _defArmor;
+        _speed = 3 + saveData._speed * 0.10f + _speedBoots;
+
+        _xp = saveData._xp;
+        _level = saveData._level;
+
+        _light = saveData._light;
+
+        if (_light == true)
+        {
+            var light2D = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+            if (light2D != null)
+            {
+                light2D.enabled = true;
+            }
+        }
     }
 
+    public void UpdateStatusArmorAdd()
+    {
+        _strenght = _strenght + _strenghtSword;
+        _def = _def + _defArmor;
+        _speed = _speed + _speedBoots;
+    }
+
+    public void UpdateStatusArmorRemove()
+    {
+        _strenght = _strenght - _strenghtSword;
+        _def = _def - _defArmor;
+        _speed = _speed - _speedBoots;
+    }
 
     public void AddItem(ItensData newItem)
     {
@@ -361,6 +445,7 @@ public class Player : MonoBehaviour, IDamageable
         _inventoryEquiped[slotIndex] = equippedItem;
 
         FindAnyObjectByType<SaveController>()?.SaveInventory();
+        StatusEquipament(true);
     }
 
     public void RemoveItemEquipament(ItensData itemToRemove)
@@ -386,7 +471,9 @@ public class Player : MonoBehaviour, IDamageable
                 _inventory.Add(newItem);
             }
             FindAnyObjectByType<SaveController>().SaveInventory();
+            
         }
+        StatusEquipament(false);
     }
 
     public void OrganizeInventory()

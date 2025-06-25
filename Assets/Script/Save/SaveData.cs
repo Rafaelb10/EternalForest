@@ -18,6 +18,7 @@ public class SaveData
     public float _speed;
     public float _money;
 
+    public bool _light;
     public float _pointsXp;
 
     public string _player;
