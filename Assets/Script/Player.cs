@@ -28,6 +28,7 @@ public class Player : MonoBehaviour, IDamageable
 
     [SerializeField] private GameObject _statusMenu;
     [SerializeField] private GameObject _inventoryMenu;
+
     private bool _activeinvent = false;
     private bool _active = false;
 
@@ -44,8 +45,10 @@ public class Player : MonoBehaviour, IDamageable
     private float _moveInput;
     private bool _isGrounded;
 
-    [SerializeField] private List<ItensData> _inventory = new List<ItensData>();
-    [SerializeField] private List<ItensData> _inventoryEquiped = new List<ItensData>();
+    [SerializeField]
+    private List<InventoryItem> _inventory = new List<InventoryItem>();
+    [SerializeField]
+    private List<InventoryItem> _inventoryEquiped = new List<InventoryItem>(new InventoryItem[3]);
 
     [SerializeField] private GameObject _playerHp;
     [SerializeField] private Image _hpImage;
@@ -60,9 +63,10 @@ public class Player : MonoBehaviour, IDamageable
     public float Xp { get => _xp; set => _xp = value; }
     public bool ChangeState { get => _changeState; set => _changeState = value; }
     public int State { get => _state; }
-    public List<ItensData> Inventory { get => _inventory; set => _inventory = value; }
+    public List<InventoryItem> Inventory { get => _inventory; set => _inventory = value; }
     public float Money { get => _money; set => _money = value; }
     public float Strenght { get => _strenght; set => _strenght = value; }
+    public List<InventoryItem> InventoryEquiped { get => _inventoryEquiped; set => _inventoryEquiped = value; }
 
     void Start()
     {
@@ -165,7 +169,6 @@ public class Player : MonoBehaviour, IDamageable
                 if (_activeinvent == false)
                 {
                     _inventoryMenu.SetActive(true);
-                    FindFirstObjectByType<InventoryManager>().UpdateInventoryUI();
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                     _activeinvent = true;
@@ -269,22 +272,104 @@ public class Player : MonoBehaviour, IDamageable
 
     public void AddItem(ItensData newItem)
     {
-        if (newItem == null)
-        {
-            return;
-        }
+        if (newItem == null) return;
 
-        var existingItem = _inventory.FirstOrDefault(i => i.Name == newItem.Name);
-
-        if (existingItem != null)
+        var existing = _inventory.FirstOrDefault(i => i.data.Name == newItem.Name && !i.isEquipped);
+        if (existing != null)
         {
-            existingItem.Count = existingItem.Count + 1;
-            Debug.Log($"Item '{newItem.Name}' já existe. Quantidade aumentada para {existingItem.Count}.");
+            existing.count++;
         }
         else
         {
-            _inventory.Add(newItem);
-            Debug.Log($"Item '{newItem.Name}' adicionado ao inventário.");
+            _inventory.Add(new InventoryItem(newItem, 1));
+        }
+
+        FindAnyObjectByType<SaveController>().SaveInventory();
+    }
+
+    public void RemoveItem(ItensData itemToRemove)
+    {
+        if (itemToRemove == null) return;
+
+        var existingItem = _inventory.FirstOrDefault(i => i.data.Name == itemToRemove.Name && !i.isEquipped);
+        if (existingItem != null)
+        {
+            existingItem.count--;
+            if (existingItem.count <= 0)
+            {
+                _inventory.Remove(existingItem);
+                Debug.Log($"Item '{itemToRemove.Name}' removido do inventário (quantidade zerada).");
+            }
+            else
+            {
+                Debug.Log($"Item '{itemToRemove.Name}' quantidade reduzida para {existingItem.count}.");
+            }
+
+            FindAnyObjectByType<SaveController>().SaveInventory();
+        }
+        else
+        {
+            Debug.LogWarning($"Item '{itemToRemove.Name}' não encontrado no inventário.");
+        }
+    }
+
+    public void AddItemEquipament(ItensData newItem)
+    {
+        if (newItem == null || newItem.Type != ItensData.TypeItem.Equipament) return;
+
+        int slotIndex = (int)newItem.TypeEquipamente - 1;
+        if (slotIndex < 0 || slotIndex >= _inventoryEquiped.Count) return;
+
+        var currentEquipped = _inventoryEquiped[slotIndex];
+        if (currentEquipped != null)
+        {
+            currentEquipped.isEquipped = false;
+            _inventory.Add(currentEquipped);
+            Debug.Log($"Item '{currentEquipped.data.Name}' removido do slot e adicionado ao inventário.");
+        }
+
+        var itemInInventory = _inventory.FirstOrDefault(i => i.data.Name == newItem.Name && !i.isEquipped);
+        if (itemInInventory != null)
+        {
+            itemInInventory.count--;
+            if (itemInInventory.count <= 0)
+            {
+                _inventory.Remove(itemInInventory);
+            }
+        }
+
+        InventoryItem equippedItem = new InventoryItem(newItem, 1) { isEquipped = true };
+        _inventoryEquiped[slotIndex] = equippedItem;
+
+        Debug.Log($"Item '{newItem.Name}' equipado no slot {newItem.TypeEquipamente}.");
+
+        FindAnyObjectByType<SaveController>().SaveInventory();
+    }
+
+    public void RemoveItemEquipament(ItensData itemToRemove)
+    {
+        if (itemToRemove == null) return;
+
+        int slotIndex = (int)itemToRemove.TypeEquipamente - 1;
+        if (slotIndex < 0 || slotIndex >= _inventoryEquiped.Count) return;
+
+        var equipped = _inventoryEquiped[slotIndex];
+        if (equipped != null && equipped.data.Name == itemToRemove.Name)
+        {
+            _inventoryEquiped[slotIndex] = null;
+
+            var existing = _inventory.FirstOrDefault(i => i.data.Name == itemToRemove.Name && !i.isEquipped);
+            if (existing != null)
+            {
+                existing.count++;
+            }
+            else
+            {
+                _inventory.Add(new InventoryItem(itemToRemove, 1));
+            }
+
+            Debug.Log($"Item '{itemToRemove.Name}' removido do slot e adicionado ao inventário.");
+            FindAnyObjectByType<SaveController>().SaveInventory();
         }
     }
 

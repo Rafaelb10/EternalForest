@@ -33,25 +33,6 @@ public class SaveController : MonoBehaviour
 
     public void SaveGame() 
     {
-        Player player = FindAnyObjectByType<Player>();
-        UIStatusManager statusManager = FindAnyObjectByType<UIStatusManager>();
-
-        if (player == null || statusManager == null)
-        {
-            return;
-        }
-
-        List<string> itemNames = new List<string>();
-        List<int> itemCount = new List<int>();
-
-        if (player.Inventory != null)
-        {
-            foreach (ItensData item in player.Inventory)
-            {
-                itemNames.Add(item.Name);
-                itemCount.Add(item.Count);
-            }
-        }
 
         List<int> stateMonsterGame = new List<int>();
 
@@ -90,9 +71,6 @@ public class SaveController : MonoBehaviour
 
                 _enemy = FindAnyObjectByType<UIStatusManager>().Enemy,
                 _player = GameObject.FindGameObjectWithTag("Player").name,
-
-                _itensInventoryname = itemNames,
-                _itensInventorycount = itemCount,
 
                 _enemysStateGame = stateMonsterGame,
                 _enemysStatePlataform = stateMonsterPlataform
@@ -161,6 +139,29 @@ public class SaveController : MonoBehaviour
 
             File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
 
+        }
+    }
+
+    public void SaveInventory()
+    {
+        Player player = FindAnyObjectByType<Player>();
+        if (player == null || player.Inventory == null) return;
+
+        List<string> itemNames = new List<string>();
+        List<int> itemCounts = new List<int>();
+
+        foreach (var item in player.Inventory)
+        {
+            itemNames.Add(item.data.Name);
+            itemCounts.Add(item.count);
+        }
+
+        if (File.Exists(_saveLocation))
+        {
+            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
+            saveData._itensInventoryname = itemNames;
+            saveData._itensInventorycount = itemCounts;
+            File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
         }
     }
 

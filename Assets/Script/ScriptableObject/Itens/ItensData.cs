@@ -30,6 +30,8 @@ public class ItensData : ScriptableObject
     [SerializeField] private TypeItem _type;
     [SerializeField] private TypeEquipament _typeEquipamente;
 
+    private bool _equipament;
+
     [SerializeField] private float _streght;
     [SerializeField] private float _def;
     [SerializeField] private float _speed;
@@ -48,6 +50,7 @@ public class ItensData : ScriptableObject
     public float Def { get => _def; set => _def = value; }
     public float Speed { get => _speed; set => _speed = value; }
     public float Life { get => _life; set => _life = value; }
+    public bool Equipament { get => _equipament; set => _equipament = value; }
 
     private void OnValidate()
     {

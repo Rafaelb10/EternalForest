@@ -4,49 +4,70 @@ using UnityEngine.UI;
 
 public class ItensSlots : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private ItensData _item;
+    [SerializeField] private InventoryItem _inventoryItem;
+    private ItensData _itemData;
+
     private string _description;
-    private int _typeIten;
-    private int _typeEquipamente;
+    private int _typeItem;
+    private int _typeEquipment;
 
     private float _hp;
     private float _strength;
     private float _def;
     private float _speed;
 
-    public void SetItem(ItensData item)
+    private bool _isEquipped;
+
+    public void SetItem(InventoryItem item)
     {
-        _item = item;
-        _description = item.Description;
+        _inventoryItem = item;
 
-        _typeIten = (int)item.Type;
-        _typeEquipamente = (int)item.TypeEquipamente;
+        if (item != null && item.data != null)
+        {
+            _itemData = item.data;
 
-        _hp = item.Life;
-        _strength = item.Streght;
-        _def = item.Def;
-        _speed = item.Speed;
+            _description = _itemData.Description;
+            _typeItem = (int)_itemData.Type;
+            _typeEquipment = (int)_itemData.TypeEquipamente;
+
+            _hp = _itemData.Life;
+            _strength = _itemData.Streght;
+            _def = _itemData.Def;
+            _speed = _itemData.Speed;
+
+            _isEquipped = _itemData.Equipament;
+        }
+        else
+        {
+            _itemData = null;
+            _description = "";
+            _typeItem = -1;
+            _typeEquipment = -1;
+            _hp = _strength = _def = _speed = 0;
+            _isEquipped = false;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_typeIten == 0)
+        if (_itemData == null) return;
+
+        var player = FindAnyObjectByType<Player>();
+
+        if (_typeItem == 0)
         {
-            FindFirstObjectByType<Player>().GainHealth(_hp);
+            player.GainHealth(_hp);
+            player.RemoveItem(_itemData);
         }
-        if (_typeIten == 1)
+        else if (_typeItem == 1)
         {
-            if (_typeEquipamente == 1)
+            if (!_isEquipped)
             {
-
+                player.AddItemEquipament(_itemData);
             }
-            else if (_typeEquipamente == 2)
+            else
             {
-
-            }
-            else if (_typeEquipamente == 3)
-            {
-
+                player.RemoveItem(_itemData);
             }
         }
     }
