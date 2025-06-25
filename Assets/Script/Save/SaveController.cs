@@ -149,11 +149,27 @@ public class SaveController : MonoBehaviour
 
         List<string> itemNames = new List<string>();
         List<int> itemCounts = new List<int>();
+        List<string> equippedNames = new List<string>();
 
         foreach (var item in player.Inventory)
         {
-            itemNames.Add(item.data.Name);
-            itemCounts.Add(item.count);
+            if (!item.isEquipped)
+            {
+                itemNames.Add(item.data.Name);
+                itemCounts.Add(item.count);
+            }
+        }
+
+        foreach (var equipped in player.InventoryEquiped)
+        {
+            if (equipped != null)
+            {
+                equippedNames.Add(equipped.data.Name);
+            }
+            else
+            {
+                equippedNames.Add("");
+            }
         }
 
         if (File.Exists(_saveLocation))
@@ -161,6 +177,9 @@ public class SaveController : MonoBehaviour
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
             saveData._itensInventoryname = itemNames;
             saveData._itensInventorycount = itemCounts;
+            saveData._itensInventoryEquiped = equippedNames;
+            saveData._money = player.Money;
+
             File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
         }
     }

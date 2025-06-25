@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static ItensData;
 
 public class ItensSlots : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private InventoryItem _inventoryItem;
-    private ItensData _itemData;
 
     private string _description;
     private int _typeItem;
@@ -16,36 +16,29 @@ public class ItensSlots : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     private float _def;
     private float _speed;
 
+    [SerializeField] private ItensData _itemData;
     private bool _isEquipped;
 
     public void SetItem(InventoryItem item)
     {
-        _inventoryItem = item;
-
-        if (item != null && item.data != null)
-        {
-            _itemData = item.data;
-
-            _description = _itemData.Description;
-            _typeItem = (int)_itemData.Type;
-            _typeEquipment = (int)_itemData.TypeEquipamente;
-
-            _hp = _itemData.Life;
-            _strength = _itemData.Streght;
-            _def = _itemData.Def;
-            _speed = _itemData.Speed;
-
-            _isEquipped = _itemData.Equipament;
-        }
-        else
+        if (item == null || item.data == null)
         {
             _itemData = null;
-            _description = "";
-            _typeItem = -1;
-            _typeEquipment = -1;
-            _hp = _strength = _def = _speed = 0;
             _isEquipped = false;
+            return;
         }
+
+        _itemData = item.data;
+        _isEquipped = item.isEquipped;
+
+        _description = _itemData.Description;
+        _typeItem = (int)_itemData.Type;
+        _typeEquipment = (int)_itemData.TypeEquipamente;
+
+        _hp = _itemData.Life;
+        _strength = _itemData.Streght;
+        _def = _itemData.Def;
+        _speed = _itemData.Speed;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -56,6 +49,7 @@ public class ItensSlots : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
         if (_typeItem == 0)
         {
+            Debug.Log("Utilizado");
             player.GainHealth(_hp);
             player.RemoveItem(_itemData);
         }
@@ -63,11 +57,13 @@ public class ItensSlots : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
         {
             if (!_isEquipped)
             {
+                Debug.Log("Equipado");
                 player.AddItemEquipament(_itemData);
             }
             else
             {
-                player.RemoveItem(_itemData);
+                Debug.Log("Desequipado");
+                player.RemoveItemEquipament(_itemData);
             }
         }
     }

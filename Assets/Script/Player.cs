@@ -139,6 +139,7 @@ public class Player : MonoBehaviour, IDamageable
             Move();
         }
 
+        OrganizeInventory();
         OpemMenu();
     }
 
@@ -228,45 +229,54 @@ public class Player : MonoBehaviour, IDamageable
 
     public void UpdateStatusPlayer()
     {
-        SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "SaveData.json")));
+        string path = Path.Combine(Application.persistentDataPath, "SaveData.json");
+        if (!File.Exists(path)) return;
+
+        SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(path));
 
         _hpMax = 100 + saveData._hp * 10;
         _strenght = 100 + saveData._strenght * 0.5f + _strenghtSword;
         _def = 0 + saveData._def * 0.25f + _defArmor;
-        _speed = 3+ saveData._speed * 0.10f + _speedBoots;
+        _speed = 3 + saveData._speed * 0.10f + _speedBoots;
 
         _xp = saveData._xp;
         _level = saveData._level;
 
-        if (ChangeState == false) 
+        if (ChangeState == false)
         {
+            _inventory.Clear();
+            _inventoryEquiped = new List<InventoryItem> { null, null, null };
 
-            if (saveData._itensInventoryname.Count != saveData._itensInventorycount.Count)
+            if (saveData._itensInventoryname.Count == saveData._itensInventorycount.Count)
             {
-                Debug.LogError("Dados de inventário salvos estão inconsistentes!");
-                return;
+                for (int i = 0; i < saveData._itensInventoryname.Count; i++)
+                {
+                    string itemName = saveData._itensInventoryname[i];
+                    int itemCount = saveData._itensInventorycount[i];
+
+                    var baseItem = _itensDataBase.AllItems.FirstOrDefault(item => item.Name == itemName);
+                    if (baseItem != null)
+                    {
+                        ItensData itemInstance = ScriptableObject.Instantiate(baseItem);
+                        itemInstance.Count = itemCount;
+                        AddItem(itemInstance);
+                    }
+                }
             }
 
-            for (int i = 0; i < saveData._itensInventoryname.Count; i++)
+            for (int i = 0; i < saveData._itensInventoryEquiped.Count; i++)
             {
-                string itemName = saveData._itensInventoryname[i];
-                int itemCount = saveData._itensInventorycount[i];
-
-                ItensData baseItem = _itensDataBase.AllItems.FirstOrDefault(item => item.Name == itemName);
-
-                if (baseItem != null)
+                string equippedName = saveData._itensInventoryEquiped[i];
+                if (!string.IsNullOrEmpty(equippedName))
                 {
-                    ItensData itemInstance = ScriptableObject.Instantiate(baseItem);
-                    itemInstance.Count = itemCount;
-                    AddItem(itemInstance);
-                }
-                else
-                {
-                    Debug.LogWarning($"Item '{itemName}' não encontrado no banco de dados.");
+                    var baseItem = _itensDataBase.AllItems.FirstOrDefault(item => item.Name == equippedName);
+                    if (baseItem != null)
+                    {
+                        AddItemEquipament(baseItem);
+                    }
                 }
             }
         }
-
     }
 
 
@@ -274,14 +284,16 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (newItem == null) return;
 
+        int countToAdd = newItem.Count > 0 ? newItem.Count : 1;
+
         var existing = _inventory.FirstOrDefault(i => i.data.Name == newItem.Name && !i.isEquipped);
         if (existing != null)
         {
-            existing.count++;
+            existing.count += countToAdd;
         }
         else
         {
-            _inventory.Add(new InventoryItem(newItem, 1));
+            _inventory.Add(new InventoryItem(newItem, countToAdd));
         }
 
         FindAnyObjectByType<SaveController>().SaveInventory();
@@ -298,18 +310,15 @@ public class Player : MonoBehaviour, IDamageable
             if (existingItem.count <= 0)
             {
                 _inventory.Remove(existingItem);
-                Debug.Log($"Item '{itemToRemove.Name}' removido do inventário (quantidade zerada).");
             }
             else
             {
-                Debug.Log($"Item '{itemToRemove.Name}' quantidade reduzida para {existingItem.count}.");
             }
 
             FindAnyObjectByType<SaveController>().SaveInventory();
         }
         else
         {
-            Debug.LogWarning($"Item '{itemToRemove.Name}' não encontrado no inventário.");
         }
     }
 
@@ -324,8 +333,18 @@ public class Player : MonoBehaviour, IDamageable
         if (currentEquipped != null)
         {
             currentEquipped.isEquipped = false;
-            _inventory.Add(currentEquipped);
-            Debug.Log($"Item '{currentEquipped.data.Name}' removido do slot e adicionado ao inventário.");
+
+            var existing = _inventory.FirstOrDefault(i => i.data.Name == currentEquipped.data.Name && !i.isEquipped);
+            if (existing != null)
+            {
+                existing.count += currentEquipped.count;
+            }
+            else
+            {
+                _inventory.Add(new InventoryItem(currentEquipped.data, currentEquipped.count));
+            }
+
+            _inventoryEquiped[slotIndex] = null;
         }
 
         var itemInInventory = _inventory.FirstOrDefault(i => i.data.Name == newItem.Name && !i.isEquipped);
@@ -341,9 +360,7 @@ public class Player : MonoBehaviour, IDamageable
         InventoryItem equippedItem = new InventoryItem(newItem, 1) { isEquipped = true };
         _inventoryEquiped[slotIndex] = equippedItem;
 
-        Debug.Log($"Item '{newItem.Name}' equipado no slot {newItem.TypeEquipamente}.");
-
-        FindAnyObjectByType<SaveController>().SaveInventory();
+        FindAnyObjectByType<SaveController>()?.SaveInventory();
     }
 
     public void RemoveItemEquipament(ItensData itemToRemove)
@@ -365,12 +382,32 @@ public class Player : MonoBehaviour, IDamageable
             }
             else
             {
-                _inventory.Add(new InventoryItem(itemToRemove, 1));
+                var newItem = new InventoryItem(itemToRemove, 1);
+                _inventory.Add(newItem);
             }
-
-            Debug.Log($"Item '{itemToRemove.Name}' removido do slot e adicionado ao inventário.");
             FindAnyObjectByType<SaveController>().SaveInventory();
         }
+    }
+
+    public void OrganizeInventory()
+    {
+        var grouped = _inventory
+            .Where(item => item != null && item.data != null && !item.isEquipped && item.count > 0)
+            .GroupBy(item => item.data.Name)
+            .Select(group =>
+            {
+                int totalCount = group.Sum(i => i.count);
+                return new InventoryItem(group.First().data, totalCount);
+            })
+            .ToList();
+
+        var equippedItems = _inventory
+            .Where(item => item != null && item.isEquipped)
+            .ToList();
+
+        _inventory = grouped.Concat(equippedItems).ToList();
+
+        FindAnyObjectByType<SaveController>()?.SaveInventory();
     }
 
     public void TakeDamage(float Damage)
