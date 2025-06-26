@@ -25,24 +25,20 @@ public class BulletColission : MonoBehaviour
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-           FindAnyObjectByType<Player>().TakeDamage(_damage);
+            FindAnyObjectByType<Player>().TakeDamage(_damage);
         }
-        Vector2 reflectedVelocity = Vector2.Reflect(rb.linearVelocity, collision.contacts[0].normal);
 
-        float randomSpeedFactor = Random.Range(1.1f, 1.5f); 
-        reflectedVelocity *= randomSpeedFactor;
-
-        rb.linearVelocity = reflectedVelocity;
+        Vector2 reflectedDirection = Vector2.Reflect(rb.linearVelocity.normalized, collision.contacts[0].normal);
 
         float randomAngle = Random.Range(-45f, 45f);
-        Vector2 randomDirection = Quaternion.Euler(0, 0, randomAngle) * rb.linearVelocity;
+        reflectedDirection = Quaternion.Euler(0, 0, randomAngle) * reflectedDirection;
 
-        rb.linearVelocity = randomDirection;
+        rb.linearVelocity = reflectedDirection.normalized * speed;
 
         if (Random.value < 0.2f)
         {
-            velocity = Random.insideUnitCircle.normalized * speed;
-            rb.linearVelocity = velocity; 
+            Vector2 newDirection = Random.insideUnitCircle.normalized;
+            rb.linearVelocity = newDirection * speed;
         }
     }
 

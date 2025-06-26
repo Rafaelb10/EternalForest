@@ -19,6 +19,16 @@ public class Damage : MonoBehaviour
             monsterPlataform.TakeDamage(FindAnyObjectByType<Player>().Strenght);
             Destroy(gameObject);
         }
+        else if (collision.gameObject.TryGetComponent<BossFinal>(out var BossFinal))
+        {
+            BossFinal.TakeDamage(FindAnyObjectByType<Player>().Strenght);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.TryGetComponent<CruzTarget>(out var CruzTarget))
+        {
+            CruzTarget.TakeDamage(FindAnyObjectByType<Player>().Strenght);
+            Destroy(gameObject);
+        }
         Destroy(gameObject);
     }
     IEnumerator AttackFinish()

@@ -17,6 +17,25 @@ public class ColliderDetectedBoss: MonoBehaviour
         if (other.TryGetComponent<Player>(out var player))
         {
             _enemy.PlayerInZone = false;
+
+            FindFirstObjectByType<BossFinal>();
+
+            switch (FindFirstObjectByType<BossFinal>().DialogueOne._npc)
+            {
+                case DialogueData.TypeNpc.Npc:
+                    FindFirstObjectByType<BossFinal>().IsTalking = false;
+                    FindFirstObjectByType<BossFinal>().UiDialogue.gameObject.SetActive(false);
+                    break;
+            }
+
+            switch (FindFirstObjectByType<BossFinal>().DialogueTwo._npc)
+            {
+                case DialogueData.TypeNpc.Npc:
+                    FindFirstObjectByType<BossFinal>().IsTalking = false;
+                    FindFirstObjectByType<BossFinal>().UiDialogue.gameObject.SetActive(false);
+                    break;
+            }
         }
+
     }
 }

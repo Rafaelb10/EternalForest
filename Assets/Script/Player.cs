@@ -106,6 +106,7 @@ public class Player : MonoBehaviour, IDamageable
             Xp = Xp - 100;
         }
 
+
         if (ChangeState == true)
         {
             _state = 1;
@@ -147,8 +148,6 @@ public class Player : MonoBehaviour, IDamageable
 
     void OpemMenu()
     {
-        if (_state == 0 || _plataformFase == true)
-        {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (_active == false)
@@ -184,7 +183,6 @@ public class Player : MonoBehaviour, IDamageable
                     _activeinvent = false;
                 }
             }
-        }
     }
 
     void Move()
@@ -494,7 +492,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float Damage)
     {
-        Damage = _def - Damage;
+        Damage = Damage - _def;
 
         if (Damage <= 0) 
         {

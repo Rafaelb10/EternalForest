@@ -15623,6 +15623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIGame
       objectReference: {fileID: 0}
+    - target: {fileID: 4909175099430005480, guid: 07251e22d8d00a94e8177bf1f46740a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6328826959690874636, guid: 07251e22d8d00a94e8177bf1f46740a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -22005,6 +22009,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bddd25489bc8049b04b94faa53f88e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1559734783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5280362219495190578, guid: 7a2c08dd06981f34dbabd368e205c3ff, type: 3}
+  m_PrefabInstance: {fileID: 1559734780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f441b2e49838946825a759d068d01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1608284112 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6067421542474525798, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
@@ -22115,6 +22130,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1809799379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1891255663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1218233870689535935, guid: 07251e22d8d00a94e8177bf1f46740a6, type: 3}
+  m_PrefabInstance: {fileID: 956838768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1970911217 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2412390890627152645, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
@@ -22218,9 +22238,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1970911217}
     - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+      propertyPath: _bulletCruz
+      value: 
+      objectReference: {fileID: 3703845314128821924, guid: 5bd865a25979be44a9312bb34210147c, type: 3}
+    - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+      propertyPath: _uiDialogue
+      value: 
+      objectReference: {fileID: 1891255663}
+    - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
       propertyPath: _attackthree
       value: 
       objectReference: {fileID: 1290425459}
+    - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+      propertyPath: _dialogueOne
+      value: 
+      objectReference: {fileID: 11400000, guid: de6db2c12963bcc49a3a62b91194af81, type: 2}
+    - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+      propertyPath: _dialogueTwo
+      value: 
+      objectReference: {fileID: 11400000, guid: 5eb562fe54cf16e408ff76562288b4b8, type: 2}
     - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
       propertyPath: _attackOneSpaw
       value: 
@@ -22229,6 +22265,14 @@ PrefabInstance:
       propertyPath: _bulletAttackOne
       value: 
       objectReference: {fileID: 2285482171969674716, guid: 4914b2ee1baad204b9d19b3f5ffa096a, type: 3}
+    - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+      propertyPath: _bulletAttackTwo
+      value: 
+      objectReference: {fileID: 1913697522064126463, guid: 2f3e20b5b4d51ef4eb9095e4a5824809, type: 3}
+    - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 1559734783}
     - target: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
       propertyPath: _attackTwoSpaw.Array.size
       value: 12

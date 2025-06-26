@@ -14,7 +14,7 @@ public class BossFinal : MonoBehaviour, IDamageable
     [SerializeField] private GameObject _bulletCruz;
 
     private bool _playerInZone = false;
-    private bool _isModeAttack = true;
+    private bool _isModeAttack = false;
 
     [SerializeField] private GameObject _enemyHp;
     [SerializeField] private Image _hpImage;
@@ -37,16 +37,68 @@ public class BossFinal : MonoBehaviour, IDamageable
 
     public float Damage { get => _damage;}
     public bool PlayerInZone { get => _playerInZone; set => _playerInZone = value; }
+    public DialogueData DialogueOne { get => _dialogueOne; set => _dialogueOne = value; }
+    public DialogueData DialogueTwo { get => _dialogueTwo; set => _dialogueTwo = value; }
+    public GameObject UiDialogue { get => _uiDialogue; set => _uiDialogue = value; }
+    public bool IsTalking { get => _isTalking; set => _isTalking = value; }
+
+    private int _state = 0;
+    private int _dialogueIndex = 0;
+    private bool _isTalking = false;
+
+    [SerializeField] private DialogueData _dialogueOne;
+    [SerializeField] private DialogueData _dialogueTwo;
+    [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private GameObject _uiDialogue;
 
     private void Start()
     {
-        _hpMax = _hp;
-        _enemyHp.SetActive(true);
+        _hpMax = _hp; 
     }
 
 
     void Update()
     {
+        if (_state == 0)
+        {
+            _isModeAttack = false;
+            _enemyHp.SetActive(false);
+            if (_playerInZone == true && _isTalking == false && Input.GetKeyDown(KeyCode.Q))
+            {
+                StartDialogue();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && _isTalking == true)
+            {
+                if (_dialogueOne._npc == DialogueData.TypeNpc.Npc)
+                {
+                    ShowNextDialogueLine();
+                }
+            }
+        }
+        else if (_state == 1)
+        {
+            _isModeAttack = true;
+            _enemyHp.SetActive(true);
+        }
+        else if (_state == 2)
+        {
+            _isModeAttack = false;
+            _enemyHp.SetActive(false);
+            if (_playerInZone == true && _isTalking == false && Input.GetKeyDown(KeyCode.Q))
+            {
+                StartDialogue();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && _isTalking == true)
+            {
+                if (_dialogueTwo._npc == DialogueData.TypeNpc.Npc)
+                {
+                    ShowNextDialogueLine();
+                }
+            }
+        }
+
         if (_isModeAttack == true)
         {
             Move();
@@ -61,14 +113,76 @@ public class BossFinal : MonoBehaviour, IDamageable
         }
     }
 
+    void StartDialogue()
+    {
+        if (_state == 0)
+        {
+            switch (_dialogueOne._npc)
+            {
+                case DialogueData.TypeNpc.Npc:
+                    _uiDialogue.gameObject.SetActive(true);
+                    _dialogueManager.SetName(_dialogueOne._nameCharacther);
+                    _dialogueIndex = 0;
+                    _isTalking = true;
+                    ShowNextDialogueLine();
+                    break;
+            }
+        }
+        else if (_state == 2)
+        {
+            switch (_dialogueTwo._npc)
+            {
+                case DialogueData.TypeNpc.Npc:
+                    _uiDialogue.gameObject.SetActive(true);
+                    _dialogueManager.SetName(_dialogueTwo._nameCharacther);
+                    _dialogueIndex = 0;
+                    _isTalking = true;
+                    ShowNextDialogueLine();
+                    break;
+            }
+        }
+    }
+
+    private void ShowNextDialogueLine()
+    {
+        if (_state == 0)
+        {
+            if (_dialogueIndex < _dialogueOne._word.Length)
+            {
+                _dialogueManager.SetDialogue(_dialogueOne._word[_dialogueIndex]);
+                _dialogueIndex++;
+            }
+            else
+            {
+                _isTalking = false;
+                _uiDialogue.gameObject.SetActive(false);
+                _state = _state + 1;
+                FindFirstObjectByType<Player>().ChangeState = true;
+            }
+        }
+        else if (_state == 2)
+        {
+            if (_dialogueIndex < _dialogueTwo._word.Length)
+            {
+                _dialogueManager.SetDialogue(_dialogueTwo._word[_dialogueIndex]);
+                _dialogueIndex++;
+            }
+            else
+            {
+                _isTalking = false;
+                _uiDialogue.gameObject.SetActive(false);
+            }
+        }
+    }
+
     void Attack()
     {
         if (Time.time < _lastAttackTime + _cooldownTime) return;
 
         float healthPercentage = _hp / _hpMax;
-        _cooldownTime = (healthPercentage <= 0.5f) ? 5f : 10f;
+        _cooldownTime = (healthPercentage <= 0.5f) ? 2.5f : 5f;
 
-        int randomAttack = Random.Range(1, 7);
+        int randomAttack = Random.Range(1, 6);
 
         switch (randomAttack)
         {
@@ -91,10 +205,6 @@ public class BossFinal : MonoBehaviour, IDamageable
             case 5:
                 Debug.Log("5");
                 AttackFive();
-                break;
-            case 6:
-                Debug.Log("6");
-                AttackSix();
                 break;
         }
 
@@ -142,13 +252,14 @@ public class BossFinal : MonoBehaviour, IDamageable
 
     void AttackFive()
     {
-
+        Transform target = FindAnyObjectByType<Player>().transform;
+        GameObject cruz = Instantiate(_bulletCruz, gameObject.transform.position, Quaternion.identity);
+        CruzTarget bt = cruz.GetComponent<CruzTarget>();
+        if (bt != null)
+        {
+            bt.SetTarget(target);
+        }
     }
-    void AttackSix()
-    {
-
-    }
-
     void Move()
     {
         if (_playerInZone == true)
@@ -211,7 +322,7 @@ public class BossFinal : MonoBehaviour, IDamageable
 
         if (_hp <= 0)
         {
-
+            _state = 2;
         }
     }
 
@@ -225,7 +336,7 @@ public class BossFinal : MonoBehaviour, IDamageable
 
                 Vector2 direction = (FindAnyObjectByType<Player>().transform.position - spawnPoint.position).normalized;
 
-                bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 10f; 
+                bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f; 
             }
 
             yield return new WaitForSeconds(3);
