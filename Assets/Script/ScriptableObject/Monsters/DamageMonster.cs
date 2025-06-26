@@ -17,6 +17,11 @@ public class DamageMonster : MonoBehaviour
                 FindAnyObjectByType<Player>().TakeDamage(FindAnyObjectByType<MonsterPlataform>().Damage);
                 Destroy(gameObject);
             }
+            else if (SceneManager.GetActiveScene().name == "TheFinalBattle")
+            {
+                FindAnyObjectByType<Player>().TakeDamage(FindAnyObjectByType<BossFinal>().Damage);
+                Destroy(gameObject);
+            }
         }
         Destroy(gameObject);
     }

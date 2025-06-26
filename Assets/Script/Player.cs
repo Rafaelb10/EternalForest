@@ -229,14 +229,8 @@ public class Player : MonoBehaviour, IDamageable
         _hpImage.fillAmount = _hp / _hpMax;
     }
 
-    public void StatusEquipament(bool add)
+    public void EquipamentStart()
     {
-        _strenghtSword = 0;
-        _defArmor = 0;
-        _speedBoots = 0;
-
-        if (add == true)
-        {
             for (int i = 0; i < _inventoryEquiped.Count; i++)
             {
                 var item = _inventoryEquiped[i];
@@ -258,32 +252,41 @@ public class Player : MonoBehaviour, IDamageable
                         break;
                 }
             }
+    }
+
+    public void StatusEquipament(bool add, ItensData newItem)
+    {
+
+        if (add == true)
+        {
+            if ((int)newItem.TypeEquipamente == 1)
+            {
+                _strenght =  _strenght + newItem.Streght; 
+            }
+            else if ((int)newItem.TypeEquipamente == 2)
+            {
+                _def =  _def + newItem.Def;
+            }
+            else if ((int)newItem.TypeEquipamente == 3)
+            {
+                _speed = _speed + newItem.Speed;
+            }
         }
         else if (add == false)
         {
-            for (int i = 0; i < _inventoryEquiped.Count; i++)
+            if ((int)newItem.TypeEquipamente == 1)
             {
-                var item = _inventoryEquiped[i];
-                if (item == null || item.data == null) continue;
-
-                switch (i)
-                {
-                    case 0: // Espada
-                        _strenghtSword = item.data.Streght;
-                        _strenght = _strenght - _strenghtSword;
-                        break;
-                    case 1: // Armadura
-                        _defArmor = item.data.Def;
-                        _def = _def - _defArmor;
-                        break;
-                    case 2: // Bota
-                        _speedBoots = item.data.Speed;
-                        _speed = _speed - _speedBoots;
-                        break;
-                }
+                _strenght = _strenght - newItem.Streght;
+            }
+            else if ((int)newItem.TypeEquipamente == 2)
+            {
+                _def = _def - newItem.Def;
+            }
+            else if ((int)newItem.TypeEquipamente == 3)
+            {
+                _speed = _speed - newItem.Speed;
             }
         }
-        
     }
 
     public void UpdateStatusPlayer()
@@ -348,20 +351,8 @@ public class Player : MonoBehaviour, IDamageable
                 light2D.enabled = true;
             }
         }
-    }
 
-    public void UpdateStatusArmorAdd()
-    {
-        _strenght = _strenght + _strenghtSword;
-        _def = _def + _defArmor;
-        _speed = _speed + _speedBoots;
-    }
-
-    public void UpdateStatusArmorRemove()
-    {
-        _strenght = _strenght - _strenghtSword;
-        _def = _def - _defArmor;
-        _speed = _speed - _speedBoots;
+        EquipamentStart();
     }
 
     public void AddItem(ItensData newItem)
@@ -414,9 +405,12 @@ public class Player : MonoBehaviour, IDamageable
         if (slotIndex < 0 || slotIndex >= _inventoryEquiped.Count) return;
 
         var currentEquipped = _inventoryEquiped[slotIndex];
+
         if (currentEquipped != null)
         {
             currentEquipped.isEquipped = false;
+
+            StatusEquipament(false, currentEquipped.data);
 
             var existing = _inventory.FirstOrDefault(i => i.data.Name == currentEquipped.data.Name && !i.isEquipped);
             if (existing != null)
@@ -444,8 +438,9 @@ public class Player : MonoBehaviour, IDamageable
         InventoryItem equippedItem = new InventoryItem(newItem, 1) { isEquipped = true };
         _inventoryEquiped[slotIndex] = equippedItem;
 
+        StatusEquipament(true, newItem);
+
         FindAnyObjectByType<SaveController>()?.SaveInventory();
-        StatusEquipament(true);
     }
 
     public void RemoveItemEquipament(ItensData itemToRemove)
@@ -455,6 +450,7 @@ public class Player : MonoBehaviour, IDamageable
         int slotIndex = (int)itemToRemove.TypeEquipamente - 1;
         if (slotIndex < 0 || slotIndex >= _inventoryEquiped.Count) return;
 
+        StatusEquipament(false, itemToRemove);
         var equipped = _inventoryEquiped[slotIndex];
         if (equipped != null && equipped.data.Name == itemToRemove.Name)
         {
@@ -473,7 +469,6 @@ public class Player : MonoBehaviour, IDamageable
             FindAnyObjectByType<SaveController>().SaveInventory();
             
         }
-        StatusEquipament(false);
     }
 
     public void OrganizeInventory()
@@ -499,6 +494,13 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float Damage)
     {
+        Damage = _def - Damage;
+
+        if (Damage <= 0) 
+        {
+            Damage = 1;
+        }
+
         _hp = _hp - Damage;
 
         if (_hp <= 0)
