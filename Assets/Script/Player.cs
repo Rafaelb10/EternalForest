@@ -160,9 +160,12 @@ public class Player : MonoBehaviour, IDamageable
                 else
                 {
                     _statusMenu.SetActive(false);
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
                     _active = false;
+                    if (_state != 1) 
+                    {
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
                 }
             }
 
@@ -178,9 +181,12 @@ public class Player : MonoBehaviour, IDamageable
                 else
                 {
                     _inventoryMenu.SetActive(false);
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
                     _activeinvent = false;
+                    if (_state != 1)
+                    {
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
                 }
             }
     }
