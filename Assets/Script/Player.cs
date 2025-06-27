@@ -60,7 +60,6 @@ public class Player : MonoBehaviour, IDamageable
 
     private float _targetFill = 1f;
 
-
     public float Level { get => _level; set => _level = value; }
     public float Xp { get => _xp; set => _xp = value; }
     public bool ChangeState { get => _changeState; set => _changeState = value; }
@@ -70,8 +69,19 @@ public class Player : MonoBehaviour, IDamageable
     public float Strenght { get => _strenght; set => _strenght = value; }
     public List<InventoryItem> InventoryEquiped { get => _inventoryEquiped; set => _inventoryEquiped = value; }
 
+    private Animator anim;
+    private SpriteRenderer spriteRenderer;
+
+    private int ultimaDirecao = -1;
+    private float tempoParado = 0f;
+    private const float tempoMinimoParado = 0.1f;
+    private const float movimentoMinimo = 0.05f;   
+
     void Start()
     {
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         rb = GetComponent<Rigidbody2D>();
         UpdateStatusPlayer(); //https://youtu.be/slT_ArW60Xs?si=Ju77HrJwE_Q2zd9G
         _hp = _hpMax;
@@ -100,6 +110,7 @@ public class Player : MonoBehaviour, IDamageable
 
     void Update()
     {
+
         if (Xp >= 100)
         {
             Level = Level + 1;
@@ -136,6 +147,7 @@ public class Player : MonoBehaviour, IDamageable
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
             movement.Normalize();
+            animationController();
         }
         else
         {
@@ -144,6 +156,48 @@ public class Player : MonoBehaviour, IDamageable
 
         OrganizeInventory();
         OpemMenu();
+    }
+
+    void animationController()
+    {
+        float absX = Mathf.Abs(movement.x);
+        float absY = Mathf.Abs(movement.y);
+
+        if (movement.magnitude < movimentoMinimo)
+        {
+            tempoParado += Time.deltaTime;
+
+            if (tempoParado >= tempoMinimoParado && ultimaDirecao != 0)
+            {
+                anim.SetInteger("Direcao", 0); 
+                ultimaDirecao = 0;
+            }
+
+            return;
+        }
+        tempoParado = 0f;
+
+        // Direção dominante
+        if (absX > absY)
+        {
+            int novaDirecao = 3; 
+            if (ultimaDirecao != novaDirecao)
+            {
+                anim.SetInteger("Direcao", novaDirecao);
+                ultimaDirecao = novaDirecao;
+            }
+
+            spriteRenderer.flipX = movement.x > 0;
+        }
+        else
+        {
+            int novaDirecao = movement.y > 0 ? 2 : 1; 
+            if (ultimaDirecao != novaDirecao)
+            {
+                anim.SetInteger("Direcao", novaDirecao);
+                ultimaDirecao = novaDirecao;
+            }
+        }
     }
 
     void OpemMenu()

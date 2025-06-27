@@ -53,6 +53,17 @@ public class Monster: MonoBehaviour, IDamageable
     public float Strenght { get => _strenght; set => _strenght = value; }
     public int State { get => _state; set => _state = value; }
 
+    private Animator anim;
+    private SpriteRenderer spriteRenderer;
+
+    private int ultimaDirecao = -1;
+    private float tempoParado = 0f;
+    private const float tempoMinimoParado = 0.1f;
+    private const float movimentoMinimo = 0.05f;
+
+    private Vector2 lastPosition;
+    private Vector2 movement;
+
     public void Start()
     {
         _hp = Data.Hp;
@@ -67,10 +78,16 @@ public class Monster: MonoBehaviour, IDamageable
         _coin = Data.Coin;
         _xp = Data.Xp;
 
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     public void Update()
     {
+        movement = ((Vector2)transform.position - lastPosition) / Time.deltaTime;
+        lastPosition = transform.position;
+
         if (ChangeState == true)
         {
             _state = 1;
@@ -93,10 +110,53 @@ public class Monster: MonoBehaviour, IDamageable
         { 
             Move();
             Attack();
+            animationController();
         }
         else if (_state == 3)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    void animationController()
+    {
+        float absX = Mathf.Abs(movement.x);
+        float absY = Mathf.Abs(movement.y);
+
+        if (movement.magnitude < movimentoMinimo)
+        {
+            tempoParado += Time.deltaTime;
+
+            if (tempoParado >= tempoMinimoParado && ultimaDirecao != 0)
+            {
+                anim.SetInteger("Direcao", 0); 
+                ultimaDirecao = 0;
+            }
+
+            return;
+        }
+
+        tempoParado = 0f;
+
+        if (absX > absY)
+        {
+            int novaDirecao = 3; 
+            if (ultimaDirecao != novaDirecao)
+            {
+                anim.SetInteger("Direcao", novaDirecao);
+                ultimaDirecao = novaDirecao;
+            }
+
+            spriteRenderer.flipX = movement.x < 0;
+        }
+        else
+        {
+            int novaDirecao = movement.y > 0 ? 2 : 1;
+            if (ultimaDirecao != novaDirecao)
+            {
+                anim.SetInteger("Direcao", novaDirecao);
+                ultimaDirecao = novaDirecao;
+            }
         }
     }
 

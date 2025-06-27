@@ -11865,6 +11865,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5407919707523293823, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
+      propertyPath: Lens.OrthographicSize
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407919707523293823, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 759075217}
@@ -11978,7 +11982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8892370249834308507, guid: 252dd9456ed8c89419ceefa7f4554651, type: 3}
       propertyPath: orthographic size
-      value: 4.1
+      value: 5.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
