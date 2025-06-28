@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEditor.Overlays;
 
 public class SaveController : MonoBehaviour
 {
@@ -25,10 +26,13 @@ public class SaveController : MonoBehaviour
             _enemysInPlataform = FindObjectsOfType<MonsterPlataform>().ToList();
         }
 
-
         _saveLocation = Path.Combine(Application.persistentDataPath, "SaveData.json");
 
-        LoadGame();
+        if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "DaethScreen" && SceneManager.GetActiveScene().name != "HistoryScreen")
+        {
+            LoadGame();
+        }
+        
     }
 
     public void SaveGame() 
@@ -56,27 +60,51 @@ public class SaveController : MonoBehaviour
 
         SaveData saveData = new SaveData
         {
-                _scena = "Game",
-                _playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
-                _playerPositionTwo = new Vector3(0, 0, 0),
-                _level = FindAnyObjectByType<Player>().Level,
-                _xp = FindAnyObjectByType<Player>().Xp,
-                _money = FindAnyObjectByType<Player>().Money,
-                _hp = FindAnyObjectByType<UIStatusManager>().HpPoint,
-                _strenght = FindAnyObjectByType<UIStatusManager>().StrenghtPoint,
-                _def = FindAnyObjectByType<UIStatusManager>().DefensePoint,
-                _speed = FindAnyObjectByType<UIStatusManager>().SpeedPoint,
-
-                _pointsXp = FindAnyObjectByType<UIStatusManager>().PointToPlace,
-
-                _enemy = FindAnyObjectByType<UIStatusManager>().Enemy,
-                _player = GameObject.FindGameObjectWithTag("Player").name,
-
-                _enemysStateGame = stateMonsterGame,
-                _enemysStatePlataform = stateMonsterPlataform
-         };
+            _scena = "HistoryScreen",
+            _playerPosition = new Vector3(45, 39, 0),
+            _playerPositionTwo = Vector3.zero,
+            _level = 0,
+            _xp = 0,
+            _money = 0,
+            _hp = 0,
+            _strenght = 0,
+            _def = 0,
+            _speed = 0,
+            _pointsXp = 0,
+            _enemy = "",
+            _player = "",
+            _light = false,
+            _enemysStateGame = new List<int>(),
+            _enemysStatePlataform = new List<int>(),
+        };
 
          File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
+    }
+
+    public void RestartSave()
+    {
+
+        SaveData saveData = new SaveData
+        {
+            _scena = "HistoryScreen",
+            _playerPosition = new Vector3(45, 39, 0),
+            _playerPositionTwo = Vector3.zero,
+            _level = 0,
+            _xp = 0,
+            _money = 0,
+            _hp = 0,
+            _strenght = 0,
+            _def = 0,
+            _speed = 0,
+            _pointsXp = 0,
+            _enemy = "",
+            _player = "",
+            _light = false,
+            _enemysStateGame = new List<int>(),
+            _enemysStatePlataform = new List<int>(),
+        };
+
+        File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
     }
 
     public void SaveBeforeCombate()
@@ -245,7 +273,10 @@ public class SaveController : MonoBehaviour
             File.WriteAllText(_saveLocation, JsonUtility.ToJson(saveData));
         }
 
-        FindAnyObjectByType<Player>().UpdateStatusPlayer();
+        if (FindAnyObjectByType<Player>() != null)
+        {
+            FindAnyObjectByType<Player>().UpdateStatusPlayer();
+        }
     }
 
 
@@ -253,9 +284,15 @@ public class SaveController : MonoBehaviour
     {
         if (File.Exists(_saveLocation))
         {
-            if (SceneManager.GetActiveScene().name == "Game")
+            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
+
+            if (saveData._scena != SceneManager.GetActiveScene().name && SceneManager.GetActiveScene().name != "BattleScena" && SceneManager.GetActiveScene().name != "TheFinalBattle")
             {
-                SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
+                SceneManager.LoadScene(saveData._scena);
+            }
+
+            if (SceneManager.GetActiveScene().name != "PlataformGame")
+            {
                 GameObject.FindWithTag("Player").transform.position = saveData._playerPosition;
                 FindAnyObjectByType<Player>().Level = saveData._level;
                 FindAnyObjectByType<Player>().Xp = saveData._xp;
@@ -272,14 +309,9 @@ public class SaveController : MonoBehaviour
                     }
                 }
 
-                if (saveData._scena != "Game")
-                {
-                    SceneManager.LoadScene(saveData._scena);
-                }
             }
-            else if (SceneManager.GetActiveScene().name == "PlataformGame")
+            else
             {
-                SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
                 GameObject.FindWithTag("Player").transform.position = saveData._playerPositionTwo;
                 FindAnyObjectByType<Player>().Level = saveData._level;
                 FindAnyObjectByType<Player>().Xp = saveData._xp;
@@ -294,11 +326,6 @@ public class SaveController : MonoBehaviour
                             _enemysInPlataform[i].State = saveData._enemysInPlataform[i];
                         }
                     }
-                }
-
-                if (saveData._scena != "PlataformGame")
-                {
-                    SceneManager.LoadScene(saveData._scena);
                 }
             }
 
