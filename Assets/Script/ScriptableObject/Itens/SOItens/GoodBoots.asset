@@ -20,6 +20,6 @@ MonoBehaviour:
   _typeEquipamente: 3
   _streght: 0
   _def: 0
-  _speed: 10
+  _speed: 6
   _life: 0
-  _price: 0
+  _price: 80

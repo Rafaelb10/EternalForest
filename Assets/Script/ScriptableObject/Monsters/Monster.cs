@@ -64,6 +64,8 @@ public class Monster: MonoBehaviour, IDamageable
     private Vector2 lastPosition;
     private Vector2 movement;
 
+    private bool _isAttackingAnimation = false;
+
     public void Start()
     {
         _hp = Data.Hp;
@@ -110,12 +112,14 @@ public class Monster: MonoBehaviour, IDamageable
         { 
             Move();
             Attack();
-            animationController();
+            
         }
         else if (_state == 3)
         {
             gameObject.SetActive(false);
         }
+
+        animationController();
     }
 
     void animationController()
@@ -387,12 +391,34 @@ public class Monster: MonoBehaviour, IDamageable
             {
                 _playerInRange = true;
 
-                if (_attacking == true && _attackingCoowldownSlap == false)
+                if (_attacking == true && !_attackingCoowldownSlap && !_isAttackingAnimation)
                 {
-                    FindAnyObjectByType<Player>().TakeDamage(_strenght);
-                    StartCoroutine(AttackCooldown());
+                    anim.SetTrigger("Attack");
+                    _isAttackingAnimation = true;
+                    StartCoroutine(WaitForAttackAnimationEnd());
                 }
             }
+        }
+    }
+    private bool IsAnimationFinished(string animationName)
+    {
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        return !stateInfo.IsName(animationName) || stateInfo.normalizedTime >= 1f;
+    }
+
+    IEnumerator WaitForAttackAnimationEnd()
+    {
+        while (!IsAnimationFinished("Attack"))
+        {
+            yield return null;
+        }
+
+        _isAttackingAnimation = false;
+
+        if (_playerInRange)
+        {
+            FindAnyObjectByType<Player>().TakeDamage(_strenght);
+            StartCoroutine(AttackCooldown());
         }
     }
 

@@ -18,8 +18,8 @@ MonoBehaviour:
   _description: 
   _type: 1
   _typeEquipamente: 1
-  _streght: 7
+  _streght: 10
   _def: 0
   _speed: 0
   _life: 0
-  _price: 0
+  _price: 50
