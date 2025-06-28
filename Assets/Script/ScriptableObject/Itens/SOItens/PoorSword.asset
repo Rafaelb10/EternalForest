@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PoorSword
   m_EditorClassIdentifier: 
   _count: 1
-  _aparence: {fileID: 0}
-  _name: Poor sword
+  _aparence: {fileID: -7527312374415658323, guid: 34599fae65ed11e469190d5e666e462c, type: 3}
+  _name: Poor Sword
   _description: 
   _type: 1
   _typeEquipamente: 1

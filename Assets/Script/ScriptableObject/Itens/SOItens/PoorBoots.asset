@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PoorBoots
   m_EditorClassIdentifier: 
   _count: 1
-  _aparence: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  _aparence: {fileID: 743937407, guid: ae93e8df38518184a8a116abdad640d5, type: 3}
   _name: Poor boots
-  _description: aaaaaaaaaaaaaaaaaa
+  _description: 
   _type: 1
   _typeEquipamente: 3
   _streght: 0

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1811f838feef43147a994dea7d3ed971, type: 3}
+  m_Name: NormalSword
+  m_EditorClassIdentifier: 
+  _count: 1
+  _aparence: {fileID: 1022882342691926761, guid: 13ad7a219d72482408d605f4568b7aea, type: 3}
+  _name: Normal Sword
+  _description: 
+  _type: 1
+  _typeEquipamente: 1
+  _streght: 7
+  _def: 0
+  _speed: 0
+  _life: 0
+  _price: 0
