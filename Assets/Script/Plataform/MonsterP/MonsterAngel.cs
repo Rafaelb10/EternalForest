@@ -7,8 +7,11 @@ public class MonsterAngel : MonsterPlataform, IDamageable
 {
     private float moveSpeed = 2f;
     [SerializeField] private Transform groundCheckRight;
-    private float groundCheckDistance = 0.7f;
+    private float groundCheckDistance = 1.4f;
     [SerializeField] private LayerMask groundLayer;
+
+    private Animator anim;
+    private bool isAttacking = false;
 
     private Rigidbody2D rb;
     private int moveDirection = 1;
@@ -40,8 +43,13 @@ public class MonsterAngel : MonsterPlataform, IDamageable
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         _hpMax = _hp;
         moveDirection = Random.value < 0.5f ? -1 : 1;
+        if (moveDirection == -1)
+        {
+            FlipDirection();
+        }
 
         _enemyHp.SetActive(true);
     }
@@ -63,6 +71,8 @@ public class MonsterAngel : MonsterPlataform, IDamageable
 
     protected override void Move()
     {
+        if (isAttacking) return; 
+
         bool groundAheadRight = Physics2D.Raycast(groundCheckRight.position, Vector2.down, groundCheckDistance, groundLayer);
         Debug.DrawRay(groundCheckRight.position, Vector2.down * groundCheckDistance, Color.blue);
 
@@ -77,16 +87,16 @@ public class MonsterAngel : MonsterPlataform, IDamageable
             FlipDirection();
         }
 
-        if (_canDash == true)
+        if (_canDash)
         {
             rb.linearVelocity = new Vector2(moveDirection * moveSpeed, rb.linearVelocity.y);
         }
-        else if (_canDash == false)
+        else
         {
             rb.linearVelocity = new Vector2(moveDirection * dashForce, rb.linearVelocity.y);
         }
-        
-        if (_playerDetected && _cooldownDash == false)
+
+        if (_playerDetected && !_cooldownDash)
         {
             StartCoroutine(DashTowardPlayer());
         }
@@ -113,10 +123,10 @@ public class MonsterAngel : MonsterPlataform, IDamageable
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-            if (_attackingCoowldownSlap == false)
+            if (!_attackingCoowldownSlap && !isAttacking)
             {
-                FindAnyObjectByType<Player>().TakeDamage(Damage);
-                StartCoroutine(AttackCooldown());
+                FacePlayer(player.transform);
+                StartCoroutine(PlayAttack());
             }
         }
     }
@@ -125,21 +135,48 @@ public class MonsterAngel : MonsterPlataform, IDamageable
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-            if (_attackingCoowldownSlap == false)
+            if (!_attackingCoowldownSlap && !isAttacking)
             {
-                FindAnyObjectByType<Player>().TakeDamage(Damage);
-                StartCoroutine(AttackCooldown());
+                FacePlayer(player.transform);
+                StartCoroutine(PlayAttack());
             }
         }
     }
 
-
-    IEnumerator AttackCooldown()
+    private void FacePlayer(Transform player)
     {
+        if (player.position.x > transform.position.x)
+            moveDirection = 1;
+        else
+            moveDirection = -1;
+
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * moveDirection;
+        transform.localScale = scale;
+    }
+
+    IEnumerator PlayAttack()
+    {
+        isAttacking = true;
+        anim.SetTrigger("Attack");
         _attackingCoowldownSlap = true;
-        yield return new WaitForSeconds(1);
+
+        yield return new WaitForSeconds(0.2f); 
+        FindAnyObjectByType<Player>().TakeDamage(Damage);
+
+        AnimatorStateInfo info;
+        do
+        {
+            yield return null;
+            info = anim.GetCurrentAnimatorStateInfo(0);
+        } while (info.IsName("AttackEsqueleto") && info.normalizedTime < 1f);
+
+        yield return new WaitForSeconds(1f);
+
+        isAttacking = false;
         _attackingCoowldownSlap = false;
     }
+
 
     IEnumerator DashTowardPlayer()
     {

@@ -10,7 +10,7 @@ public class MonsterBoss : MonsterPlataform, IDamageable
     private bool _back;
     private Vector2 _velocity = Vector2.zero;
 
-    private bool _attackingCoowldownSlap;
+    private bool _attackingCooldownSlap;
     private float _damageBoss = 30;
 
     private float _hp = 300;
@@ -42,15 +42,21 @@ public class MonsterBoss : MonsterPlataform, IDamageable
 
     private float _buffedSpeed = 3f;
 
+    private Animator anim;
+    private bool isAttacking = false;
+    private bool isDying = false;
+
     private void Start()
     {
         _hpMax = _hp;
-
+        anim = GetComponent<Animator>();
         _enemyHp.SetActive(true);
     }
 
     private void Update()
     {
+        if (isDying) return;
+
         Move();
 
         if (_playerInZoneBoss == true)
@@ -58,24 +64,24 @@ public class MonsterBoss : MonsterPlataform, IDamageable
             Attack();
         }
 
+        if ( _state == 3)
+        {
+            gameObject.SetActive(false);
+        }
+
         _targetFill = Mathf.Clamp01(_hp / _hpMax);
         _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
 
         Damage = _damageBoss;
         _playerInZoneBoss = _playerInZone;
-
-        if (State == 3)
-        {
-            gameObject.SetActive(false);
-        }
     }
 
     protected override void Attack()
     {
-        if (Time.time < _lastAttackTime + _cooldownTime) return;
+        if (Time.time < _lastAttackTime + _cooldownTime || isAttacking) return;
 
         float healthPercentage = _hp / _hpMax;
-        _cooldownTime = (healthPercentage <= 0.5f) ? 10f : 20f;
+        _cooldownTime = (healthPercentage <= 0.5f) ? 5f : 10f;
 
         int randomAttack = Random.Range(1, 4);
 
@@ -95,17 +101,18 @@ public class MonsterBoss : MonsterPlataform, IDamageable
         _lastAttackTime = Time.time;
     }
 
-    public void AttackOne() // Disparar Varias esferas que perseguem
+    public void AttackOne()
     {
+        isAttacking = true;
+
         Transform target = FindAnyObjectByType<Player>().transform;
 
         int bulletCount = 5;
-        float spacing = 0.5f; 
+        float spacing = 0.5f;
 
         for (int i = 0; i < bulletCount; i++)
         {
             float offset = (i - (bulletCount - 1) / 2f) * spacing;
-
             Vector3 spawnPosition = transform.position + new Vector3(offset, 0f, 0f);
 
             GameObject bullet = Instantiate(_bulletTargetPrefab, spawnPosition, Quaternion.identity);
@@ -120,9 +127,11 @@ public class MonsterBoss : MonsterPlataform, IDamageable
                 bt.SetTarget(target);
             }
         }
+
+        StartCoroutine(ResetAttack(1f));
     }
 
-    public void AttackTwo() // Aumentar a Velocidade e Dano
+    public void AttackTwo()
     {
         if (_isBuffActive) return;
 
@@ -137,25 +146,24 @@ public class MonsterBoss : MonsterPlataform, IDamageable
         _isBuffActive = true;
 
         _originalDamage = _damageBoss;
-
         _damageBoss += 20f;
         _buffedSpeed = _originalSpeed + 3f;
 
-        Debug.Log("Buff de dano e velocidade aplicado por " + duration + " segundos.");
-
+        Debug.Log("Buff aplicado por " + duration + " segundos.");
         yield return new WaitForSeconds(duration);
 
         _damageBoss = _originalDamage;
         _buffedSpeed = _originalSpeed;
-
         _isBuffActive = false;
 
-        Debug.Log("Buff encerrado.");
+        Debug.Log("Buff finalizado.");
     }
 
-    public void AttackThree() // Chamar Minion
+    public void AttackThree()
     {
         bool isLowHealth = _hp <= _hpMax * 0.5f;
+
+        anim.SetTrigger("Attack");
 
         int countOne = isLowHealth ? Random.Range(1, _spawnPointsOneBat.Count + 1) : 1;
         int countTwo = isLowHealth ? Random.Range(1, _spawnPointsTwoAngel.Count + 1) : 1;
@@ -167,7 +175,7 @@ public class MonsterBoss : MonsterPlataform, IDamageable
         {
             int index = Random.Range(0, availablePointsOne.Count);
             Instantiate(_prefabBat, availablePointsOne[index].position, Quaternion.identity);
-            availablePointsOne.RemoveAt(index); 
+            availablePointsOne.RemoveAt(index);
         }
 
         for (int i = 0; i < countTwo && availablePointsTwo.Count > 0; i++)
@@ -176,10 +184,20 @@ public class MonsterBoss : MonsterPlataform, IDamageable
             Instantiate(_prefabAngel, availablePointsTwo[index].position, Quaternion.identity);
             availablePointsTwo.RemoveAt(index);
         }
+
+        StartCoroutine(ResetAttack(1.5f));
+    }
+
+    IEnumerator ResetAttack(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isAttacking = false;
     }
 
     protected override void Move()
     {
+        if (isAttacking || isDying) return;
+
         float speed = _buffedSpeed;
 
         if (_playerInZoneBoss == true)
@@ -187,30 +205,42 @@ public class MonsterBoss : MonsterPlataform, IDamageable
             Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
             Vector2 directionToPlayer = (playerPos - (Vector2)transform.position).normalized;
 
+            FlipTowards(playerPos);
+
             _velocity = Vector2.Lerp(_velocity, directionToPlayer * speed, Time.deltaTime * 2f);
             transform.position += (Vector3)(_velocity * Time.deltaTime);
-
-            Attack();
         }
         else
         {
-            Vector2 spaw = _spawTransform.transform.position;
+            Vector2 spaw = _spawTransform.position;
             Vector2 directionToSpaw = (spaw - (Vector2)transform.position).normalized;
+
+            FlipTowards(spaw);
 
             _velocity = Vector2.Lerp(_velocity, directionToSpaw * speed, Time.deltaTime * 2f);
             transform.position += (Vector3)(_velocity * Time.deltaTime);
         }
     }
 
+    private void FlipTowards(Vector2 target)
+    {
+        float dir = target.x - transform.position.x;
+        if (Mathf.Abs(dir) > 0.1f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(dir);
+            transform.localScale = scale;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-            if (_attackingCoowldownSlap == false)
+            if (!_attackingCooldownSlap && !isAttacking)
             {
-                FindAnyObjectByType<Player>().TakeDamage(Damage);
-                StartCoroutine(AttackCooldown());
+                FlipTowards(player.transform.position);
+                StartCoroutine(PlayAttack());
             }
         }
     }
@@ -219,35 +249,50 @@ public class MonsterBoss : MonsterPlataform, IDamageable
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-            if (_attackingCoowldownSlap == false)
+            if (!_attackingCooldownSlap && !isAttacking)
             {
-                FindAnyObjectByType<Player>().TakeDamage(Damage);
-                StartCoroutine(AttackCooldown());
+                FlipTowards(player.transform.position);
+                StartCoroutine(PlayAttack());
             }
         }
     }
 
-
-    IEnumerator AttackCooldown()
+    IEnumerator PlayAttack()
     {
-        _attackingCoowldownSlap = true;
-        yield return new WaitForSeconds(1);
-        _attackingCoowldownSlap = false;
+        isAttacking = true;
+        anim.SetTrigger("Attack");
+        _attackingCooldownSlap = true;
+
+        yield return new WaitForSeconds(0.2f);
+        FindAnyObjectByType<Player>().TakeDamage(Damage);
+
+        AnimatorStateInfo info;
+        do
+        {
+            yield return null;
+            info = anim.GetCurrentAnimatorStateInfo(0);
+        } while (info.IsName("BossAttack") && info.normalizedTime < 1f);
+
+        yield return new WaitForSeconds(1f);
+        isAttacking = false;
+        _attackingCooldownSlap = false;
     }
 
     public override void TakeDamage(float Damage)
     {
-        _hp = _hp - Damage;
+        if (isDying) return;
+
+        _hp -= Damage;
 
         if (_hp <= 0)
         {
             FindAnyObjectByType<Player>().GainXp(_xp);
             FindAnyObjectByType<Player>().GainCoin(_coin);
             State = 3;
+
             FindAnyObjectByType<SaveController>().ChangeLightPlayer();
             FindAnyObjectByType<SaveController>().SaveBeforeCombate();
+
         }
     }
-
 }
-
