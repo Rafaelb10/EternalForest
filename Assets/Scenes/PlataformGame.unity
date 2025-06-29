@@ -210905,6 +210905,7 @@ MonoBehaviour:
   - {fileID: 49626260}
   - {fileID: 1439820684}
   _bulletTargetPrefab: {fileID: 2515055345240620873, guid: b334ab95dd1e88a49b1dfd402f404ea3, type: 3}
+  _deathPrefab: {fileID: 855888279543566682, guid: f8227b1e07e84d747a7d0654ace34fea, type: 3}
 --- !u!95 &1970659265
 Animator:
   serializedVersion: 7

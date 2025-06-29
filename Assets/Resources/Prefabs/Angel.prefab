@@ -192,6 +192,7 @@ MonoBehaviour:
   _enemyHp: {fileID: 5455317843235964631}
   _hpImage: {fileID: 8736327478529316619}
   _hpBarSpeed: 3
+  _deathPrefab: {fileID: 855888279543566682, guid: f8227b1e07e84d747a7d0654ace34fea, type: 3}
 --- !u!95 &2895406604534506068
 Animator:
   serializedVersion: 7

@@ -281,20 +281,33 @@ public class MonsterBoss : MonsterPlataform, IDamageable
         _attackingCooldownSlap = false;
     }
 
+    [SerializeField] private GameObject _deathPrefab;
+    private SpriteRenderer spriteRenderer;
+
     public override void TakeDamage(float Damage)
     {
-        if (isDying) return;
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
         _hp -= Damage;
+        StartCoroutine(FlashRed());
 
         if (_hp <= 0)
         {
             FindAnyObjectByType<Player>().GainXp(_xp);
             FindAnyObjectByType<Player>().GainCoin(_coin);
+            Instantiate(_deathPrefab, gameObject.transform);
             State = 3;
-
             FindAnyObjectByType<SaveController>().ChangeLightPlayer();
             FindAnyObjectByType<SaveController>().SaveBeforeCombate();
+        }
+    }
+
+    private IEnumerator FlashRed()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.red;
+            yield return new WaitForSeconds(0.15f);
+            spriteRenderer.color = Color.white;
         }
     }
 }
