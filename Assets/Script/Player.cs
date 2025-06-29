@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -75,7 +76,9 @@ public class Player : MonoBehaviour, IDamageable
     private int ultimaDirecao = -1;
     private float tempoParado = 0f;
     private const float tempoMinimoParado = 0.1f;
-    private const float movimentoMinimo = 0.05f;   
+    private const float movimentoMinimo = 0.05f;
+
+    private int ultimaDirecaoDeAtaque = 3;
 
     void Start()
     {
@@ -127,8 +130,6 @@ public class Player : MonoBehaviour, IDamageable
             {
                 _statusMenu = null;
             }
-
-            FindAnyObjectByType<PlayerAttack>().State = _state;
         }
 
         if (_state == 1)
@@ -138,8 +139,6 @@ public class Player : MonoBehaviour, IDamageable
             _targetFill = Mathf.Clamp01(_hp / _hpMax);
             _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
 
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
         }
 
         if (_plataformFase == false)
@@ -156,8 +155,59 @@ public class Player : MonoBehaviour, IDamageable
 
         OrganizeInventory();
         OpemMenu();
+
+        if (SceneManager.GetActiveScene().name != "Game" && Input.GetMouseButtonDown(0))
+        {
+            if (Time.time - _lastAttackTime >= _attackCooldown)
+            {
+                Attack();
+                _lastAttackTime = Time.time;
+            }
+        }
     }
 
+    private float _attackCooldown = 1f;
+    private float _lastAttackTime = -1f;
+    private bool isAttacking = false;
+
+    void Attack()
+    {
+        if (isAttacking) return;
+
+        int currentDirection = anim.GetInteger("Direcao");
+
+        if (currentDirection == 0)
+        {
+            StartCoroutine(DelayedAttack());
+        }
+        else
+        {
+            StartCoroutine(AttackWithCurrentDirection());
+        }
+
+        isAttacking = true;
+    }
+
+    private IEnumerator DelayedAttack()
+    {
+        anim.SetInteger("Direcao", ultimaDirecaoDeAtaque);
+
+        yield return new WaitForEndOfFrame();
+
+        anim.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(0.3f); 
+        isAttacking = false;
+    }
+
+    private IEnumerator AttackWithCurrentDirection()
+    {
+        anim.SetInteger("Direcao", ultimaDirecaoDeAtaque);
+        anim.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(0.3f);
+        isAttacking = false;
+    }
     void animationController()
     {
         float absX = Mathf.Abs(movement.x);
@@ -169,18 +219,18 @@ public class Player : MonoBehaviour, IDamageable
 
             if (tempoParado >= tempoMinimoParado && ultimaDirecao != 0)
             {
-                anim.SetInteger("Direcao", 0); 
+                anim.SetInteger("Direcao", 0);
                 ultimaDirecao = 0;
             }
 
             return;
         }
+
         tempoParado = 0f;
 
-        // Direção dominante
         if (absX > absY)
         {
-            int novaDirecao = 3; 
+            int novaDirecao = 3;
             if (ultimaDirecao != novaDirecao)
             {
                 anim.SetInteger("Direcao", novaDirecao);
@@ -188,6 +238,7 @@ public class Player : MonoBehaviour, IDamageable
             }
 
             spriteRenderer.flipX = movement.x > 0;
+            ultimaDirecaoDeAtaque = novaDirecao;
         }
         else
         {
@@ -197,6 +248,8 @@ public class Player : MonoBehaviour, IDamageable
                 anim.SetInteger("Direcao", novaDirecao);
                 ultimaDirecao = novaDirecao;
             }
+
+            ultimaDirecaoDeAtaque = novaDirecao;
         }
     }
 
@@ -215,11 +268,8 @@ public class Player : MonoBehaviour, IDamageable
                 {
                     _statusMenu.SetActive(false);
                     _active = false;
-                    if (_state != 1) 
-                    {
-                        Cursor.visible = false;
-                        Cursor.lockState = CursorLockMode.Locked;
-                    }
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
 
@@ -236,11 +286,8 @@ public class Player : MonoBehaviour, IDamageable
                 {
                     _inventoryMenu.SetActive(false);
                     _activeinvent = false;
-                    if (_state != 1)
-                    {
-                        Cursor.visible = false;
-                        Cursor.lockState = CursorLockMode.Locked;
-                    }
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
     }
