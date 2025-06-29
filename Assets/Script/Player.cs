@@ -42,7 +42,7 @@ public class Player : MonoBehaviour, IDamageable
     private float _jumpForce = 8.5f;
 
     [SerializeField] private Transform _groundCheck;
-    private float _groundCheckDistance = 0.6f;
+    private float _groundCheckDistance = 0.8f;
     [SerializeField] private LayerMask _groundLayer;
 
     private float _moveInput;
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         anim = GetComponent<Animator>();
 
-        anim.SetInteger("LastDirection", 1);
+        anim.SetInteger("LastDirection", 3);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -126,11 +126,6 @@ public class Player : MonoBehaviour, IDamageable
         {
             _state = 1;
             ChangeState = false;
-
-            if (_plataformFase == false)
-            {
-                _statusMenu = null;
-            }
         }
 
         if (_state == 1)
@@ -153,7 +148,7 @@ public class Player : MonoBehaviour, IDamageable
         {
             Move();
         }
-
+        
         OrganizeInventory();
         OpemMenu();
 
@@ -231,6 +226,41 @@ public class Player : MonoBehaviour, IDamageable
             }
         }
     }
+    void animationControllerPlataform()
+    {
+        if (_isAttacking) return;
+
+        float absX = Mathf.Abs(movement.x);
+        float absY = Mathf.Abs(movement.y);
+
+        if (movement.magnitude < movimentoMinimo)
+        {
+            tempoParado += Time.deltaTime;
+
+            if (tempoParado >= tempoMinimoParado && ultimaDirecao != 0)
+            {
+                anim.SetInteger("Direcao", 0);
+                ultimaDirecao = 0;
+            }
+
+            return;
+        }
+
+        tempoParado = 0f;
+
+        if (absX > absY)
+        {
+            int novaDirecao = 3;
+            if (ultimaDirecao != novaDirecao)
+            {
+                anim.SetInteger("Direcao", novaDirecao);
+                anim.SetInteger("LastDirection", novaDirecao);
+                ultimaDirecao = novaDirecao;
+            }
+
+            spriteRenderer.flipX = movement.x > 0;
+        }
+    }
 
     void OpemMenu()
     {
@@ -275,12 +305,18 @@ public class Player : MonoBehaviour, IDamageable
     {
         _moveInput = Input.GetAxisRaw("Horizontal");
 
+        movement = new Vector2(_moveInput, 0f);
+
         _isGrounded = Physics2D.Raycast(_groundCheck.position, Vector2.down, _groundCheckDistance, _groundLayer);
+
+        rb.linearVelocity = new Vector2(_moveInput * _speed, rb.linearVelocity.y);
 
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, _jumpForce);
         }
+
+        animationControllerPlataform();
     }
 
     void FixedUpdate()
@@ -288,10 +324,6 @@ public class Player : MonoBehaviour, IDamageable
         if (_plataformFase == false)
         {
             rb.MovePosition(rb.position + movement * _speed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            rb.linearVelocity = new Vector2(_moveInput * _speed, rb.linearVelocity.y);
         }
     }
 
