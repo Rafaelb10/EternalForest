@@ -15,7 +15,7 @@ MonoBehaviour:
   _count: 1
   _aparence: {fileID: 1022882342691926761, guid: 13ad7a219d72482408d605f4568b7aea, type: 3}
   _name: Normal Sword
-  _description: 
+  _description: Just a normal sword ( +10 strenght)
   _type: 1
   _typeEquipamente: 1
   _streght: 10

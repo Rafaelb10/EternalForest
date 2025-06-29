@@ -15,7 +15,7 @@ MonoBehaviour:
   _count: 1
   _aparence: {fileID: 21300000, guid: 8fa37c2c8b9bd654c96a4fae10f387a1, type: 3}
   _name: Apple
-  _description: 
+  _description: An old apple ( +10 health)
   _type: 0
   _typeEquipamente: 0
   _streght: 0

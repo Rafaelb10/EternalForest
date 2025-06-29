@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5950f2d45bcda4086bbbbbc8044ec9, type: 3}
   m_Name: BossFreiraTwo
   m_EditorClassIdentifier: 
-  _nameCharacther: "Irm\xE3 Nathalia"
+  _nameCharacther: Sister Nathalia
   _word:
-  - Eu perdi
+  - I lost
   _npc: 0
   _inventoryNPC: []

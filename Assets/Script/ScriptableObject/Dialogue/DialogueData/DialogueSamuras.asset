@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameCharacther: Xandy
   _word:
-  - "* Ola meu jovem, vc veio derrotar a criatura que est\xE1 adiante de mim?"
-  - '* Fico comovido em ver que ainda tem bons aventureiros'
-  - '* Lhe desejo sorte'
+  - '* Hello young man, have you come to defeat the creature ahead of me?'
+  - '* I''m touched to see that there are still good adventurers'
+  - '* I wish you luck'
   _npc: 0
   _inventoryNPC: []

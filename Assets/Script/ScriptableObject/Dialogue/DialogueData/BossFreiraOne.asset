@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5950f2d45bcda4086bbbbbc8044ec9, type: 3}
   m_Name: BossFreiraOne
   m_EditorClassIdentifier: 
-  _nameCharacther: Freira
+  _nameCharacther: Nun
   _word:
-  - Se arrependa
+  - You will regret it
   _npc: 0
   _inventoryNPC: []

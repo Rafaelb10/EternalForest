@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameCharacther: Crow
   _word:
-  - "* Ola, vc est\xE1 perdido? por aqui s\xF3 tem criaturas e uma vendedora estranha."
-  - "* Lhe recomendo sair daqui pois \xE9 perigoso."
-  - "* Voc\xEA parece meio doente.... quer ajuda?"
+  - '* Hello, are you lost? Here there are only creatures and a strange saleswoman.'
+  - '* I recommend you get out of here because it''s dangerous.'
+  - '* You look a bit ill.... want help?'
   _npc: 0
   _inventoryNPC: []

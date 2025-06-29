@@ -15,7 +15,7 @@ MonoBehaviour:
   _count: 1
   _aparence: {fileID: 2145055322, guid: ae93e8df38518184a8a116abdad640d5, type: 3}
   _name: Normal Armor
-  _description: 
+  _description: Just a normal armor ( +20 defense)
   _type: 1
   _typeEquipamente: 2
   _streght: 0

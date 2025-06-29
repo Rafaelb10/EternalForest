@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameCharacther: Marilu
   _word:
-  - "* Voc\xEA \xE9 novo aqui? estive viajando e arrumei muitas coisas para vender
-    :)"
-  - "* Ta t\xE3o surpreso pq? nunca viu um gato falante!"
-  - "* Me disseram que no fim da caverna h\xE1 uma criatura que o sangue brilha quando
-    morta, bem que eu queria um pouco."
+  - '* Are you new here? I''ve been travelling and have lots of things to sell :3'
+  - '* Why are you so surprised? You''ve never seen a talking cat!'
+  - '* I''ve been told that at the end of the cave there''s a creature whose blood
+    glows when it''s dead.'
   _npc: 2
   _inventoryNPC:
   - {fileID: 11400000, guid: 7e52ba4a00e368649a5cc5a4ed4db2d0, type: 2}

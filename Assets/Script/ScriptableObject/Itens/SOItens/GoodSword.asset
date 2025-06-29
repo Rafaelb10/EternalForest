@@ -15,7 +15,7 @@ MonoBehaviour:
   _count: 1
   _aparence: {fileID: -4573579932667156495, guid: 5dbe60eb6d72de74e8fd4d28eb27698a, type: 3}
   _name: Good Sword
-  _description: 
+  _description: Strong sword ( +15 strength)
   _type: 0
   _typeEquipamente: 0
   _streght: 15

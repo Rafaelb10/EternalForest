@@ -15,7 +15,7 @@ MonoBehaviour:
   _count: 1
   _aparence: {fileID: 21300102, guid: 142ff8784e552734f9d6a895491d0ae8, type: 3}
   _name: Cherry
-  _description: 
+  _description: A pair of cherrys ( +25 health)
   _type: 0
   _typeEquipamente: 0
   _streght: 0
