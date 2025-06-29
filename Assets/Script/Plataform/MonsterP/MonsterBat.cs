@@ -15,7 +15,7 @@ public class MonsterBat : MonsterPlataform
 
     private bool _attackingCooldownSlap;
     private bool _shootcooldown;
-    private float _damagebat = 10;
+    private float _damagebat = 5;
 
     private float _hp = 90;
     private float _hpMax;

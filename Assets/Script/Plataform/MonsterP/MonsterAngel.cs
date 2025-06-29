@@ -17,7 +17,7 @@ public class MonsterAngel : MonsterPlataform, IDamageable
     private int moveDirection = 1;
 
     private bool _attackingCoowldownSlap;
-    private float _damageAngel = 20;
+    private float _damageAngel = 10;
 
     private float _hp = 150;
     private float _hpMax;
