@@ -7,7 +7,11 @@ public class UIComplementary : MonoBehaviour
 
     private void Start()
     {
-        AnimationUpAndDown();
+        if(complementary != null)
+        {
+            AnimationUpAndDown();
+        }
+       
     }
 
     public void GoToMenu()
