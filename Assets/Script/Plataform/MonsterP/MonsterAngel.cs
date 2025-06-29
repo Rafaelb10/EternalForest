@@ -207,7 +207,7 @@ public class MonsterAngel : MonsterPlataform, IDamageable
         {
             FindAnyObjectByType<Player>().GainXp(_xp);
             FindAnyObjectByType<Player>().GainCoin(_coin);
-            Instantiate(_deathPrefab, gameObject.transform);
+            Instantiate(_deathPrefab, transform.position, Quaternion.identity);
             State = 3;
             FindAnyObjectByType<SaveController>().SaveBeforeCombate();
         }

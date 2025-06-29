@@ -70,6 +70,9 @@ public class Monster: MonoBehaviour, IDamageable
 
     private bool _isAttackingAnimation = false;
 
+    private Rigidbody2D _rb;
+    private bool _isPaused = false;
+
     public void Start()
     {
         _hp = Data.Hp;
@@ -85,6 +88,7 @@ public class Monster: MonoBehaviour, IDamageable
         _xp = Data.Xp;
 
         anim = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
@@ -114,7 +118,6 @@ public class Monster: MonoBehaviour, IDamageable
         }
         else if (_state == 1) 
         { 
-            Move();
             Attack();
             
         }
@@ -124,6 +127,14 @@ public class Monster: MonoBehaviour, IDamageable
         }
 
         animationController();
+    }
+
+    void FixedUpdate()
+    {
+        if (_state == 1)
+        {
+            Move();
+        }
     }
 
     void animationController()
@@ -272,54 +283,33 @@ public class Monster: MonoBehaviour, IDamageable
 
     public void Move()
     {
-        if (_attacking == false || _hab1 == false || _hab2 == false) 
+        if (_attacking || _hab1 || _hab2 || _isPaused) return;
+
+        Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
+        Vector2 direction = (playerPos - (Vector2)transform.position).normalized;
+
+        if (Vector2.Distance(transform.position, playerPos) > 1.5f)
         {
-            if (_changeMove == false)
-            {
+            Vector2 randomOffset = Random.insideUnitCircle * 0.3f;
+            direction += randomOffset;
+            direction.Normalize();
+        }
 
-                _movetype = Random.Range(0, 3);
-                StartCoroutine(MoveType());
-            }
+        Vector2 newPosition = (Vector2)transform.position + direction * _speed * Time.fixedDeltaTime;
+        _rb.MovePosition(newPosition);
 
-            switch (_movetype)
-            {
-                case 0:
-                    Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
-                    Vector2 directionToPlayer = (playerPos - (Vector2)transform.position).normalized;
+        if (Vector2.Distance(transform.position, playerPos) < 0.8f && !_isPaused)
+        {
+            StartCoroutine(PauseMovement());
+        }
+    }
 
-                    _velocity = Vector2.Lerp(_velocity, directionToPlayer * 3f, Time.deltaTime * 2f);
-                    transform.position += (Vector3)(_velocity * Time.deltaTime);
-                    break;
-
-                case 1:
-                    playerPos = FindAnyObjectByType<Player>().transform.position;
-                    Vector2 targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
-
-                    if (Vector2.Distance(transform.position, targetOrbitPos) > 0.1f)
-                    {
-                        Vector2 moveDir = (targetOrbitPos - (Vector2)transform.position).normalized;
-                        transform.position += (Vector3)(moveDir * 3f * Time.deltaTime);
-                    }
-                    else
-                    {
-                        _circleAngle += Time.deltaTime * 1f;
-                        targetOrbitPos = playerPos + new Vector2(Mathf.Cos(_circleAngle), Mathf.Sin(_circleAngle)) * 4f;
-                        transform.position = (Vector3)targetOrbitPos;
-                    }
-                    break;
-
-                case 2:
-                    if (_randomMoveTime <= 0f)
-                    {
-                        _randomDirection = Random.insideUnitCircle.normalized;
-                        _randomMoveTime = Random.Range(1f, 3f);
-                    }
-
-                    transform.position += (Vector3)(_randomDirection * 3f * Time.deltaTime);
-                    _randomMoveTime -= Time.deltaTime;
-                    break;
-            }
-        }   
+    private IEnumerator PauseMovement()
+    {
+        _isPaused = true;
+        _rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
+        _isPaused = false;
     }
 
     private void MoveTowards(Vector3 target)
@@ -332,18 +322,64 @@ public class Monster: MonoBehaviour, IDamageable
         return Vector3.Distance(transform.position, target) < 0.1f;
     }
 
+    [SerializeField] private GameObject _deathPrefab;
+
     public void TakeDamage(float damage)
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        StartCoroutine(FlashRed());
         _hp = _hp - damage;
 
-        if (_hp <= 0)
+        if (_hp <= 0 && _state!=2)
         {
             _state = 2;
             FindAnyObjectByType<Player>().GainXp(_xp);
             FindAnyObjectByType<Player>().GainCoin(_coin);
             FindAnyObjectByType<SaveController>().SaveCombate();
-            SceneManager.LoadScene("Game");
+            Instantiate(_deathPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(DieWithFade());
+
         }
+    }
+
+    private IEnumerator FlashRed()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.red;
+            yield return new WaitForSeconds(0.15f);
+            spriteRenderer.color = Color.white;
+        }
+    }
+
+    [SerializeField] private Image fadeImage;
+
+    private IEnumerator DieWithFade()
+    {
+        if (fadeImage == null)
+        {
+            GameObject UI = GameObject.Find("BlackImage");
+            fadeImage = UI.GetComponent<Image>();
+        }
+
+        float duration = 2f;
+        float currentTime = 0f;
+
+        Color color = fadeImage.color;
+
+        while (currentTime < duration)
+        {
+            float alpha = Mathf.Lerp(0, 1, currentTime / duration);
+            fadeImage.color = new Color(color.r, color.g, color.b, alpha);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        fadeImage.color = new Color(color.r, color.g, color.b, 1f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("Game");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -352,6 +388,7 @@ public class Monster: MonoBehaviour, IDamageable
         {
             if (collision.TryGetComponent<Player>(out var player))
             {
+                FindAnyObjectByType<SaveController>()?.SavePlayerPosition();
                 StartCoroutine(FlashAndLoadScene());
             }
         }
@@ -378,6 +415,7 @@ public class Monster: MonoBehaviour, IDamageable
             {
                 if (combate == false)
                 {
+                    FindAnyObjectByType<SaveController>()?.SavePlayerPosition();
                     StartCoroutine(FlashAndLoadScene());
                 }
             }

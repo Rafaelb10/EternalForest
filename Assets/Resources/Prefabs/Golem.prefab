@@ -115,8 +115,10 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: ca0dc4f0ec245ca4c8cbaf139f099767, type: 2}
   _enemyHp: {fileID: 7548483020989704319}
   _hpImage: {fileID: 5276903070512838361}
-  _hpBarSpeed: 3
   flashImage: {fileID: 0}
+  _hpBarSpeed: 3
+  _deathPrefab: {fileID: 855888279543566682, guid: f8227b1e07e84d747a7d0654ace34fea, type: 3}
+  fadeImage: {fileID: 0}
 --- !u!61 &559672070332323698
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -92,7 +92,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _slotsEquipamente:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _inventorySystem: {fileID: 0}
+  _itemDescription: {fileID: 0}
 --- !u!114 &6464815507379196408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77bee03adfbd874ca42f9882d85416c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slotItemPrefab: {fileID: 7863719901164753450, guid: be90fd77fae92024faf93d9e77a8b40d, type: 3}
+  _slotItemPrefab: {fileID: 19460851286017292, guid: cc7552c8b6ae459448dc4a5fe7ba9d51, type: 3}
   _scrollContent: {fileID: 0}
   _inventoryShop: []
   _spacing: 35

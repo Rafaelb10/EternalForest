@@ -70,7 +70,7 @@ public class AttackCobra : AttackLogic
     IEnumerator AttackDuranting()
     {
         _attackingCoowldown = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         _attackingCoowldown = false;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using System.Collections;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -115,6 +116,18 @@ public class Player : MonoBehaviour, IDamageable
     void Update()
     {
 
+        if (_statusMenu == null)
+        {
+            _statusMenu = GameObject.Find("StatusPainel");
+            _statusMenu.SetActive(false);
+        }
+
+        if (_inventoryMenu == null)
+        {
+            _inventoryMenu = GameObject.Find("Inventory");
+            _inventoryMenu.SetActive(false);
+        }
+
         if (Xp >= 100)
         {
             Level = Level + 1;
@@ -173,7 +186,7 @@ public class Player : MonoBehaviour, IDamageable
 
         _isAttacking = true;
         anim.SetTrigger("Attack");
-        Invoke(nameof(EndAttack), 0.6f);
+        Invoke(nameof(EndAttack), 0.4f);
     }
 
     void EndAttack()
@@ -450,9 +463,9 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         _hpMax = 100 + saveData._hp * 10;
-        _strenght = 100 + saveData._strenght * 0.5f + _strenghtSword;
+        _strenght = 10 + saveData._strenght * 0.5f + _strenghtSword;
         _def = 0 + saveData._def * 0.25f + _defArmor;
-        _speed = 3 + saveData._speed * 0.10f + _speedBoots;
+        _speed = 5 + saveData._speed * 0.10f + _speedBoots;
 
         _xp = saveData._xp;
         _level = saveData._level;
@@ -608,6 +621,8 @@ public class Player : MonoBehaviour, IDamageable
         FindAnyObjectByType<SaveController>()?.SaveInventory();
     }
 
+    [SerializeField] private bool dead = false;
+
     public void TakeDamage(float Damage)
     {
         Damage = Damage - _def;
@@ -619,9 +634,57 @@ public class Player : MonoBehaviour, IDamageable
 
         _hp = _hp - Damage;
 
+        StartCoroutine(FlashRed());
+
         if (_hp <= 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("DaethScreen");
+            if (dead == false)
+            {
+                StartCoroutine(DieWithFade());
+            }
         }
+    }
+
+
+    private IEnumerator FlashRed()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.red;
+            yield return new WaitForSeconds(0.15f);
+            spriteRenderer.color = Color.white;
+        }
+    }
+
+    [SerializeField] private Image fadeImage;
+
+
+    private IEnumerator DieWithFade()
+    {
+        if (fadeImage == null)
+        {
+            GameObject UI = GameObject.Find("BlackImage");
+            fadeImage = UI.GetComponent<Image>();
+        }
+
+        dead = true;
+        float duration = 2f;
+        float currentTime = 0f;
+
+        Color color = fadeImage.color;
+
+        while (currentTime < duration)
+        {
+            float alpha = Mathf.Lerp(0, 1, currentTime / duration);
+            fadeImage.color = new Color(color.r, color.g, color.b, alpha);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        fadeImage.color = new Color(color.r, color.g, color.b, 1f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("DaethScreen");
     }
 }

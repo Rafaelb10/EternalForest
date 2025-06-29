@@ -692,8 +692,10 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 4a59afe1fde78204e95435bd37f21399, type: 2}
   _enemyHp: {fileID: 182348785468259162}
   _hpImage: {fileID: 1430180982110593163}
-  _hpBarSpeed: 3
   flashImage: {fileID: 0}
+  _hpBarSpeed: 3
+  _deathPrefab: {fileID: 855888279543566682, guid: f8227b1e07e84d747a7d0654ace34fea, type: 3}
+  fadeImage: {fileID: 0}
 --- !u!61 &3753862221111519397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -798,8 +800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4531db2b95e6ab4cad976bdbc4282df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletNormal: {fileID: 1913697522064126463, guid: 2f3e20b5b4d51ef4eb9095e4a5824809, type: 3}
-  _bulletPersegue: {fileID: 2515055345240620873, guid: f5e9647507551684d8695123f4481136, type: 3}
+  _bulletNormal: {fileID: 1913697522064126463, guid: 62fdca99d4cdb05418e07328d00aec53, type: 3}
+  _bulletPersegue: {fileID: 2515055345240620873, guid: 876ddce977790614bb2af684ccda0efc, type: 3}
   _bulletSpaw: {fileID: 8623960130945078410, guid: 477cb1e7e6ea08744993aef10605b04d, type: 3}
 --- !u!50 &9164582812553696964
 Rigidbody2D:

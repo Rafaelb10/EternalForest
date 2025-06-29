@@ -13,8 +13,14 @@ public class InventoryManager : MonoBehaviour
 
     public TextMeshProUGUI ItemDescription { get => _itemDescription; set => _itemDescription = value; }
 
+
     void Update()
     {
+        if (_inventorySystem != null)
+        {
+            _inventorySystem = FindAnyObjectByType<Player>();
+        }
+
         UpdateInventoryUI();
         UpdateEquipamentUI();
     }
