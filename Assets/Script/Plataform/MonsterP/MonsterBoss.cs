@@ -48,33 +48,36 @@ public class MonsterBoss : MonsterPlataform, IDamageable
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         _hpMax = _hp;
         anim = GetComponent<Animator>();
         _enemyHp.SetActive(true);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (isDying) return;
 
-        Move();
-
         if (_playerInZoneBoss)
         {
             Attack();
         }
+
+        _targetFill = Mathf.Clamp01(_hp / _hpMax);
+        _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
 
         if (_state == 3)
         {
             gameObject.SetActive(false);
         }
 
-        _targetFill = Mathf.Clamp01(_hp / _hpMax);
-        _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
-
         Damage = _damageBoss;
         _playerInZoneBoss = _playerInZone;
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     protected override void Attack()
@@ -105,6 +108,7 @@ public class MonsterBoss : MonsterPlataform, IDamageable
     public void AttackOne()
     {
         isAttacking = true;
+
         Transform target = FindAnyObjectByType<Player>().transform;
 
         int bulletCount = 5;
@@ -116,12 +120,16 @@ public class MonsterBoss : MonsterPlataform, IDamageable
             Vector3 spawnPosition = transform.position + new Vector3(offset, 0f, 0f);
 
             GameObject bullet = Instantiate(_bulletTargetPrefab, spawnPosition, Quaternion.identity);
+
             Vector2 dir = (target.position - bullet.transform.position).normalized;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
             BulletTarget bt = bullet.GetComponent<BulletTarget>();
-            if (bt != null) bt.SetTarget(target);
+            if (bt != null)
+            {
+                bt.SetTarget(target);
+            }
         }
 
         StartCoroutine(ResetAttack(1f));
@@ -140,20 +148,25 @@ public class MonsterBoss : MonsterPlataform, IDamageable
     IEnumerator BuffRoutine(float duration)
     {
         _isBuffActive = true;
+
         _originalDamage = _damageBoss;
         _damageBoss += 20f;
         _buffedSpeed = _originalSpeed + 3f;
 
+        Debug.Log("Buff aplicado por " + duration + " segundos.");
         yield return new WaitForSeconds(duration);
 
         _damageBoss = _originalDamage;
         _buffedSpeed = _originalSpeed;
         _isBuffActive = false;
+
+        Debug.Log("Buff finalizado.");
     }
 
     public void AttackThree()
     {
         bool isLowHealth = _hp <= _hpMax * 0.5f;
+
         anim.SetTrigger("Attack");
 
         int countOne = isLowHealth ? Random.Range(1, _spawnPointsOneBat.Count + 1) : 1;
@@ -187,30 +200,29 @@ public class MonsterBoss : MonsterPlataform, IDamageable
 
     protected override void Move()
     {
-        if (isAttacking || isDying) return;
+        if (isAttacking || isDying)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
         float speed = _buffedSpeed;
-        Vector2 newPosition = rb.position;
+        Vector2 direction;
 
         if (_playerInZoneBoss)
         {
             Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
-            Vector2 direction = (playerPos - rb.position).normalized;
-
+            direction = (playerPos - rb.position).normalized;
             FlipTowards(playerPos);
-            _velocity = Vector2.Lerp(_velocity, direction * speed, Time.deltaTime * 2f);
         }
         else
         {
             Vector2 spaw = _spawTransform.position;
-            Vector2 direction = (spaw - rb.position).normalized;
-
+            direction = (spaw - rb.position).normalized;
             FlipTowards(spaw);
-            _velocity = Vector2.Lerp(_velocity, direction * speed, Time.deltaTime * 2f);
         }
 
-        newPosition += _velocity * Time.deltaTime;
-        rb.MovePosition(newPosition);
+        rb.linearVelocity = direction * speed;
     }
 
     private void FlipTowards(Vector2 target)
@@ -277,11 +289,8 @@ public class MonsterBoss : MonsterPlataform, IDamageable
 
         if (_hp <= 0)
         {
-            isDying = true;
-
             FindAnyObjectByType<Player>().GainXp(_xp);
             FindAnyObjectByType<Player>().GainCoin(_coin);
-
             State = 3;
 
             FindAnyObjectByType<SaveController>().ChangeLightPlayer();

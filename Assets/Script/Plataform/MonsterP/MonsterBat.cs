@@ -8,9 +8,8 @@ public class MonsterBat : MonsterPlataform
     protected bool _playerInZoneBat;
     [SerializeField] private Transform _spawTransform;
     private bool _back;
-    private bool _goingToSpaw = false;
-
     private Vector2 _velocity = Vector2.zero;
+
     private Vector2 _randomDirection = Vector2.zero;
     private float _randomMoveTime = 0f;
 
@@ -39,16 +38,14 @@ public class MonsterBat : MonsterPlataform
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         _hpMax = _hp;
         anim = GetComponent<Animator>();
         _enemyHp.SetActive(true);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        Move();
-
         _targetFill = Mathf.Clamp01(_hp / _hpMax);
         _hpImage.fillAmount = Mathf.Lerp(_hpImage.fillAmount, _targetFill, Time.deltaTime * _hpBarSpeed);
 
@@ -61,9 +58,14 @@ public class MonsterBat : MonsterPlataform
         Damage = _damagebat;
     }
 
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
     protected override void Attack()
     {
-        if (!_shootcooldown && !isAttacking)
+        if (_shootcooldown == false && !isAttacking)
         {
             anim.SetTrigger("Attack");
             StartCoroutine(ShootWithDelay(0.3f));
@@ -89,26 +91,25 @@ public class MonsterBat : MonsterPlataform
         }
 
         StartCoroutine(FireCooldown());
-
         yield return new WaitForSeconds(0.7f);
         isAttacking = false;
     }
 
     protected override void Move()
     {
-        if (isAttacking) return;
+        if (isAttacking)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
-        Vector2 newPosition = rb.position;
+        Vector2 direction = Vector2.zero;
 
         if (_playerInZoneBat)
         {
             Vector2 playerPos = FindAnyObjectByType<Player>().transform.position;
-            Vector2 directionToPlayer = (playerPos - rb.position).normalized;
-
+            direction = (playerPos - rb.position).normalized;
             FlipTowards(playerPos);
-            _velocity = Vector2.Lerp(_velocity, directionToPlayer * 3f, Time.deltaTime * 2f);
-            newPosition += _velocity * Time.deltaTime;
-
             Attack();
         }
         else
@@ -121,28 +122,21 @@ public class MonsterBat : MonsterPlataform
                     _randomMoveTime = Random.Range(1f, 3f);
                 }
 
-                FlipTowards(rb.position + _randomDirection);
-                newPosition += _randomDirection * 3f * Time.deltaTime;
-                _randomMoveTime -= Time.deltaTime;
+                FlipTowards(transform.position + (Vector3)_randomDirection);
+                direction = _randomDirection;
+                _randomMoveTime -= Time.fixedDeltaTime;
 
-                if (!_goingToSpaw)
-                {
-                    StartCoroutine(GotoSpaw());
-                    _goingToSpaw = true;
-                }
+                StartCoroutine(GotoSpaw());
             }
             else
             {
                 Vector2 spaw = _spawTransform.position;
-                Vector2 directionToSpaw = (spaw - rb.position).normalized;
-
+                direction = (spaw - rb.position).normalized;
                 FlipTowards(spaw);
-                _velocity = Vector2.Lerp(_velocity, directionToSpaw * 3f, Time.deltaTime * 2f);
-                newPosition += _velocity * Time.deltaTime;
             }
         }
 
-        rb.MovePosition(newPosition);
+        rb.linearVelocity = direction * 3f;
     }
 
     IEnumerator GotoSpaw()
@@ -151,7 +145,6 @@ public class MonsterBat : MonsterPlataform
         _back = true;
         yield return new WaitForSeconds(10);
         _back = false;
-        _goingToSpaw = false;
     }
 
     private void FlipTowards(Vector2 target)
