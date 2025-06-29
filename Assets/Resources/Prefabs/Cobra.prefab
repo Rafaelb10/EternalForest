@@ -659,7 +659,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -6611574454720423463, guid: af4970c24cfb8b047b77645fd9abac14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -693,6 +693,7 @@ MonoBehaviour:
   _enemyHp: {fileID: 182348785468259162}
   _hpImage: {fileID: 1430180982110593163}
   _hpBarSpeed: 3
+  flashImage: {fileID: 0}
 --- !u!61 &3753862221111519397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -727,7 +728,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.14379491}
+  m_Offset: {x: -0.089244366, y: -0.104106426}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -737,7 +738,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.67607594, y: 0.8082895}
   m_EdgeRadius: 0
 --- !u!61 &1136099286425640079
 BoxCollider2D:
@@ -773,7 +774,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.012847424, y: 0.15820503}
+  m_Offset: {x: -0.075648785, y: -0.05486393}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -783,7 +784,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5150766, y: 1.5005016}
+  m_Size: {x: 1.0457163, y: 1.0743637}
   m_EdgeRadius: 0
 --- !u!114 &4670275659444283736
 MonoBehaviour:
@@ -812,7 +813,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -823,9 +824,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &8551246049227210795
 Animator:

@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using UnityEditor;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -78,11 +78,12 @@ public class Player : MonoBehaviour, IDamageable
     private const float tempoMinimoParado = 0.1f;
     private const float movimentoMinimo = 0.05f;
 
-    private int ultimaDirecaoDeAtaque = 3;
-
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        anim.SetInteger("LastDirection", 1);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -168,48 +169,27 @@ public class Player : MonoBehaviour, IDamageable
 
     private float _attackCooldown = 1f;
     private float _lastAttackTime = -1f;
-    private bool isAttacking = false;
+
+    private bool _isAttacking = false;
 
     void Attack()
     {
-        if (isAttacking) return;
+        if (_isAttacking) return;
 
-        int currentDirection = anim.GetInteger("Direcao");
-
-        if (currentDirection == 0)
-        {
-            StartCoroutine(DelayedAttack());
-        }
-        else
-        {
-            StartCoroutine(AttackWithCurrentDirection());
-        }
-
-        isAttacking = true;
-    }
-
-    private IEnumerator DelayedAttack()
-    {
-        anim.SetInteger("Direcao", ultimaDirecaoDeAtaque);
-
-        yield return new WaitForEndOfFrame();
-
+        _isAttacking = true;
         anim.SetTrigger("Attack");
-
-        yield return new WaitForSeconds(0.3f); 
-        isAttacking = false;
+        Invoke(nameof(EndAttack), 0.6f);
     }
 
-    private IEnumerator AttackWithCurrentDirection()
+    void EndAttack()
     {
-        anim.SetInteger("Direcao", ultimaDirecaoDeAtaque);
-        anim.SetTrigger("Attack");
-
-        yield return new WaitForSeconds(0.3f);
-        isAttacking = false;
+        _isAttacking = false;
     }
+
     void animationController()
     {
+        if (_isAttacking) return; 
+
         float absX = Mathf.Abs(movement.x);
         float absY = Mathf.Abs(movement.y);
 
@@ -234,62 +214,61 @@ public class Player : MonoBehaviour, IDamageable
             if (ultimaDirecao != novaDirecao)
             {
                 anim.SetInteger("Direcao", novaDirecao);
+                anim.SetInteger("LastDirection", novaDirecao);
                 ultimaDirecao = novaDirecao;
             }
 
             spriteRenderer.flipX = movement.x > 0;
-            ultimaDirecaoDeAtaque = novaDirecao;
         }
         else
         {
-            int novaDirecao = movement.y > 0 ? 2 : 1; 
+            int novaDirecao = movement.y > 0 ? 2 : 1;
             if (ultimaDirecao != novaDirecao)
             {
                 anim.SetInteger("Direcao", novaDirecao);
+                anim.SetInteger("LastDirection", novaDirecao);
                 ultimaDirecao = novaDirecao;
             }
-
-            ultimaDirecaoDeAtaque = novaDirecao;
         }
     }
 
     void OpemMenu()
     {
-            if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (_active == false)
             {
-                if (_active == false)
-                {
-                    _statusMenu.SetActive(true);
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                    _active = true;
-                }
-                else
-                {
-                    _statusMenu.SetActive(false);
-                    _active = false;
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
+                _statusMenu.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                _active = true;
             }
+            else
+            {
+                _statusMenu.SetActive(false);
+                _active = false;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
 
-            if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (_activeinvent == false)
             {
-                if (_activeinvent == false)
-                {
-                    _inventoryMenu.SetActive(true);
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                    _activeinvent = true;
-                }
-                else
-                {
-                    _inventoryMenu.SetActive(false);
-                    _activeinvent = false;
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
+                _inventoryMenu.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                _activeinvent = true;
             }
+            else
+            {
+                _inventoryMenu.SetActive(false);
+                _activeinvent = false;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
     }
 
     void Move()
@@ -322,7 +301,7 @@ public class Player : MonoBehaviour, IDamageable
     }
     public void GainCoin(float coin)
     {
-        Money = Money + coin;  
+        Money = Money + coin;
     }
 
     public void GainHealth(float amount)
@@ -336,27 +315,27 @@ public class Player : MonoBehaviour, IDamageable
 
     public void EquipamentStart()
     {
-            for (int i = 0; i < _inventoryEquiped.Count; i++)
-            {
-                var item = _inventoryEquiped[i];
-                if (item == null || item.data == null) continue;
+        for (int i = 0; i < _inventoryEquiped.Count; i++)
+        {
+            var item = _inventoryEquiped[i];
+            if (item == null || item.data == null) continue;
 
-                switch (i)
-                {
-                    case 0: // Espada
-                        _strenghtSword = item.data.Streght;
-                        _strenght = _strenght + _strenghtSword;
-                        break;
-                    case 1: // Armadura
-                        _defArmor = item.data.Def;
-                        _def = _def + _defArmor;
-                        break;
-                    case 2: // Bota
-                        _speedBoots = item.data.Speed;
-                        _speed = _speed + _speedBoots;
-                        break;
-                }
+            switch (i)
+            {
+                case 0: // Espada
+                    _strenghtSword = item.data.Streght;
+                    _strenght = _strenght + _strenghtSword;
+                    break;
+                case 1: // Armadura
+                    _defArmor = item.data.Def;
+                    _def = _def + _defArmor;
+                    break;
+                case 2: // Bota
+                    _speedBoots = item.data.Speed;
+                    _speed = _speed + _speedBoots;
+                    break;
             }
+        }
     }
 
     public void StatusEquipament(bool add, ItensData newItem)
@@ -366,11 +345,11 @@ public class Player : MonoBehaviour, IDamageable
         {
             if ((int)newItem.TypeEquipamente == 1)
             {
-                _strenght =  _strenght + newItem.Streght; 
+                _strenght = _strenght + newItem.Streght;
             }
             else if ((int)newItem.TypeEquipamente == 2)
             {
-                _def =  _def + newItem.Def;
+                _def = _def + newItem.Def;
             }
             else if ((int)newItem.TypeEquipamente == 3)
             {
@@ -572,7 +551,7 @@ public class Player : MonoBehaviour, IDamageable
                 _inventory.Add(newItem);
             }
             FindAnyObjectByType<SaveController>().SaveInventory();
-            
+
         }
     }
 
@@ -601,7 +580,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         Damage = Damage - _def;
 
-        if (Damage <= 0) 
+        if (Damage <= 0)
         {
             Damage = 1;
         }
@@ -610,7 +589,7 @@ public class Player : MonoBehaviour, IDamageable
 
         if (_hp <= 0)
         {
-            _state = 2;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("DaethScreen");
         }
     }
 }

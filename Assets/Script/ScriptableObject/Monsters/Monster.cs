@@ -43,6 +43,10 @@ public class Monster: MonoBehaviour, IDamageable
     [SerializeField] private GameObject _enemyHp;
     [SerializeField] private Image _hpImage;
 
+
+    [SerializeField] private GameObject flashImage;
+    private bool combate;
+
     [SerializeField] private float _hpBarSpeed = 3f; 
     private float _targetFill = 1f;
 
@@ -348,12 +352,7 @@ public class Monster: MonoBehaviour, IDamageable
         {
             if (collision.TryGetComponent<Player>(out var player))
             {
-                Debug.Log(this.gameObject.name);
-                FindAnyObjectByType<UIStatusManager>().Enemy = this.gameObject.name;
-                State = 3;
-                FindAnyObjectByType<SaveController>()?.SaveBeforeCombate();
-                
-                SceneManager.LoadScene("BattleScena");
+                StartCoroutine(FlashAndLoadScene());
             }
         }
         else if (_state == 1)
@@ -377,12 +376,10 @@ public class Monster: MonoBehaviour, IDamageable
         {
             if (collision.TryGetComponent<Player>(out var player))
             {
-                Debug.Log(this.gameObject.name);
-                FindAnyObjectByType<UIStatusManager>().Enemy = this.gameObject.name;
-                State = 3;
-                FindAnyObjectByType<SaveController>()?.SaveBeforeCombate();
-
-                SceneManager.LoadScene("BattleScena");
+                if (combate == false)
+                {
+                    StartCoroutine(FlashAndLoadScene());
+                }
             }
         }
         else if (_state == 1)
@@ -400,6 +397,39 @@ public class Monster: MonoBehaviour, IDamageable
             }
         }
     }
+
+    private IEnumerator FlashAndLoadScene()
+    {
+        combate = true;
+
+        if (flashImage == null)
+        {
+            yield break;
+        }
+
+        flashImage.SetActive(true);
+        Image _imageFlash = flashImage.GetComponent<Image>();
+        float flashSpeed = 0.2f;
+        int flashCount = 3;      
+
+        for (int i = 0; i < flashCount; i++)
+        {
+            _imageFlash.color = new Color(1f, 1f, 1f, 0.5f);
+            yield return new WaitForSecondsRealtime(flashSpeed);
+
+            _imageFlash.color = new Color(1f, 1f, 1f, 0f);
+            yield return new WaitForSecondsRealtime(flashSpeed);
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        FindAnyObjectByType<UIStatusManager>().Enemy = this.gameObject.name;
+        State = 3;
+        FindAnyObjectByType<SaveController>()?.SaveBeforeCombate();
+        SceneManager.LoadScene("BattleScena");
+    }
+
+
     private bool IsAnimationFinished(string animationName)
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);

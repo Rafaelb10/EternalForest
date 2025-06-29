@@ -1,0 +1,1935 @@
+fileFormatVersion: 2
+guid: afc332d7c27f7e7418ca25115046faa7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -478385939964475487
+    second: golen sprite final (colocaR TUDO AQUI) (2)_0
+  - first:
+      213: -8470979813977930370
+    second: golen sprite final (colocaR TUDO AQUI) (2)_1
+  - first:
+      213: 5048719250030804191
+    second: golen sprite final (colocaR TUDO AQUI) (2)_2
+  - first:
+      213: 7816302218361078525
+    second: golen sprite final (colocaR TUDO AQUI) (2)_3
+  - first:
+      213: -5621183212604706586
+    second: golen sprite final (colocaR TUDO AQUI) (2)_4
+  - first:
+      213: 684058211916067933
+    second: golen sprite final (colocaR TUDO AQUI) (2)_5
+  - first:
+      213: -302675418067410353
+    second: golen sprite final (colocaR TUDO AQUI) (2)_6
+  - first:
+      213: -5032142616900331356
+    second: golen sprite final (colocaR TUDO AQUI) (2)_7
+  - first:
+      213: 4452102431017812340
+    second: golen sprite final (colocaR TUDO AQUI) (2)_8
+  - first:
+      213: -2267319135166887446
+    second: golen sprite final (colocaR TUDO AQUI) (2)_9
+  - first:
+      213: 5558564183302059040
+    second: golen sprite final (colocaR TUDO AQUI) (2)_10
+  - first:
+      213: 897168990215223768
+    second: golen sprite final (colocaR TUDO AQUI) (2)_11
+  - first:
+      213: -9164860912402976301
+    second: golen sprite final (colocaR TUDO AQUI) (2)_12
+  - first:
+      213: -5176503718560047168
+    second: golen sprite final (colocaR TUDO AQUI) (2)_13
+  - first:
+      213: 2349821974661356143
+    second: golen sprite final (colocaR TUDO AQUI) (2)_14
+  - first:
+      213: -6045674684356904194
+    second: golen sprite final (colocaR TUDO AQUI) (2)_15
+  - first:
+      213: -6197364227684941461
+    second: golen sprite final (colocaR TUDO AQUI) (2)_16
+  - first:
+      213: -5204216309906681832
+    second: golen sprite final (colocaR TUDO AQUI) (2)_17
+  - first:
+      213: -8285577537801001844
+    second: golen sprite final (colocaR TUDO AQUI) (2)_18
+  - first:
+      213: 6324865430366226757
+    second: golen sprite final (colocaR TUDO AQUI) (2)_19
+  - first:
+      213: -5275710907646838368
+    second: golen sprite final (colocaR TUDO AQUI) (2)_20
+  - first:
+      213: 1491765265436097747
+    second: golen sprite final (colocaR TUDO AQUI) (2)_21
+  - first:
+      213: -8205218108548716797
+    second: golen sprite final (colocaR TUDO AQUI) (2)_22
+  - first:
+      213: 6866953509359413036
+    second: golen sprite final (colocaR TUDO AQUI) (2)_23
+  - first:
+      213: 7473725371531700672
+    second: golen sprite final (colocaR TUDO AQUI) (2)_24
+  - first:
+      213: -6708062567684606234
+    second: golen sprite final (colocaR TUDO AQUI) (2)_25
+  - first:
+      213: 2755045744167173695
+    second: golen sprite final (colocaR TUDO AQUI) (2)_26
+  - first:
+      213: -4300677963890000824
+    second: golen sprite final (colocaR TUDO AQUI) (2)_27
+  - first:
+      213: -7108644045349350600
+    second: golen sprite final (colocaR TUDO AQUI) (2)_28
+  - first:
+      213: -5619716041922701339
+    second: golen sprite final (colocaR TUDO AQUI) (2)_29
+  - first:
+      213: -8200950300129131109
+    second: golen sprite final (colocaR TUDO AQUI) (2)_30
+  - first:
+      213: -8095092747166430525
+    second: golen sprite final (colocaR TUDO AQUI) (2)_31
+  - first:
+      213: 7310668472593062068
+    second: golen sprite final (colocaR TUDO AQUI) (2)_32
+  - first:
+      213: 7221700553483036207
+    second: golen sprite final (colocaR TUDO AQUI) (2)_33
+  - first:
+      213: 3214987274306081038
+    second: golen sprite final (colocaR TUDO AQUI) (2)_34
+  - first:
+      213: -6262309920776217895
+    second: golen sprite final (colocaR TUDO AQUI) (2)_35
+  - first:
+      213: 892683877822004591
+    second: golen sprite final (colocaR TUDO AQUI) (2)_36
+  - first:
+      213: -6868142471360865757
+    second: golen sprite final (colocaR TUDO AQUI) (2)_37
+  - first:
+      213: -4454100113959773662
+    second: golen sprite final (colocaR TUDO AQUI) (2)_38
+  - first:
+      213: 1405421306881284386
+    second: golen sprite final (colocaR TUDO AQUI) (2)_39
+  - first:
+      213: 839959285376948829
+    second: golen sprite final (colocaR TUDO AQUI) (2)_40
+  - first:
+      213: 3595978369541355830
+    second: golen sprite final (colocaR TUDO AQUI) (2)_41
+  - first:
+      213: -6109905992196365361
+    second: golen sprite final (colocaR TUDO AQUI) (2)_42
+  - first:
+      213: -3470381013747573202
+    second: golen sprite final (colocaR TUDO AQUI) (2)_43
+  - first:
+      213: 3610509542209840051
+    second: golen sprite final (colocaR TUDO AQUI) (2)_44
+  - first:
+      213: -360229418424682291
+    second: golen sprite final (colocaR TUDO AQUI) (2)_45
+  - first:
+      213: -7474492309612826447
+    second: golen sprite final (colocaR TUDO AQUI) (2)_46
+  - first:
+      213: -4660759740338710856
+    second: golen sprite final (colocaR TUDO AQUI) (2)_47
+  - first:
+      213: -5112283738161091719
+    second: golen sprite final (colocaR TUDO AQUI) (2)_48
+  - first:
+      213: -541636169451517231
+    second: golen sprite final (colocaR TUDO AQUI) (2)_49
+  - first:
+      213: -2690563668253996523
+    second: golen sprite final (colocaR TUDO AQUI) (2)_50
+  - first:
+      213: 7798794347141408946
+    second: golen sprite final (colocaR TUDO AQUI) (2)_51
+  - first:
+      213: 5723842822567463634
+    second: golen sprite final (colocaR TUDO AQUI) (2)_52
+  - first:
+      213: -471572836839491942
+    second: golen sprite final (colocaR TUDO AQUI) (2)_53
+  - first:
+      213: 527540999929492613
+    second: golen sprite final (colocaR TUDO AQUI) (2)_54
+  - first:
+      213: -1156573492664611554
+    second: golen sprite final (colocaR TUDO AQUI) (2)_55
+  - first:
+      213: 6275119475695421493
+    second: golen sprite final (colocaR TUDO AQUI) (2)_56
+  - first:
+      213: -36076154966906788
+    second: golen sprite final (colocaR TUDO AQUI) (2)_57
+  - first:
+      213: -4313605708964966849
+    second: golen sprite final (colocaR TUDO AQUI) (2)_58
+  - first:
+      213: -8424391002681432667
+    second: golen sprite final (colocaR TUDO AQUI) (2)_59
+  - first:
+      213: -5281227033358038594
+    second: golen sprite final (colocaR TUDO AQUI) (2)_60
+  - first:
+      213: -5301470660204868178
+    second: golen sprite final (colocaR TUDO AQUI) (2)_61
+  - first:
+      213: 5892719728120343681
+    second: golen sprite final (colocaR TUDO AQUI) (2)_62
+  - first:
+      213: -1517250787820735042
+    second: golen sprite final (colocaR TUDO AQUI) (2)_63
+  - first:
+      213: -126792778619702814
+    second: golen sprite final (colocaR TUDO AQUI) (2)_64
+  - first:
+      213: -6818305418580056650
+    second: golen sprite final (colocaR TUDO AQUI) (2)_65
+  - first:
+      213: -6359404549704204490
+    second: golen sprite final (colocaR TUDO AQUI) (2)_66
+  - first:
+      213: 978518483215437653
+    second: golen sprite final (colocaR TUDO AQUI) (2)_67
+  - first:
+      213: -8093433707465972280
+    second: golen sprite final (colocaR TUDO AQUI) (2)_68
+  - first:
+      213: 4874839392925810738
+    second: golen sprite final (colocaR TUDO AQUI) (2)_69
+  - first:
+      213: -4878042131077226942
+    second: golen sprite final (colocaR TUDO AQUI) (2)_70
+  - first:
+      213: -2751898005732563219
+    second: golen sprite final (colocaR TUDO AQUI) (2)_71
+  - first:
+      213: -5609729933059364102
+    second: golen sprite final (colocaR TUDO AQUI) (2)_72
+  - first:
+      213: -4336654682611390099
+    second: golen sprite final (colocaR TUDO AQUI) (2)_73
+  - first:
+      213: -6725450086254180380
+    second: golen sprite final (colocaR TUDO AQUI) (2)_74
+  - first:
+      213: 2886770738489576512
+    second: golen sprite final (colocaR TUDO AQUI) (2)_75
+  - first:
+      213: -2039754743840368738
+    second: golen sprite final (colocaR TUDO AQUI) (2)_76
+  - first:
+      213: 3847196277133195063
+    second: golen sprite final (colocaR TUDO AQUI) (2)_77
+  - first:
+      213: 5924669225434144802
+    second: golen sprite final (colocaR TUDO AQUI) (2)_78
+  - first:
+      213: 7134184891478484132
+    second: golen sprite final (colocaR TUDO AQUI) (2)_79
+  - first:
+      213: 6237345884564986414
+    second: golen sprite final (colocaR TUDO AQUI) (2)_80
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a740eea58e6c59f0800000000000000
+      internalID: -478385939964475487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7547588db8017a80800000000000000
+      internalID: -8470979813977930370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdc33cc9867a01640800000000000000
+      internalID: 5048719250030804191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2828e7475197c60800000000000000
+      internalID: 7816302218361078525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e0be4386ab8df1b0800000000000000
+      internalID: -5621183212604706586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5432f6c1534e7900800000000000000
+      internalID: 684058211916067933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4269d79f4eaccbf0800000000000000
+      internalID: -302675418067410353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a81d8c83fc3a2ab0800000000000000
+      internalID: -5032142616900331356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4714870a29b09cd30800000000000000
+      internalID: 4452102431017812340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae98ee3624dd880e0800000000000000
+      internalID: -2267319135166887446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024bde69cacf32d40800000000000000
+      internalID: 5558564183302059040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d936457172637c00800000000000000
+      internalID: 897168990215223768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1bb54ce8fdfc080800000000000000
+      internalID: -9164860912402976301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf5db45b4d5928b0800000000000000
+      internalID: -5176503718560047168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ad815d2ae3c9020800000000000000
+      internalID: 2349821974661356143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efab55be7e2791ca0800000000000000
+      internalID: -6045674684356904194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b614029e11a8ef9a0800000000000000
+      internalID: -6197364227684941461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810d7b9d6d8e6c7b0800000000000000
+      internalID: -5204216309906681832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c846a64d027b30d80800000000000000
+      internalID: -8285577537801001844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549802d299f66c750800000000000000
+      internalID: 6324865430366226757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a97e04a1e8e8c6b0800000000000000
+      internalID: -5275710907646838368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dcb59eea90d3b410800000000000000
+      internalID: 1491765265436097747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_22
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307e9577a95312e80800000000000000
+      internalID: -8205218108548716797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_23
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c276d7685d15c4f50800000000000000
+      internalID: 6866953509359413036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_24
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c9a8feb0a108b760800000000000000
+      internalID: 7473725371531700672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_25
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e67012b2ac28e2a0800000000000000
+      internalID: -6708062567684606234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_26
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e3909e183eb3620800000000000000
+      internalID: 2755045744167173695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_27
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c7cf48d2ce054c0800000000000000
+      internalID: -4300677963890000824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_28
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833914a67e5095d90800000000000000
+      internalID: -7108644045349350600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_29
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e712aec802c202b0800000000000000
+      internalID: -5619716041922701339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b958b2c072f503e80800000000000000
+      internalID: -8200950300129131109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cacd4d390478af80800000000000000
+      internalID: -8095092747166430525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b89e830e36b47560800000000000000
+      internalID: 7310668472593062068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2629942462a83460800000000000000
+      internalID: 7221700553483036207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e015a6a64eded9c20800000000000000
+      internalID: 3214987274306081038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_35
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da9ab26e4ec719a0800000000000000
+      internalID: -6262309920776217895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d7c4ad143736c00800000000000000
+      internalID: 892683877822004591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_37
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32a13cfafc47fa0a0800000000000000
+      internalID: -6868142471360865757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22a96619b8bdf22c0800000000000000
+      internalID: -4454100113959773662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_39
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2299c6c7b3f018310800000000000000
+      internalID: 1405421306881284386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_40
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a1fae058228ab00800000000000000
+      internalID: 839959285376948829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_41
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6393088564b77e130800000000000000
+      internalID: 3595978369541355830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_42
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc3ea1c2fd0453ba0800000000000000
+      internalID: -6109905992196365361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_43
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ed058dadab6dfc0800000000000000
+      internalID: -3470381013747573202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_44
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b36391ac4b1b1230800000000000000
+      internalID: 3610509542209840051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_45
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8b625a045300bf0800000000000000
+      internalID: -360229418424682291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_46
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0732198d4454890800000000000000
+      internalID: -7474492309612826447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_47
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b65badb5b7a15fb0800000000000000
+      internalID: -4660759740338710856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97be6e3b6058d09b0800000000000000
+      internalID: -5112283738161091719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_49
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dac65a06c8bb78f0800000000000000
+      internalID: -541636169451517231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_50
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a0624599239aad0800000000000000
+      internalID: -2690563668253996523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b820b19322ea3c60800000000000000
+      internalID: 7798794347141408946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da8d4d88bc2f6f40800000000000000
+      internalID: 5723842822567463634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_53
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a96757ed003a479f0800000000000000
+      internalID: -471572836839491942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_54
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58470419eb3325700800000000000000
+      internalID: 527540999929492613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_55
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1dc715498603ffe0800000000000000
+      internalID: -1156573492664611554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53806f78ae3b51750800000000000000
+      internalID: 6275119475695421493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_57
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58e55e9de4df7ff0800000000000000
+      internalID: -36076154966906788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ecb00567ef224c0800000000000000
+      internalID: -4313605708964966849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_59
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a52d24740d861b80800000000000000
+      internalID: -8424391002681432667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_60
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9018a8eff45b6b0800000000000000
+      internalID: -5281227033358038594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_61
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead455fd5846d66b0800000000000000
+      internalID: -5301470660204868178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_62
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18cac8b2f5527c150800000000000000
+      internalID: 5892719728120343681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c561558ce85eaf80800000000000000
+      internalID: -8093433707465972280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_69
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2308c609998e6a340800000000000000
+      internalID: 4874839392925810738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_70
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e90c9d686bd4cb0800000000000000
+      internalID: -4878042131077226942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_71
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6643e085b4fc9d0800000000000000
+      internalID: -2751898005732563219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golen sprite final (colocaR TUDO AQUI) (2)_72
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afaee16f85c3622b0800000000000000
+      internalID: -5609729933059364102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 530089072ad85e748b42ebcf774032bd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      golen sprite final (colocaR TUDO AQUI) (2)_0: -478385939964475487
+      golen sprite final (colocaR TUDO AQUI) (2)_1: -8470979813977930370
+      golen sprite final (colocaR TUDO AQUI) (2)_10: 5558564183302059040
+      golen sprite final (colocaR TUDO AQUI) (2)_11: 897168990215223768
+      golen sprite final (colocaR TUDO AQUI) (2)_12: -9164860912402976301
+      golen sprite final (colocaR TUDO AQUI) (2)_13: -5176503718560047168
+      golen sprite final (colocaR TUDO AQUI) (2)_14: 2349821974661356143
+      golen sprite final (colocaR TUDO AQUI) (2)_15: -6045674684356904194
+      golen sprite final (colocaR TUDO AQUI) (2)_16: -6197364227684941461
+      golen sprite final (colocaR TUDO AQUI) (2)_17: -5204216309906681832
+      golen sprite final (colocaR TUDO AQUI) (2)_18: -8285577537801001844
+      golen sprite final (colocaR TUDO AQUI) (2)_19: 6324865430366226757
+      golen sprite final (colocaR TUDO AQUI) (2)_2: 5048719250030804191
+      golen sprite final (colocaR TUDO AQUI) (2)_20: -5275710907646838368
+      golen sprite final (colocaR TUDO AQUI) (2)_21: 1491765265436097747
+      golen sprite final (colocaR TUDO AQUI) (2)_22: -8205218108548716797
+      golen sprite final (colocaR TUDO AQUI) (2)_23: 6866953509359413036
+      golen sprite final (colocaR TUDO AQUI) (2)_24: 7473725371531700672
+      golen sprite final (colocaR TUDO AQUI) (2)_25: -6708062567684606234
+      golen sprite final (colocaR TUDO AQUI) (2)_26: 2755045744167173695
+      golen sprite final (colocaR TUDO AQUI) (2)_27: -4300677963890000824
+      golen sprite final (colocaR TUDO AQUI) (2)_28: -7108644045349350600
+      golen sprite final (colocaR TUDO AQUI) (2)_29: -5619716041922701339
+      golen sprite final (colocaR TUDO AQUI) (2)_3: 7816302218361078525
+      golen sprite final (colocaR TUDO AQUI) (2)_30: -8200950300129131109
+      golen sprite final (colocaR TUDO AQUI) (2)_31: -8095092747166430525
+      golen sprite final (colocaR TUDO AQUI) (2)_32: 7310668472593062068
+      golen sprite final (colocaR TUDO AQUI) (2)_33: 7221700553483036207
+      golen sprite final (colocaR TUDO AQUI) (2)_34: 3214987274306081038
+      golen sprite final (colocaR TUDO AQUI) (2)_35: -6262309920776217895
+      golen sprite final (colocaR TUDO AQUI) (2)_36: 892683877822004591
+      golen sprite final (colocaR TUDO AQUI) (2)_37: -6868142471360865757
+      golen sprite final (colocaR TUDO AQUI) (2)_38: -4454100113959773662
+      golen sprite final (colocaR TUDO AQUI) (2)_39: 1405421306881284386
+      golen sprite final (colocaR TUDO AQUI) (2)_4: -5621183212604706586
+      golen sprite final (colocaR TUDO AQUI) (2)_40: 839959285376948829
+      golen sprite final (colocaR TUDO AQUI) (2)_41: 3595978369541355830
+      golen sprite final (colocaR TUDO AQUI) (2)_42: -6109905992196365361
+      golen sprite final (colocaR TUDO AQUI) (2)_43: -3470381013747573202
+      golen sprite final (colocaR TUDO AQUI) (2)_44: 3610509542209840051
+      golen sprite final (colocaR TUDO AQUI) (2)_45: -360229418424682291
+      golen sprite final (colocaR TUDO AQUI) (2)_46: -7474492309612826447
+      golen sprite final (colocaR TUDO AQUI) (2)_47: -4660759740338710856
+      golen sprite final (colocaR TUDO AQUI) (2)_48: -5112283738161091719
+      golen sprite final (colocaR TUDO AQUI) (2)_49: -541636169451517231
+      golen sprite final (colocaR TUDO AQUI) (2)_5: 684058211916067933
+      golen sprite final (colocaR TUDO AQUI) (2)_50: -2690563668253996523
+      golen sprite final (colocaR TUDO AQUI) (2)_51: 7798794347141408946
+      golen sprite final (colocaR TUDO AQUI) (2)_52: 5723842822567463634
+      golen sprite final (colocaR TUDO AQUI) (2)_53: -471572836839491942
+      golen sprite final (colocaR TUDO AQUI) (2)_54: 527540999929492613
+      golen sprite final (colocaR TUDO AQUI) (2)_55: -1156573492664611554
+      golen sprite final (colocaR TUDO AQUI) (2)_56: 6275119475695421493
+      golen sprite final (colocaR TUDO AQUI) (2)_57: -36076154966906788
+      golen sprite final (colocaR TUDO AQUI) (2)_58: -4313605708964966849
+      golen sprite final (colocaR TUDO AQUI) (2)_59: -8424391002681432667
+      golen sprite final (colocaR TUDO AQUI) (2)_6: -302675418067410353
+      golen sprite final (colocaR TUDO AQUI) (2)_60: -5281227033358038594
+      golen sprite final (colocaR TUDO AQUI) (2)_61: -5301470660204868178
+      golen sprite final (colocaR TUDO AQUI) (2)_62: 5892719728120343681
+      golen sprite final (colocaR TUDO AQUI) (2)_63: -1517250787820735042
+      golen sprite final (colocaR TUDO AQUI) (2)_64: -126792778619702814
+      golen sprite final (colocaR TUDO AQUI) (2)_65: -6818305418580056650
+      golen sprite final (colocaR TUDO AQUI) (2)_66: -6359404549704204490
+      golen sprite final (colocaR TUDO AQUI) (2)_67: 978518483215437653
+      golen sprite final (colocaR TUDO AQUI) (2)_68: -8093433707465972280
+      golen sprite final (colocaR TUDO AQUI) (2)_69: 4874839392925810738
+      golen sprite final (colocaR TUDO AQUI) (2)_7: -5032142616900331356
+      golen sprite final (colocaR TUDO AQUI) (2)_70: -4878042131077226942
+      golen sprite final (colocaR TUDO AQUI) (2)_71: -2751898005732563219
+      golen sprite final (colocaR TUDO AQUI) (2)_72: -5609729933059364102
+      golen sprite final (colocaR TUDO AQUI) (2)_73: -4336654682611390099
+      golen sprite final (colocaR TUDO AQUI) (2)_74: -6725450086254180380
+      golen sprite final (colocaR TUDO AQUI) (2)_75: 2886770738489576512
+      golen sprite final (colocaR TUDO AQUI) (2)_76: -2039754743840368738
+      golen sprite final (colocaR TUDO AQUI) (2)_77: 3847196277133195063
+      golen sprite final (colocaR TUDO AQUI) (2)_78: 5924669225434144802
+      golen sprite final (colocaR TUDO AQUI) (2)_8: 4452102431017812340
+      golen sprite final (colocaR TUDO AQUI) (2)_9: -2267319135166887446
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

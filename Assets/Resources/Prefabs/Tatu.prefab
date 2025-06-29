@@ -734,7 +734,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 62184262, guid: 1ed7eb25fa601b3438371441d9bc2e7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -768,6 +768,7 @@ MonoBehaviour:
   _enemyHp: {fileID: 1350984211735755054}
   _hpImage: {fileID: 7792631520806836303}
   _hpBarSpeed: 3
+  flashImage: {fileID: 0}
 --- !u!61 &4293914473966252306
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -802,7 +803,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.011622429, y: 0.19319224}
+  m_Offset: {x: -0.027183056, y: 0.062482595}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -812,7 +813,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5578957, y: 1.4009881}
+  m_Size: {x: 1.0163832, y: 1.1395688}
   m_EdgeRadius: 0
 --- !u!61 &1391751968366141919
 BoxCollider2D:
@@ -848,7 +849,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0023388863, y: 0.0485487}
+  m_Offset: {x: -0.033459663, y: 0.0485487}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -858,7 +859,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2011194, y: 0.98312664}
+  m_Size: {x: 0.62848663, y: 0.98312664}
   m_EdgeRadius: 0
 --- !u!114 &6241673503444052888
 MonoBehaviour:
@@ -884,7 +885,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -895,9 +896,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &5883161507621243923
 Animator:

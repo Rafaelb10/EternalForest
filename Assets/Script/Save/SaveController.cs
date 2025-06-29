@@ -28,7 +28,7 @@ public class SaveController : MonoBehaviour
 
         _saveLocation = Path.Combine(Application.persistentDataPath, "SaveData.json");
 
-        if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "DaethScreen" && SceneManager.GetActiveScene().name != "HistoryScreen")
+        if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "DaethScreen" && SceneManager.GetActiveScene().name != "HistoryScreen" && SceneManager.GetActiveScene().name != "BattleScena" && SceneManager.GetActiveScene().name != "TheFinalBattle")
         {
             LoadGame();
         }
