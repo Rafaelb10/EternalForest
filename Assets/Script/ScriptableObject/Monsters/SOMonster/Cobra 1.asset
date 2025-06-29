@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe83657eff80f2c43b4cbe0b3ab3e908, type: 3}
-  m_Name: Golem
+  m_Name: Cobra 1
   m_EditorClassIdentifier: 
-  _hp: 200
-  _strenght: 15
-  _speed: 5
-  _def: 15
+  _hp: 95
+  _strenght: 5
+  _speed: 4
+  _def: 4
   _sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   _animator: {fileID: 0}
-  _type: 0
+  _type: 1
   _state: 0
-  _xp: 200
-  _coin: 50
+  _xp: 100
+  _coin: 15
