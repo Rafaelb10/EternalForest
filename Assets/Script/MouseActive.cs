@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class MouseActive : MonoBehaviour
 {
-    void Start()
+    private void Update()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+ 
 }
