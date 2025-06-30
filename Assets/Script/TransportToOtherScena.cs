@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TransportToOtherScena : MonoBehaviour
 {
-    [SerializeField] private SceneAsset _sceneAsset;
+    [SerializeField] private string sceneName;
     [SerializeField] private bool _saveThis;
     private bool _playerInRange = false;
 
@@ -20,9 +20,9 @@ public class TransportToOtherScena : MonoBehaviour
         FindAnyObjectByType<SaveController>().SavePlayerPosition();
         if (_saveThis == true)
         {
-            FindAnyObjectByType<SaveController>().ChangeScena(_sceneAsset.name);
+            FindAnyObjectByType<SaveController>().ChangeScena(sceneName);
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneAsset.name);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

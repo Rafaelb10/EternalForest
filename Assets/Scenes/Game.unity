@@ -413855,7 +413855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9211849cf11e3494d939f047980381c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneAsset: {fileID: 102900000, guid: cf795c29f72283e4eb33c1451717d88d, type: 3}
+  sceneName: PlataformGame
   _saveThis: 1
 --- !u!114 &1287325796 stripped
 MonoBehaviour:
@@ -538284,7 +538284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9211849cf11e3494d939f047980381c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneAsset: {fileID: 102900000, guid: e9d85c8a49d23c14699d3d3214e4a798, type: 3}
+  sceneName: TheFinalBattle
   _saveThis: 0
 --- !u!1001 &2024282796
 PrefabInstance:

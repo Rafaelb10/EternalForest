@@ -201845,7 +201845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9211849cf11e3494d939f047980381c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+  sceneName: Game
   _saveThis: 1
 --- !u!212 &1416292137
 SpriteRenderer:
