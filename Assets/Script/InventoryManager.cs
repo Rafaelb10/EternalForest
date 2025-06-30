@@ -16,7 +16,7 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        if (_inventorySystem != null)
+        if (_inventorySystem == null)
         {
             _inventorySystem = FindAnyObjectByType<Player>();
         }

@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf5950f2d45bcda4086bbbbbc8044ec9, type: 3}
-  m_Name: TestNpcDialogue
+  m_Name: DialogueLeone
   m_EditorClassIdentifier: 
-  _nameCharacther: Saitama
+  _nameCharacther: Leone
   _word:
-  - Eu
-  - Te
-  - .....
+  - "* A traveler\u2014it's been a while since I've seen one around here. What brings
+    you to this place?"
+  - "* You want to leave? That\u2019s practically impossible... but maybe there\u2019s
+    someone who could help you perform such a miracle."
+  - "* This person is further south from here, but the forest they\u2019re in will
+    be a real challenge."
   _npc: 0
   _inventoryNPC: []

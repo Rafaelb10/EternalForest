@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e55bf30898e84419581a81f8385bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spikePregab: {fileID: 202239162508066346, guid: 3f09e2e79e80f9c459c7cc8db4fc4ea8, type: 3}
-  _spikeSpaw: {fileID: 8623960130945078410, guid: 477cb1e7e6ea08744993aef10605b04d, type: 3}
+  _spikePrefab: {fileID: 202239162508066346, guid: 3f09e2e79e80f9c459c7cc8db4fc4ea8, type: 3}
+  _spikeSpawn: {fileID: 8623960130945078410, guid: 477cb1e7e6ea08744993aef10605b04d, type: 3}
 --- !u!50 &5309461637135509533
 Rigidbody2D:
   serializedVersion: 5

@@ -3,48 +3,46 @@ using UnityEngine;
 
 public class BulletColission : MonoBehaviour
 {
-    private float speed = 20f;
-    private Vector2 velocity;
-    private Rigidbody2D rb;
+    [SerializeField] private float speed = 20f;
     [SerializeField] private BossFinal _boss;
+
+    private Rigidbody2D rb;
     private float _damage;
 
-    void Start()
+    private void Start()
     {
         _damage = _boss.Damage;
-        rb = GetComponent<Rigidbody2D>();  
+        rb = GetComponent<Rigidbody2D>();
 
-        velocity = Random.insideUnitCircle.normalized * speed;
+        Vector2 initialDirection = Random.insideUnitCircle.normalized;
+        rb.linearVelocity = initialDirection * speed;
 
-        rb.linearVelocity = velocity;
-
-        StartCoroutine(Despaw());
+        StartCoroutine(Despawn());
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-            FindAnyObjectByType<Player>().TakeDamage(_damage);
+            player.TakeDamage(_damage);
         }
 
-        Vector2 reflectedDirection = Vector2.Reflect(rb.linearVelocity.normalized, collision.contacts[0].normal);
+        Vector2 reflectDir = Vector2.Reflect(rb.linearVelocity.normalized, collision.contacts[0].normal);
 
-        float randomAngle = Random.Range(-45f, 45f);
-        reflectedDirection = Quaternion.Euler(0, 0, randomAngle) * reflectedDirection;
-
-        rb.linearVelocity = reflectedDirection.normalized * speed;
+        float randomAngle = Random.Range(-30f, 30f);
+        reflectDir = Quaternion.Euler(0, 0, randomAngle) * reflectDir;
 
         if (Random.value < 0.2f)
         {
-            Vector2 newDirection = Random.insideUnitCircle.normalized;
-            rb.linearVelocity = newDirection * speed;
+            reflectDir = Random.insideUnitCircle.normalized;
         }
+
+        rb.linearVelocity = reflectDir.normalized * speed;
     }
 
-    IEnumerator Despaw()
+    private IEnumerator Despawn()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(10f);
         Destroy(gameObject);
     }
 }

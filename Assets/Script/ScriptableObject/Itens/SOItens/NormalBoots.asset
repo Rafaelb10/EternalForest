@@ -15,11 +15,11 @@ MonoBehaviour:
   _count: 1
   _aparence: {fileID: -139598019, guid: ae93e8df38518184a8a116abdad640d5, type: 3}
   _name: Normal Boots
-  _description: Just normal boots ( +4 speed)
+  _description: Just normal boots ( +2 speed)
   _type: 1
   _typeEquipamente: 3
   _streght: 0
   _def: 0
-  _speed: 4
+  _speed: 3
   _life: 0
   _price: 25

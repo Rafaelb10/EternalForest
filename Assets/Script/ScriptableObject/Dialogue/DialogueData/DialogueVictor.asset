@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf5950f2d45bcda4086bbbbbc8044ec9, type: 3}
-  m_Name: TestNpcDialogue 1
+  m_Name: DialogueVictor
   m_EditorClassIdentifier: 
-  _nameCharacther: Saitama
+  _nameCharacther: Victor
   _word:
-  - Eu
-  - Te
-  - .....
+  - '* Hello, my noble companion.'
+  - '* Are you planning to go in there?'
+  - "* I\u2019d recommend looking for aberrant bat blood\u2014there\u2019s a special
+    kind that might help you get through without too much trouble."
   _npc: 0
   _inventoryNPC: []

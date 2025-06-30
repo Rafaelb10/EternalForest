@@ -4,11 +4,12 @@ using UnityEngine;
 public class TransportToOtherScena : MonoBehaviour
 {
     [SerializeField] private SceneAsset _sceneAsset;
+    [SerializeField] private bool _saveThis;
     private bool _playerInRange = false;
 
     void Update()
     {
-        if (_playerInRange == true && Input.GetKeyDown(KeyCode.Q))
+        if (_playerInRange == true && Input.GetKeyDown(KeyCode.E))
         {
             TradeScena();
         }        
@@ -17,7 +18,10 @@ public class TransportToOtherScena : MonoBehaviour
     void TradeScena()
     {
         FindAnyObjectByType<SaveController>().SavePlayerPosition();
-        FindAnyObjectByType<SaveController>().ChangeScena(_sceneAsset.name);
+        if (_saveThis == true)
+        {
+            FindAnyObjectByType<SaveController>().ChangeScena(_sceneAsset.name);
+        }
         UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneAsset.name);
     }
 

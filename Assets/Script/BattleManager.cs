@@ -19,9 +19,6 @@ public class BattleManager : MonoBehaviour
         Instantiate(monster, _enemySpaw.transform);
         FindAnyObjectByType<Monster>().ChangeState = true;
 
-        GameObject player = Resources.Load<GameObject>("Prefabs/" + saveData._player);
-
-        Instantiate(player, _playerSpaw.transform);
         FindAnyObjectByType<Player>().ChangeState = true;
         
     }

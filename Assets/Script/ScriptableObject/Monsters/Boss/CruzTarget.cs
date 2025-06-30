@@ -9,52 +9,77 @@ public class CruzTarget : MonoBehaviour, IDamageable
     private float _damage;
     private float _hp = 100;
 
+    private Rigidbody2D _rb;
+
+    [SerializeField] private float _attackCooldown = 1f;
+    private float _attackTimer = 0f;
+
     private void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
         _damage = _boss.Damage;
         StartCoroutine(Despaw());
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        if (_target == null) return;
+        if (_target == null)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
-        Vector3 direction = (_target.position - transform.position).normalized;
-        transform.position += direction * _speed * Time.deltaTime;
+        Vector2 direction = (_target.position - transform.position).normalized;
+
+        _rb.linearVelocity = direction * _speed;
+
+        transform.up = direction;
+
+        if (_attackTimer > 0)
+        {
+            _attackTimer -= Time.fixedDeltaTime;
+        }
     }
-
 
     public void SetTarget(Transform target)
     {
         _target = target;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-            FindAnyObjectByType<Player>().TakeDamage(_damage/2);
+            TryAttack(player);
         }
-
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent<Player>(out var player))
         {
-            FindAnyObjectByType<Player>().TakeDamage(_damage/2);
+            TryAttack(player);
         }
     }
 
-    IEnumerator Despaw()
+    private void TryAttack(Player player)
+    {
+        if (_attackTimer <= 0f)
+        {
+            player.TakeDamage(_damage / 2f);
+            _attackTimer = _attackCooldown;
+        }
+    }
+
+    private IEnumerator Despaw()
     {
         yield return new WaitForSeconds(10);
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float Damage)
+    public void TakeDamage(float damage)
     {
-        _hp = _hp - Damage;
+        _hp -= damage;
 
         if (_hp <= 0)
         {

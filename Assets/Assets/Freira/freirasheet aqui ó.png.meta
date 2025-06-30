@@ -1,0 +1,1521 @@
+fileFormatVersion: 2
+guid: a22f6807e69143547aa0eb89bc582000
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3164839601053989197
+    second: "freirasheet aqui \xF3_0"
+  - first:
+      213: 3282178806866118579
+    second: "freirasheet aqui \xF3_1"
+  - first:
+      213: -5342739076774315864
+    second: "freirasheet aqui \xF3_2"
+  - first:
+      213: 2931987439367271213
+    second: "freirasheet aqui \xF3_3"
+  - first:
+      213: 612680706247274333
+    second: "freirasheet aqui \xF3_4"
+  - first:
+      213: -3656654433573448781
+    second: "freirasheet aqui \xF3_5"
+  - first:
+      213: -6973428462756538337
+    second: "freirasheet aqui \xF3_6"
+  - first:
+      213: -6123259829279621160
+    second: "freirasheet aqui \xF3_7"
+  - first:
+      213: 8368986918318138204
+    second: "freirasheet aqui \xF3_8"
+  - first:
+      213: -6936795910515856137
+    second: "freirasheet aqui \xF3_9"
+  - first:
+      213: -7783309212155046762
+    second: "freirasheet aqui \xF3_10"
+  - first:
+      213: 3295122008230958538
+    second: "freirasheet aqui \xF3_11"
+  - first:
+      213: -1181510192282208879
+    second: "freirasheet aqui \xF3_12"
+  - first:
+      213: 4174269356430248565
+    second: "freirasheet aqui \xF3_13"
+  - first:
+      213: -7713254378660183299
+    second: "freirasheet aqui \xF3_14"
+  - first:
+      213: 3563596274782401647
+    second: "freirasheet aqui \xF3_15"
+  - first:
+      213: 4444670732896340294
+    second: "freirasheet aqui \xF3_16"
+  - first:
+      213: 1607049765951478939
+    second: "freirasheet aqui \xF3_17"
+  - first:
+      213: -4265498298811282280
+    second: "freirasheet aqui \xF3_18"
+  - first:
+      213: -6523989344760103106
+    second: "freirasheet aqui \xF3_19"
+  - first:
+      213: -4032288117542679455
+    second: "freirasheet aqui \xF3_20"
+  - first:
+      213: 5939127050646857157
+    second: "freirasheet aqui \xF3_21"
+  - first:
+      213: 160271963547453375
+    second: "freirasheet aqui \xF3_22"
+  - first:
+      213: 5235182341070769199
+    second: "freirasheet aqui \xF3_23"
+  - first:
+      213: -6838426033007828746
+    second: "freirasheet aqui \xF3_24"
+  - first:
+      213: 8045654510824532962
+    second: "freirasheet aqui \xF3_25"
+  - first:
+      213: 1821783779320780090
+    second: "freirasheet aqui \xF3_26"
+  - first:
+      213: 7939976059614595143
+    second: "freirasheet aqui \xF3_27"
+  - first:
+      213: -1924076988140545299
+    second: "freirasheet aqui \xF3_28"
+  - first:
+      213: 6674473582212288784
+    second: "freirasheet aqui \xF3_29"
+  - first:
+      213: -2498708240234441202
+    second: "freirasheet aqui \xF3_30"
+  - first:
+      213: -2168526067605112463
+    second: "freirasheet aqui \xF3_31"
+  - first:
+      213: -3308402077508544482
+    second: "freirasheet aqui \xF3_32"
+  - first:
+      213: 6647213062089481451
+    second: "freirasheet aqui \xF3_33"
+  - first:
+      213: 2818783251997636549
+    second: "freirasheet aqui \xF3_34"
+  - first:
+      213: -5639892682228202566
+    second: "freirasheet aqui \xF3_35"
+  - first:
+      213: -1764920307958805101
+    second: "freirasheet aqui \xF3_36"
+  - first:
+      213: 3423539654677903460
+    second: "freirasheet aqui \xF3_37"
+  - first:
+      213: 1880787883219218645
+    second: "freirasheet aqui \xF3_38"
+  - first:
+      213: -7877262700377026467
+    second: "freirasheet aqui \xF3_39"
+  - first:
+      213: -8411926252674867196
+    second: "freirasheet aqui \xF3_40"
+  - first:
+      213: 100793967611707362
+    second: "freirasheet aqui \xF3_41"
+  - first:
+      213: -2744275042343441231
+    second: "freirasheet aqui \xF3_42"
+  - first:
+      213: -945596721982097035
+    second: "freirasheet aqui \xF3_43"
+  - first:
+      213: 3272451687151691715
+    second: "freirasheet aqui \xF3_44"
+  - first:
+      213: 1878250427170939071
+    second: "freirasheet aqui \xF3_45"
+  - first:
+      213: 954545384937140273
+    second: "freirasheet aqui \xF3_46"
+  - first:
+      213: -5277622861812711126
+    second: "freirasheet aqui \xF3_47"
+  - first:
+      213: -500562784146634871
+    second: "freirasheet aqui \xF3_48"
+  - first:
+      213: 177877569822253369
+    second: "freirasheet aqui \xF3_49"
+  - first:
+      213: 8733876375491800743
+    second: "freirasheet aqui \xF3_50"
+  - first:
+      213: 111116988566929756
+    second: "freirasheet aqui \xF3_51"
+  - first:
+      213: -8238474486940937266
+    second: "freirasheet aqui \xF3_52"
+  - first:
+      213: -217562948997472482
+    second: "freirasheet aqui \xF3_53"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4979ef59d4cbeb20800000000000000
+      internalID: 3164839601053989197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_1"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b702903c34ac8d20800000000000000
+      internalID: 3282178806866118579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_2"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8b441ed17cad5b0800000000000000
+      internalID: -5342739076774315864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_3"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23b461ba0380b820800000000000000
+      internalID: 2931987439367271213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_4"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5faa903bdda08800800000000000000
+      internalID: 612680706247274333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_5"
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b35f7c9a24f04dc0800000000000000
+      internalID: -3656654433573448781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_6"
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f185cca82c7693f90800000000000000
+      internalID: -6973428462756538337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_7"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df7e50b0afc50ba0800000000000000
+      internalID: -6123259829279621160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_8"
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c536e3ce24d942470800000000000000
+      internalID: 8368986918318138204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_9"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fce1524fdc8bbf90800000000000000
+      internalID: -6936795910515856137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_10"
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694197062812cf390800000000000000
+      internalID: -7783309212155046762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_11"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac59d281200aabd20800000000000000
+      internalID: 3295122008230958538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_12"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195f3827dbe6a9fe0800000000000000
+      internalID: -1181510192282208879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_13"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ac2da0ddbfde930800000000000000
+      internalID: 4174269356430248565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_14"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2cbb9520405f490800000000000000
+      internalID: -7713254378660183299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_15"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f647f416eef647130800000000000000
+      internalID: 3563596274782401647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_16"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6498cd19b74aead30800000000000000
+      internalID: 4444670732896340294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_17"
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c99e36f336d4610800000000000000
+      internalID: 1607049765951478939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_18"
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c025595e7edc4c0800000000000000
+      internalID: -4265498298811282280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_19"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ff32ba1422675a0800000000000000
+      internalID: -6523989344760103106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_20"
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c07d1325f6a08c0800000000000000
+      internalID: -4032288117542679455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_21"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c528b1f5940c6250800000000000000
+      internalID: 5939127050646857157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_22"
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb743be6086693200800000000000000
+      internalID: 160271963547453375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_23"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ccbed1a9a17a840800000000000000
+      internalID: 5235182341070769199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_24"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0e8c721c70911a0800000000000000
+      internalID: -6838426033007828746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_25"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb273f5628e7af60800000000000000
+      internalID: 8045654510824532962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_26"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35dbffe1b6484910800000000000000
+      internalID: 1821783779320780090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_27"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7480f6e8826703e60800000000000000
+      internalID: 7939976059614595143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_28"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea11696c2e4c45e0800000000000000
+      internalID: -1924076988140545299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_29"
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0111e723c5e70ac50800000000000000
+      internalID: 6674473582212288784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_30"
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e061c7f181ec25dd0800000000000000
+      internalID: -2498708240234441202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_31"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179f836e709d7e1e0800000000000000
+      internalID: -2168526067605112463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_32"
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1850f3d6d13612d0800000000000000
+      internalID: -3308402077508544482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_33"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec1e20cf05af3c50800000000000000
+      internalID: 6647213062089481451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_34"
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7b322ee645e1720800000000000000
+      internalID: 2818783251997636549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_35"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab38678ac731bb1b0800000000000000
+      internalID: -5639892682228202566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_36"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d0e33b45eb187e0800000000000000
+      internalID: -1764920307958805101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_37"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4683a8f5d2bd28f20800000000000000
+      internalID: 3423539654677903460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_38"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d0f32d6d96e91a10800000000000000
+      internalID: 1880787883219218645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_39"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50d79d3f475ea290800000000000000
+      internalID: -7877262700377026467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_40"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 400288834a5d24b80800000000000000
+      internalID: -8411926252674867196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_41"
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef7ffa5497166100800000000000000
+      internalID: 100793967611707362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_42"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc262783606ae9d0800000000000000
+      internalID: -2744275042343441231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_43"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 579bb759ac090e2f0800000000000000
+      internalID: -945596721982097035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_44"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7ed45a8751a6d20800000000000000
+      internalID: 3272451687151691715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_45"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb0efb6efc2e01a10800000000000000
+      internalID: 1878250427170939071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_46"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 130ba2f58f93f3d00800000000000000
+      internalID: 954545384937140273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_47"
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a214c2f18fd12c6b0800000000000000
+      internalID: -5277622861812711126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_48"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 987c827ccc4ad09f0800000000000000
+      internalID: -500562784146634871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_49"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931e3c215b2f77200800000000000000
+      internalID: 177877569822253369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_50"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae6d591a46f43970800000000000000
+      internalID: 8733876375491800743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_51"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c510b08ff44ca8100800000000000000
+      internalID: 111116988566929756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_52"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec354ca7a1f0bad80800000000000000
+      internalID: -8238474486940937266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "freirasheet aqui \xF3_53"
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1f18bc86af0bfcf0800000000000000
+      internalID: -217562948997472482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 25ffe6727dbe0cd44866cc2bae8c9f9d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "freirasheet aqui \xF3_0": 3164839601053989197
+      "freirasheet aqui \xF3_1": 3282178806866118579
+      "freirasheet aqui \xF3_10": -7783309212155046762
+      "freirasheet aqui \xF3_11": 3295122008230958538
+      "freirasheet aqui \xF3_12": -1181510192282208879
+      "freirasheet aqui \xF3_13": 4174269356430248565
+      "freirasheet aqui \xF3_14": -7713254378660183299
+      "freirasheet aqui \xF3_15": 3563596274782401647
+      "freirasheet aqui \xF3_16": 4444670732896340294
+      "freirasheet aqui \xF3_17": 1607049765951478939
+      "freirasheet aqui \xF3_18": -4265498298811282280
+      "freirasheet aqui \xF3_19": -6523989344760103106
+      "freirasheet aqui \xF3_2": -5342739076774315864
+      "freirasheet aqui \xF3_20": -4032288117542679455
+      "freirasheet aqui \xF3_21": 5939127050646857157
+      "freirasheet aqui \xF3_22": 160271963547453375
+      "freirasheet aqui \xF3_23": 5235182341070769199
+      "freirasheet aqui \xF3_24": -6838426033007828746
+      "freirasheet aqui \xF3_25": 8045654510824532962
+      "freirasheet aqui \xF3_26": 1821783779320780090
+      "freirasheet aqui \xF3_27": 7939976059614595143
+      "freirasheet aqui \xF3_28": -1924076988140545299
+      "freirasheet aqui \xF3_29": 6674473582212288784
+      "freirasheet aqui \xF3_3": 2931987439367271213
+      "freirasheet aqui \xF3_30": -2498708240234441202
+      "freirasheet aqui \xF3_31": -2168526067605112463
+      "freirasheet aqui \xF3_32": -3308402077508544482
+      "freirasheet aqui \xF3_33": 6647213062089481451
+      "freirasheet aqui \xF3_34": 2818783251997636549
+      "freirasheet aqui \xF3_35": -5639892682228202566
+      "freirasheet aqui \xF3_36": -1764920307958805101
+      "freirasheet aqui \xF3_37": 3423539654677903460
+      "freirasheet aqui \xF3_38": 1880787883219218645
+      "freirasheet aqui \xF3_39": -7877262700377026467
+      "freirasheet aqui \xF3_4": 612680706247274333
+      "freirasheet aqui \xF3_40": -8411926252674867196
+      "freirasheet aqui \xF3_41": 100793967611707362
+      "freirasheet aqui \xF3_42": -2744275042343441231
+      "freirasheet aqui \xF3_43": -945596721982097035
+      "freirasheet aqui \xF3_44": 3272451687151691715
+      "freirasheet aqui \xF3_45": 1878250427170939071
+      "freirasheet aqui \xF3_46": 954545384937140273
+      "freirasheet aqui \xF3_47": -5277622861812711126
+      "freirasheet aqui \xF3_48": -500562784146634871
+      "freirasheet aqui \xF3_49": 177877569822253369
+      "freirasheet aqui \xF3_5": -3656654433573448781
+      "freirasheet aqui \xF3_50": 8733876375491800743
+      "freirasheet aqui \xF3_51": 111116988566929756
+      "freirasheet aqui \xF3_52": -8238474486940937266
+      "freirasheet aqui \xF3_53": -217562948997472482
+      "freirasheet aqui \xF3_6": -6973428462756538337
+      "freirasheet aqui \xF3_7": -6123259829279621160
+      "freirasheet aqui \xF3_8": 8368986918318138204
+      "freirasheet aqui \xF3_9": -6936795910515856137
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

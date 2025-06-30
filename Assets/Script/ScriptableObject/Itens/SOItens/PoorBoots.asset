@@ -15,11 +15,11 @@ MonoBehaviour:
   _count: 1
   _aparence: {fileID: 743937407, guid: ae93e8df38518184a8a116abdad640d5, type: 3}
   _name: Poor boots
-  _description: Weak and used boots ( + 2 speed)
+  _description: Weak and used boots ( + 1 speed)
   _type: 1
   _typeEquipamente: 3
   _streght: 0
   _def: 0
-  _speed: 2
+  _speed: 1
   _life: 0
   _price: 10

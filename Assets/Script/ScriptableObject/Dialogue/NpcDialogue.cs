@@ -17,7 +17,7 @@ public class NpcDialogue : MonoBehaviour
 
     void Update()
     {
-        if (_playerInRange == true && _isTalking == false && Input.GetKeyDown(KeyCode.Q))
+        if (_playerInRange == true && _isTalking == false && Input.GetKeyDown(KeyCode.E))
         {
             StartDialogue();
         }
@@ -87,6 +87,7 @@ public class NpcDialogue : MonoBehaviour
         {
             Debug.Log("PlayerEnter");
             _playerInRange = true;
+            FindAnyObjectByType<Player>().PlayerPassivo = true;
         }
     }
 
@@ -96,6 +97,7 @@ public class NpcDialogue : MonoBehaviour
         {
             Debug.Log("PlayerLeave");
             _playerInRange = false;
+            FindAnyObjectByType<Player>().PlayerPassivo = false;
         }
 
         switch (_dialogue._npc)

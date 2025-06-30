@@ -40,7 +40,7 @@ public class Player : MonoBehaviour, IDamageable
     private bool _light;
     [SerializeField] private bool _plataformFase;
 
-    private float _jumpForce = 8.5f;
+    private float _jumpForce = 10f;
 
     [SerializeField] private Transform _groundCheck;
     private float _groundCheckDistance = 0.8f;
@@ -70,6 +70,7 @@ public class Player : MonoBehaviour, IDamageable
     public float Money { get => _money; set => _money = value; }
     public float Strenght { get => _strenght; set => _strenght = value; }
     public List<InventoryItem> InventoryEquiped { get => _inventoryEquiped; set => _inventoryEquiped = value; }
+    public bool PlayerPassivo { get => playerPassivo; set => playerPassivo = value; }
 
     private Animator anim;
     private SpriteRenderer spriteRenderer;
@@ -77,6 +78,8 @@ public class Player : MonoBehaviour, IDamageable
     private int ultimaDirecao = -1;
     private float tempoParado = 0f;
     private const float tempoMinimoParado = 0.1f;
+
+    private bool playerPassivo = false;
     private const float movimentoMinimo = 0.05f;
 
     void Start()
@@ -115,7 +118,6 @@ public class Player : MonoBehaviour, IDamageable
 
     void Update()
     {
-
         if (_statusMenu == null)
         {
             _statusMenu = GameObject.Find("StatusPainel");
@@ -165,12 +167,15 @@ public class Player : MonoBehaviour, IDamageable
         OrganizeInventory();
         OpemMenu();
 
-        if (SceneManager.GetActiveScene().name != "Game" && Input.GetMouseButtonDown(0))
+        if (playerPassivo == false)
         {
-            if (Time.time - _lastAttackTime >= _attackCooldown)
+            if (SceneManager.GetActiveScene().name != "Game" && Input.GetMouseButtonDown(0))
             {
-                Attack();
-                _lastAttackTime = Time.time;
+                if (Time.time - _lastAttackTime >= _attackCooldown)
+                {
+                    Attack();
+                    _lastAttackTime = Time.time;
+                }
             }
         }
     }
@@ -277,7 +282,7 @@ public class Player : MonoBehaviour, IDamageable
 
     void OpemMenu()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (_active == false)
             {
@@ -295,7 +300,7 @@ public class Player : MonoBehaviour, IDamageable
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (_activeinvent == false)
             {
@@ -462,10 +467,10 @@ public class Player : MonoBehaviour, IDamageable
             }
         }
 
-        _hpMax = 100 + saveData._hp * 10;
+        _hpMax = 100 + saveData._hp * 2.5f;
         _strenght = 10 + saveData._strenght * 0.5f + _strenghtSword;
         _def = 0 + saveData._def * 0.25f + _defArmor;
-        _speed = 5 + saveData._speed * 0.10f + _speedBoots;
+        _speed = 3.5f + saveData._speed * 0.10f + _speedBoots;
 
         _xp = saveData._xp;
         _level = saveData._level;

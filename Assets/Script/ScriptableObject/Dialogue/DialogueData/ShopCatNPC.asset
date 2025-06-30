@@ -20,7 +20,7 @@ MonoBehaviour:
     glows when it''s dead.'
   _npc: 2
   _inventoryNPC:
-  - {fileID: 11400000, guid: 7e52ba4a00e368649a5cc5a4ed4db2d0, type: 2}
-  - {fileID: 11400000, guid: 1a485fe29d56a0d49a8913d929dbe105, type: 2}
-  - {fileID: 11400000, guid: 4bda43aed2137ae44ab583b2022356e8, type: 2}
-  - {fileID: 11400000, guid: 86907bb1e834ad945b4520aed35d49a1, type: 2}
+  - {fileID: 11400000, guid: d697ece7032d8764885ab5dc079be58e, type: 2}
+  - {fileID: 11400000, guid: 0a524e62a140e39429eb1d0ccbd237a2, type: 2}
+  - {fileID: 11400000, guid: 84849f67d4c066d459364ed38b999a7b, type: 2}
+  - {fileID: 11400000, guid: d7b0c8560ef771a40b362368f1df9c55, type: 2}

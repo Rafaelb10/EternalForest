@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7625391393809016844}
   - component: {fileID: 8616683002782792666}
   - component: {fileID: 5514256342189628857}
-  - component: {fileID: 4554207356157717025}
   - component: {fileID: 7577732014095359511}
-  m_Layer: 0
+  - component: {fileID: 6776700402415647251}
+  - component: {fileID: 7147976479468714563}
+  m_Layer: 6
   m_Name: BulletBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.10557023, y: 17.614677, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 489574606981286349, guid: 46e6eb4ab85d7f443b6ed6fca0bf2a3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,12 +114,26 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &4554207356157717025
-CircleCollider2D:
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &7577732014095359511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285482171969674716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4ba841a9e94a34798606dfe61ac8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  _boss: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+--- !u!60 &6776700402415647251
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,17 +167,55 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &7577732014095359511
-MonoBehaviour:
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.84375, y: 2.125}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.8191335, y: -0.02374646}
+      - {x: 1.7131624, y: 0.21944812}
+      - {x: 1.3381622, y: 0.55996704}
+      - {x: 0.7041707, y: 0.8598976}
+      - {x: 0.020946085, y: 0.9971199}
+      - {x: -0.7307969, y: 0.8850403}
+      - {x: -1.2717355, y: 0.68208694}
+      - {x: -1.454617, y: 0.45318773}
+      - {x: -1.6557271, y: 0.21438217}
+      - {x: -1.6477811, y: -0.20085907}
+      - {x: -1.4828882, y: -0.41603088}
+      - {x: -1.2120241, y: -0.6300659}
+      - {x: -0.94910574, y: -0.7345505}
+      - {x: -0.48542064, y: -0.8570137}
+      - {x: 0.5845841, y: -0.88503647}
+      - {x: 0.9563545, y: -0.775837}
+      - {x: 1.276011, y: -0.4356652}
+      - {x: 1.6510109, y: -0.22843933}
+  m_UseDelaunayMesh: 0
+--- !u!95 &7147976479468714563
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2285482171969674716}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4ba841a9e94a34798606dfe61ac8c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _boss: {fileID: 4934044883937492158, guid: 5bb3e2eca9b7d2845bd28082cd3eb301, type: 3}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1233851373ec0d246aad84aacdcba67f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
